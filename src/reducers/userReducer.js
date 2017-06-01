@@ -23,16 +23,20 @@ export default function reducer(state = initialState, action) {
   }
   // action.payload = game id
   if (action.type === 'NEW_GAME') {
+    let games = state.games.slice();
+    games.push(action.payload);
     return {
       ...state,
-      user: {...state.user, games: games.push(action.payload)}
+      user: {...state.user, games: games}
     };
   }
   // action.payload = badge name
   if (action.type === 'ADD_BADGE') {
+    let badges = state.badges.slice();
+    badges.push(action.payload);
     return {
       ...state,
-      user: {...state.user, badges: badges.push(action.payload)}
+      user: {...state.user, badges: badges}
     };
   }
   // if no match above
