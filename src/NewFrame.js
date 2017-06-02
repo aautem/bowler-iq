@@ -17,7 +17,7 @@ const NewFrame = (props) => {
         <div className="col-6">
           <select
             id={'one-' + props.frame}
-            onChange={(e) => {console.log('Score:', e.target.value)}}
+            onChange={(e) => {props.bowlFirst(props.frame, e.target.value)}}
             disabled
           >
             <option value="0" defaultValue>-</option>
@@ -37,7 +37,7 @@ const NewFrame = (props) => {
         <div className="col-6">
           <select
             id={'two-' + props.frame}
-            onChange={(e) => {console.log('Score:', e.target.value)}}
+            onChange={(e) => {props.bowlSecond(props.frame, e.target.value)}}
             disabled
           >
             <option value="0" defaultValue>-</option>
@@ -47,7 +47,7 @@ const NewFrame = (props) => {
 
       <div className="row">
         <div className="col-12 score">
-          <span id={'score-' + props.frame}>0</span>
+          <span id={'score-' + props.frame}>{props.score || '-'}</span>
         </div>
       </div>
 
