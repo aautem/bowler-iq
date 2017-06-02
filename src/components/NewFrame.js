@@ -17,7 +17,8 @@ const NewFrame = (props) => {
         <div className="col-6">
           <select
             id={'one-' + props.frame.frame}
-            onChange={(e) => {props.bowlFirst(props.frame.frame, e.target.value)}}
+            onChange={(e) => {
+              props.bowlFirstBall(props.scorecard, props.frame.frame, e.target.value)}}
             disabled={props.frame.ball1.disabled}
           >
             <option value="0" defaultValue>-</option>

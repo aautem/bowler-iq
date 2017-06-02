@@ -250,14 +250,14 @@ export function bowlFirstBall(scorecard, frameNumber, score) {
   score = parseInt(score);
 
   // update score on scorecard and disable first ball
-  scorecard.frames[frameNumber - 1].ball1.score = score;
-  scorecard.frames[frameNumber - 1].ball1.disabled = true;
+  scorecard[frameNumber - 1].ball1.score = score;
+  scorecard[frameNumber - 1].ball1.disabled = true;
 
   // handle strike
   if (score === 10) {
     console.log('Strike!');
-    scorecard.frames[frameNumber - 1].strike = true;
-    scorecard.frames[frameNumber].ball1.disabled = false;
+    scorecard[frameNumber - 1].strike = true;
+    scorecard[frameNumber].ball1.disabled = false;
     // score frame: loop over scorecard and recalculate each frame
     // frames with strikes and spares require future frames for scoring
   }
@@ -277,7 +277,7 @@ export function bowlFirstBall(scorecard, frameNumber, score) {
     }
 
     //activate next ball in frame
-    scorecard.frames[frameNumber - 1].ball2.disabled = false;
+    scorecard[frameNumber - 1].ball2.disabled = false;
   }
 
   return {

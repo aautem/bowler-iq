@@ -149,6 +149,10 @@ export default function reducer(state = initialState, action) {
   if (action.type === 'NEW_GAME') {
     return action.payload;
   }
+  // action.payload = frames array (game.frames)
+  if (action.type === 'BOWL_FIRST_BALL') {
+    return {...state, frames: action.payload}
+  }
   // if no match above
   return state;
 };
