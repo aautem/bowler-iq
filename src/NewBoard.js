@@ -12,92 +12,169 @@ let game = {
   frames: [
     {
       frame: 1,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: false,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     },
     {
       frame: 2,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: true,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     },
     {
       frame: 3,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: true,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     },
     {
       frame: 4,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: true,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     },
     {
       frame: 5,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: true,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     },
     {
       frame: 6,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: true,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     },
     {
       frame: 7,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: true,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     },
     {
       frame: 8,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: true,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     },
     {
       frame: 9,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: true,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     },
     {
       frame: 10,
-      ball1: null,
-      ball2: null,
-      score: null
+      ball1: {
+        disabled: true,
+        score: null
+      },
+      ball2: {
+        disabled: true,
+        score: null
+      },
+      ball3: {
+        disable: true,
+        score: null
+      },
+      frameScore: null,
+      totalScore: null
     }
   ]
-}
+};
 
-let scoreFrame = function() {
-  // score frame here
-}
+let scoreGame = function() {
+  // loop through each frame and score it (adding score to frame)
+  game.frames.forEach((frame, index) => {
+    // UPDATE SCORE ON STATE
+  });
+};
 
 let createOption = function(value, text) {
   let option = document.createElement('option');
   option.value = '' + value;
   option.innerHTML = '' + text;
   return option;
-}
+};
 
 let bowlFirst = function(frame, score) {
-  score = parseInt(score); // frame and score are now both numbers
+  // make score a number -- score are now both numbers
+  score = parseInt(score);
   game.frames[frame - 1].ball1 = score;
 
   if (score === 10) {
-    console.log('Strike!');
     game.frames[frame - 1].strike = true;
-    document.getElementById('one-' + (frame + 1)).disabled = false;
+    game.frames[frame].ball1.disabled = false;
+    console.log('Strike!', game);
     // score frame: loop over all frames and recalculate each one
     // frames with strikes and spares require future frames for scoring
   }
 
   if (score < 10) {
-    console.log('Nice Shot.');
     // next ball select
     let ball2Select = document.getElementById('two-' + frame);
     let pinsLeft = 10 - score;
@@ -110,16 +187,16 @@ let bowlFirst = function(frame, score) {
       }
     }
     // activate next ball
-    ball2Select.disabled = false;
-    console.log('Scoresheet:', game);
+    game.frames[frame - 1].ball2.disabled = false;
+    console.log('Nice Shot!', game);
   }
-}
+};
 
 let bowlSecond = function(frame, score) {
   console.log('Current Scoresheet:', game);
   // activate first ball, next frame
   // recalculate each frame in scoresheet
-}
+};
 
 // RENDER INTO DIV ROW
 const NewBoard = (props) => {
@@ -134,8 +211,7 @@ const NewBoard = (props) => {
           return (
             <NewFrame
               key={frame.frame}
-              frame={frame.frame}
-              score={frame.score}
+              frame={frame}
               bowlFirst={bowlFirst}
               bowlSecond={bowlSecond}
             />
@@ -148,7 +224,12 @@ const NewBoard = (props) => {
         <div className="col-1"></div>
         {game.frames.slice(5, 9).map((frame) => {
           return (
-            <NewFrame key={frame.frame} frame={frame.frame} />
+            <NewFrame
+              key={frame.frame}
+              frame={frame}
+              bowlFirst={bowlFirst}
+              bowlSecond={bowlSecond}
+            />
           );
         })}
         <NewTenth frame={10} />

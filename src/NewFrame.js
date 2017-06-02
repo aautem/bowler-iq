@@ -9,16 +9,16 @@ const NewFrame = (props) => {
 
       <div className="row">
         <div className="col-12">
-          <h6>Frame {props.frame}</h6>
+          <h6>Frame {props.frame.frame}</h6>
         </div>
       </div>
 
       <div className="row">
         <div className="col-6">
           <select
-            id={'one-' + props.frame}
-            onChange={(e) => {props.bowlFirst(props.frame, e.target.value)}}
-            disabled
+            id={'one-' + props.frame.frame}
+            onChange={(e) => {props.bowlFirst(props.frame.frame, e.target.value)}}
+            disabled={props.frame.ball1.disabled}
           >
             <option value="0" defaultValue>-</option>
             <option value="1">1</option>
@@ -36,9 +36,9 @@ const NewFrame = (props) => {
 
         <div className="col-6">
           <select
-            id={'two-' + props.frame}
-            onChange={(e) => {props.bowlSecond(props.frame, e.target.value)}}
-            disabled
+            id={'two-' + props.frame.frame}
+            onChange={(e) => {props.bowlSecond(props.frame.frame, e.target.value)}}
+            disabled={props.frame.ball2.disabled}
           >
             <option value="0" defaultValue>-</option>
           </select>
@@ -47,7 +47,7 @@ const NewFrame = (props) => {
 
       <div className="row">
         <div className="col-12 score">
-          <span id={'score-' + props.frame}>{props.score || '-'}</span>
+          <span id={'score-' + props.frame.frame}>{props.frame.totalScore || '-'}</span>
         </div>
       </div>
 

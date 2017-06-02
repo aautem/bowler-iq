@@ -13,9 +13,6 @@ class OldBoard extends Component {
   componentDidMount() {
     console.log('OldBoard Props:', this.props);
 
-    // ENABLE BALL 1 FOR NEWGAME DEMO
-    document.getElementById('one-1').disabled = false;
-
     // LOAD GAME FOR OLDGAME DEMO
     this.props.loadGame();
   }
