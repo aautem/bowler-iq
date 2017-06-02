@@ -64,6 +64,6 @@ body {
   margin: 0;
 }
 
-.frame.score {
+.frame .score {
   font-size: 1.5em;
 }
