@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
 
 import user from './userReducer';
-import games from './gamesReducer';
+import game from './gameReducer';
+import gameHistory from './gameHistoryReducer';
 
 export default combineReducers({
   user,
-  games
+  game,
+  gameHistory
 });

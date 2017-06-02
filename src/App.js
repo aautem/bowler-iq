@@ -1,34 +1,16 @@
-import React, { Component } from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import React from 'react';
 
-import logo from './logo.svg';
-import './App.css';
+import OldBoard from './OldBoard';
 
-class App extends Component {
-  componentDidMount() {
-    console.log('App Mounted.');
-  }
+import './index.css';
 
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    user: state.user
-  };
+const App = (props) => {
+  console.log('App Props:', props);
+  return (
+    <div className="row">
+      <OldBoard />
+    </div>
+  );
 };
 
-export default connect(mapStateToProps)(App);
+export default App;
