@@ -1,9 +1,9 @@
 import React from 'react';
 
-import NewBoard from './NewBoard';
-import OldBoard from './OldBoard';
+import NewBoard from './../containers/NewBoard';
+import OldBoard from './../containers/OldBoard';
 
-import './index.css';
+import './../styles/index.css';
 
 const App = (props) => {
   console.log('App Props:', props);

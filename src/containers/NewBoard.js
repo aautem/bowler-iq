@@ -1,9 +1,9 @@
 import React from 'react';
 
-import NewFrame from './NewFrame';
-import NewTenth from './NewTenth';
+import NewFrame from './../components/NewFrame';
+import NewTenth from './../components/NewTenth';
 
-import './index.css';
+import './../styles/index.css';
 
 let game = {
   id: null,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './index.css';
+import './../styles/index.css';
 
 const NewFrame = (props) => {
   console.log('NewFrame Props:', props);

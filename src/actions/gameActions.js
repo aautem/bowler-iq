@@ -82,3 +82,151 @@ export function loadGame(id) {
     payload: game
   };
 };
+
+export function newGame() {
+  let newGameTemplate = {
+    id: null,
+    date: null,
+    score: null,
+    frames: [
+      {
+        frame: 1,
+        ball1: {
+          disabled: false,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      },
+      {
+        frame: 2,
+        ball1: {
+          disabled: true,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      },
+      {
+        frame: 3,
+        ball1: {
+          disabled: true,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      },
+      {
+        frame: 4,
+        ball1: {
+          disabled: true,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      },
+      {
+        frame: 5,
+        ball1: {
+          disabled: true,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      },
+      {
+        frame: 6,
+        ball1: {
+          disabled: true,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      },
+      {
+        frame: 7,
+        ball1: {
+          disabled: true,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      },
+      {
+        frame: 8,
+        ball1: {
+          disabled: true,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      },
+      {
+        frame: 9,
+        ball1: {
+          disabled: true,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      },
+      {
+        frame: 10,
+        ball1: {
+          disabled: true,
+          score: null
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        ball3: {
+          disable: true,
+          score: null
+        },
+        frameScore: null,
+        totalScore: null
+      }
+    ]
+  };
+  return {
+    type: 'NEW_GAME',
+    payload: newGameTemplate
+  }
+};

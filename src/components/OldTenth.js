@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './index.css';
+import './../styles/index.css';
 
-const OldFrame = (props) => {
-  console.log('OldFrame Props:', props);
+const OldTenth = (props) => {
+  console.log('OldTenth Props:', props);
   return (
     <div className="col-2 frame">
 
@@ -14,11 +14,14 @@ const OldFrame = (props) => {
       </div>
 
       <div className="row">
-        <div className="col-6">
+        <div className="col-4">
           {props.frame.ball1}
         </div>
-        <div className="col-6">
+        <div className="col-4">
           {props.frame.ball2}
+        </div>
+        <div className="col-4">
+          {props.frame.ball3}
         </div>
       </div>
 
@@ -32,4 +35,4 @@ const OldFrame = (props) => {
   );
 };
 
-export default OldFrame;
+export default OldTenth;

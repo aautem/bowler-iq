@@ -3,10 +3,10 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {loadGame} from './actions/gameActions';
 
-import OldFrame from './OldFrame';
-import OldTenth from './OldTenth';
+import OldFrame from './../components/OldFrame';
+import OldTenth from './../components/OldTenth';
 
-import './index.css';
+import './../styles/index.css';
 
 // RENDER INTO DIV ROW
 class OldBoard extends Component {

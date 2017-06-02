@@ -1,5 +1,5 @@
 const initialState = {
-  games: [] // array of game objects (simplified: date, score, id)
+  games: [] // array of game objects
 };
 
 export default function reducer(state = initialState, action) {
