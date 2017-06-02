@@ -9,14 +9,14 @@ const NewTenth = (props) => {
 
       <div className="row">
         <div className="col-12">
-          <h6>Frame {props.frame}</h6>
+          <h6>Frame {props.frame.frame}</h6>
         </div>
       </div>
 
       <div className="row">
         <div className="col-4">
           <select
-            id={'one-' + props.frame}
+            id={'one-' + props.frame.frame}
             onChange={(e) => {console.log('Score:', e.target.value)}}
             disabled
           >
@@ -36,7 +36,7 @@ const NewTenth = (props) => {
 
         <div className="col-4">
           <select
-            id={'two-' + props.frame}
+            id={'two-' + props.frame.frame}
             onChange={(e) => {console.log('Score:', e.target.value)}}
             disabled
           >
@@ -46,7 +46,7 @@ const NewTenth = (props) => {
 
         <div className="col-4">
           <select
-            id={'three-' + props.frame}
+            id={'three-' + props.frame.frame}
             onChange={(e) => {console.log('Score:', e.target.value)}}
             disabled
           >
@@ -57,7 +57,7 @@ const NewTenth = (props) => {
 
       <div className="row">
         <div className="col-12 score">
-          <span id={'score-' + props.frame}>0</span>
+          <span id={'score-' + props.frame.frame}>{props.frame.totalScore || '-'}</span>
         </div>
       </div>
 

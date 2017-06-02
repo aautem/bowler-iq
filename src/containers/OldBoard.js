@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {loadGame} from './actions/gameActions';
+
+import {loadGame} from './../actions/gameActions';
 
 import OldFrame from './../components/OldFrame';
 import OldTenth from './../components/OldTenth';
@@ -11,8 +12,6 @@ import './../styles/index.css';
 // RENDER INTO DIV ROW
 class OldBoard extends Component {
   componentDidMount() {
-    console.log('OldBoard Props:', this.props);
-
     // LOAD GAME FOR OLDGAME DEMO
     this.props.loadGame();
   }

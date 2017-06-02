@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NewBoard from './../containers/NewBoard';
-import OldBoard from './../containers/OldBoard';
+// import OldBoard from './../containers/OldBoard';
 
 import './../styles/index.css';
 
@@ -11,10 +11,6 @@ const App = (props) => {
     <div>
       <div className="row">
         <NewBoard />
-      </div>
-
-      <div className="row">
-        <OldBoard />
       </div>
     </div>
   );
