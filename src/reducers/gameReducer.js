@@ -131,7 +131,7 @@ const initialState = {
         score: null
       },
       ball3: {
-        disable: true,
+        disabled: true,
         score: null
       },
       frameScore: null,
@@ -149,8 +149,12 @@ export default function reducer(state = initialState, action) {
   if (action.type === 'NEW_GAME') {
     return action.payload;
   }
-  // action.payload = frames array (game.frames)
+  // action.payload = frames array (game.frames) aka scorecard
   if (action.type === 'BOWL_FIRST_BALL') {
+    return {...state, frames: action.payload}
+  }
+  // action.payload = frames array (game.frames) aka scorecard
+  if (action.type === 'BOWL_SECOND_BALL') {
     return {...state, frames: action.payload}
   }
   // if no match above

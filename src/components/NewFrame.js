@@ -18,7 +18,8 @@ const NewFrame = (props) => {
           <select
             id={'one-' + props.frame.frame}
             onChange={(e) => {
-              props.bowlFirstBall(props.scorecard, props.frame.frame, e.target.value)}}
+              props.bowlFirstBall(props.scorecard, props.frame.frame, e.target.value);
+            }}
             disabled={props.frame.ball1.disabled}
           >
             <option value="0" defaultValue>-</option>
@@ -38,7 +39,9 @@ const NewFrame = (props) => {
         <div className="col-6">
           <select
             id={'two-' + props.frame.frame}
-            onChange={(e) => {props.bowlSecond(props.frame.frame, e.target.value)}}
+            onChange={(e) => {
+              props.bowlSecondBall(props.scorecard, props.frame.frame, e.target.value);
+            }}
             disabled={props.frame.ball2.disabled}
           >
             <option value="0" defaultValue>-</option>

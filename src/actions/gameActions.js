@@ -132,7 +132,7 @@ export function newGame() {
           score: null
         },
         ball3: {
-          disable: true,
+          disabled: true,
           score: null
         },
         frameScore: null,
@@ -276,7 +276,7 @@ export function bowlFirstBall(scorecard, frameNumber, score) {
       }
     }
 
-    //activate next ball in frame
+    // activate next ball in frame
     scorecard[frameNumber - 1].ball2.disabled = false;
   }
 
@@ -285,3 +285,30 @@ export function bowlFirstBall(scorecard, frameNumber, score) {
     payload: scorecard
   }
 };
+
+export function bowlSecondBall(scorecard, frameNumber, score) {
+  // scorecard = frames array from game object
+  // frameNumber = number
+  // score = string (convert to number below)
+  score = parseInt(score);
+
+  // update score on scorecard and disable second ball
+  scorecard[frameNumber - 1].ball2.score = score;
+  scorecard[frameNumber - 1].ball2.disabled = true;
+
+  // score frame: loop over scorecard and recalculate each frame
+  // frames with strikes and spares require future frames for scoring
+
+  // activate first ball, next frame
+  scorecard[frameNumber].ball1.disabled = false;
+
+  return {
+    type: 'BOWL_SECOND_BALL',
+    payload: scorecard
+  }
+};
+
+
+
+
+

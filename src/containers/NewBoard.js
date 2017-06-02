@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import {newGame} from './../actions/gameActions';
 import {bowlFirstBall} from './../actions/gameActions';
+import {bowlSecondBall} from './../actions/gameActions';
 
 import NewFrame from './../components/NewFrame';
 import NewTenth from './../components/NewTenth';
@@ -43,7 +44,7 @@ class NewBoard extends Component {
                 scorecard={this.props.game.frames}
                 frame={frame}
                 bowlFirstBall={this.props.bowlFirstBall}
-                bowlSecond={'bowlSecond'}
+                bowlSecondBall={this.props.bowlSecondBall}
               />
             );
           })}
@@ -59,15 +60,12 @@ class NewBoard extends Component {
                 scorecard={this.props.game.frames}
                 frame={frame}
                 bowlFirstBall={this.props.bowlFirstBall}
-                bowlSecond={'bowlSecond'}
+                bowlSecondBall={this.props.bowlSecondBall}
               />
             );
           })}
           <NewTenth
             frame={this.props.game.frames[9]}
-            bowlFirstBall={this.props.bowlFirstBall}
-            bowlSecond={'bowlSecond'}
-            bowlThird={'bowlThird'}
           />
           <div className="col-1"></div>
         </div>
@@ -86,7 +84,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     newGame: newGame,
-    bowlFirstBall: bowlFirstBall
+    bowlFirstBall: bowlFirstBall,
+    bowlSecondBall: bowlSecondBall
   }, dispatch);
 };
 
