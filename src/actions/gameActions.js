@@ -348,20 +348,46 @@ export function bowlTenthFrame(scorecard, ballNumber, score) {
     scorecard[9].ball2.score = score;
     // disable ball2 select
     scorecard[9].ball2.disabled = true;
-    // if ball1 strike or ball2 spare
-      // activate ball3 select
-    if (scorecard[9].ball1.score === 10 ||
-      (scorecard[9].ball1.score + scorecard[9].ball2.score === 10)) {
 
-
-      // add options to ball3 select
-      // IF BALL1 STRIKE
-        // ADD (10 - ball2 score)
-
-      // IF BALL2 SPARE
+    // add options to ball3 select
+    // IF BALL1 STRIKE
+    if (scorecard[9].ball1.score === 10) {
+      let ball3Select = document.getElementById('three-10');
+      // IF BALL 2 STRIKE
         // ADD ALL OPTIONS
+      if (score === 10) {
+        for (let i = 1; i <= 10; i ++) {
+          if (i === 10) {
+            ball3Select.appendChild(createOption(i, 'X'));
+          } else {
+            ball3Select.appendChild(createOption(i, i));
+          }
+        }
+      } else { // OTHERWISE
+        // ADD PINSLEFT (10 - ball2.score)
+        let pinsLeft = 10 - score;
+        for (let i = 1; i <= pinsLeft; i ++) {
+          if (i === pinsLeft) {
+            ball3Select.appendChild(createOption(i, '/'));
+          } else {
+            ball3Select.appendChild(createOption(i, i));
+          }
+        }
+      }
+      scorecard[9].ball3.disabled = false;
+    }
 
-
+    // IF BALL2 SPARE
+      // ADD ALL OPTIONS
+    if (scorecard[9].ball1.score + scorecard[9].ball2.score === 10) {
+      let ball3Select = document.getElementById('three-10');
+      for (let i = 1; i <= 10; i ++) {
+        if (i === 10) {
+          ball3Select.appendChild(createOption(i, 'X'));
+        } else {
+          ball3Select.appendChild(createOption(i, i));
+        }
+      }
       scorecard[9].ball3.disabled = false;
     }
   }
