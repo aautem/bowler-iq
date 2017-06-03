@@ -313,6 +313,7 @@ function createOption(value, text) {
 
 // helper function to tally scores in scorecard
 // MOVE TO HELPERS FILE
+// REFACTOR TO PULL OUT MORE HELPER FUNCTIONS (Frame 1 - 8, Frame 9 similar)
 // score frame: loop over scorecard and recalculate each frame
 // frames with strikes and spares require future frames for scoring
 function scoreGame(scorecard) {
@@ -367,53 +368,79 @@ function scoreGame(scorecard) {
       }
     }
   }
+
+  // FRAME 9
+  if (scorecard[8].ball1.score !== null) {
+    let frameScore = null;
+    // IF FRAME STRIKE, ADD TWO BALLS
+    if (scorecard[8].strike) {
+      // CHECK FRAME 10 HAS TWO BALLS
+      if (scorecard[9].ball1.score !== null && scorecard[9].ball2.score !== null) {
+        frameScore = 10;
+        frameScore += scorecard[9].ball1.score;
+        frameScore += scorecard[9].ball2.score;
+      }
+    }
+    // IF FRAME SPARE, ADD ONE BALL
+    if (scorecard[8].spare) {
+      // CHECK NEXT BALL BOWLED
+      if (scorecard[9].ball1.score !== null) {
+        frameScore = 10 + scorecard[9].ball1.score;
+      }
+    } else {
+      // ADD FRAME'S TWO BALLS TOGETHER IF BOTH BOWLED
+      if (scorecard[8].ball2.score !== null) {
+        frameScore = scorecard[8].ball1.score + scorecard[8].ball2.score;
+      }
+    }
+
+    scorecard[8].frameScore = frameScore;
+
+    // calculate current total score (cumulative)
+    // totalScore = lastFrame total score + current frameScore
+    if (scorecard[8].frameScore !== null) {
+      scorecard[8].totalScore = scorecard[7].totalScore + scorecard[8].frameScore;
+    }
+  }
+
+  // FRAME 10
+  if (scorecard[9].ball1.score !== null) {
+    let frameScore = null;
+    // IF FRAME STRIKE, NEED NEXT TWO BALLS TO SCORE
+    if (scorecard[9].ball1.score === 10) {
+      // CHECK BALLS TWO AND THREE BOWLED
+      if (scorecard[9].ball2.score !== null && scorecard[9].ball3.score !== null) {
+        frameScore = 10;
+        frameScore += scorecard[9].ball2.score;
+        frameScore += scorecard[9].ball3.score;
+      }
+    }
+    if (scorecard[9].ball2.score !== null) {
+      // IF FRAME SPARE, ADD LAST BALL
+      if (scorecard[9].ball1.score + scorecard[9].ball2.score === 10) {
+        // CHECK NEXT BALL BOWLED
+        if (scorecard[9].ball3.score !== null) {
+          frameScore = 10 + scorecard[9].ball3.score;
+        }
+      } else {
+        // ADD BALL ONE AND TWO
+        frameScore = scorecard[9].ball1.score + scorecard[9].ball2.score;
+      }
+    }
+
+    scorecard[9].frameScore = frameScore;
+
+    // calculate current total score (cumulative)
+    // totalScore = lastFrame total score + current frameScore
+    if (scorecard[9].frameScore !== null) {
+      scorecard[9].totalScore = scorecard[8].totalScore + scorecard[9].frameScore;
+    }
+  }
+
   return scorecard;
 };
 
 
-// function bowlingScore(scoreSheet){
-//   var convertedScoresheet = convertScoreSheet(scoreSheet);
-//   var totalScore = 0;
-//   var frame = 1;
-//   // ITERATE THROUGH FRAME 8
-//   while(frame < 9){
-//     var frameScore = 0;
-//     // IF FRAME IS A STRIKE
-//     if(convertedScoresheet[frame][0] === 10){
-//       frameScore += 10;
-//       // ADD NEXT TWO BALLS
-//       // IF BALL ONE IS A STRIKE
-//       if(convertedScoresheet[frame + 1][0] === 10){
-//         frameScore += (10 + convertedScoresheet[frame + 2][0]);
-//       } else {
-//         frameScore += (convertedScoresheet[frame + 1][0] + convertedScoresheet[frame + 1][1]);
-//       }
-//     }
-//     // IF FRAME IS A SPARE
-//     else if(convertedScoresheet[frame][0] !== 10 && (convertedScoresheet[frame][0] + convertedScoresheet[frame][1] === 10)){
-//       frameScore += (10 + convertedScoresheet[frame + 1][0]);
-//     }
-//     else {
-//       frameScore += (convertedScoresheet[frame][0] + convertedScoresheet[frame][1]);
-//     }
-//     totalScore += frameScore;
-//     frame ++;
-//   }
-//   // HANDLE FRAME 9
-//   while(frame === 9){
-//     // IF FRAME IS A STRIKE
-//     if(convertedScoresheet[frame][0] === 10){
-//       totalScore += (10 + convertedScoresheet[frame + 1][0] + convertedScoresheet[frame + 1][1]);
-//     }
-//     // IF FRAME IS A SPARE
-//     else if(convertedScoresheet[frame][0] !== 10 && (convertedScoresheet[frame][0] + convertedScoresheet[frame][1] === 10)){
-//       totalScore += (10 + convertedScoresheet[frame + 1][0]);
-//     }
-//     else {
-//       totalScore += (convertedScoresheet[frame][0] + convertedScoresheet[frame][1]);
-//     }
-//     frame ++;
-//   }
 //   // HANDLE 10TH FRAME
 //   while(frame === 10){
 //     for(var i = 0; i < convertedScoresheet[frame].length; i++){
