@@ -410,6 +410,23 @@ export function bowlTenthFrame(scorecard, ballNumber, score) {
 };
 
 
+// helper function to append options to a select element
+// MOVE TO HELPERS FILE
+// selectId = string (ex. 'two-2')
+// pinsLeft = number (10 for strike, other for spare)
+function appendOption(selectId, pinsLeft) {
+  let selectElement = document.getElementById(selectId);
+  let lastOption = pinsLeft === 10 ? 'X' : '/';
+  for (let i = 1; i <= pinsLeft; i ++) {
+    if (i === pinsLeft) {
+      selectElement.appendChild(createOption(i, lastOption));
+    } else {
+      selectElement.appendChild(createOption(i, i));
+    }
+  }
+};
+
+
 // helper function to create option elements to append to select elements
 // MOVE TO HELPERS FILE
 function createOption(value, text) {
@@ -525,13 +542,21 @@ function scoreGame(scorecard) {
       }
     }
     if (scorecard[9].ball2.score !== null) {
+      // IF FRAME STRIKE, ADD LAST BALL
+      if (scorecard[9].ball2.score === 10) {
+        // CHECK NEXT BALL BOWLED
+        if (scorecard[9].ball3.score !== null) {
+          frameScore = 20 + scorecard[9].ball3.score;
+        }
+      }
       // IF FRAME SPARE, ADD LAST BALL
       if (scorecard[9].ball1.score + scorecard[9].ball2.score === 10) {
         // CHECK NEXT BALL BOWLED
         if (scorecard[9].ball3.score !== null) {
           frameScore = 10 + scorecard[9].ball3.score;
         }
-      } else {
+      }
+      if (scorecard[9].ball1.score + scorecard[9].ball2.score < 10) {
         // ADD BALL ONE AND TWO
         frameScore = scorecard[9].ball1.score + scorecard[9].ball2.score;
       }
