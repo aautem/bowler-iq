@@ -300,6 +300,89 @@ export function bowlSecondBall(scorecard, frameNumber, score) {
   }
 };
 
+export function bowlTenthFrame(scorecard, ballNumber, score) {
+  // scorecard = frames array from game object
+  // ballNumber = number
+  // score = string (convert to number below)
+  score = parseInt(score);
+
+  if (ballNumber === 1) {
+    console.log('Ball1.');
+    // set ball1 score
+    scorecard[9].ball1.score = score;
+    // disable ball1 select
+    scorecard[9].ball1.disabled = true;
+
+    // add options to ball2 select
+    // IF STRIKE, ADD ALL OPTIONS
+    if (score === 10) {
+      let ball2Select = document.getElementById('two-10');
+      for (let i = 1; i <= 10; i ++) {
+        if (i === 10) {
+          ball2Select.appendChild(createOption(i, 'X'));
+        } else {
+          ball2Select.appendChild(createOption(i, i));
+        }
+      }
+    }
+    // IF NOT A STRIKE, ADD PINS LEFT
+    if (score < 10) {
+      let ball2Select = document.getElementById('two-10');
+      let pinsLeft = 10 - score;
+      for (let i = 1; i <= pinsLeft; i ++) {
+        if (i === pinsLeft) {
+          ball2Select.appendChild(createOption(i, '/'));
+        } else {
+          ball2Select.appendChild(createOption(i, i));
+        }
+      }
+    }
+    // activate ball2 select
+    scorecard[9].ball2.disabled = false;
+  }
+
+  // APPEND OPTIONS TO BALL3 SELECT
+  if (ballNumber === 2) {
+    console.log('Ball2.');
+    // set ball2 score
+    scorecard[9].ball2.score = score;
+    // disable ball2 select
+    scorecard[9].ball2.disabled = true;
+    // if ball1 strike or ball2 spare
+      // activate ball3 select
+    if (scorecard[9].ball1.score === 10 ||
+      (scorecard[9].ball1.score + scorecard[9].ball2.score === 10)) {
+
+
+      // add options to ball3 select
+      // IF BALL1 STRIKE
+        // ADD (10 - ball2 score)
+
+      // IF BALL2 SPARE
+        // ADD ALL OPTIONS
+
+
+      scorecard[9].ball3.disabled = false;
+    }
+  }
+
+  if (ballNumber === 3) {
+    console.log('Ball3.');
+    // set ball3 score
+    scorecard[9].ball3.score = score;
+    // disable ball3 select
+    scorecard[9].ball3.disabled = true;
+  }
+
+  // score game
+  scorecard = scoreGame(scorecard);
+
+  return {
+    type: 'BOWL_TENTH_FRAME',
+    payload: scorecard
+  }
+};
+
 
 // helper function to create option elements to append to select elements
 // MOVE TO HELPERS FILE
@@ -436,18 +519,5 @@ function scoreGame(scorecard) {
       scorecard[9].totalScore = scorecard[8].totalScore + scorecard[9].frameScore;
     }
   }
-
   return scorecard;
 };
-
-
-//   // HANDLE 10TH FRAME
-//   while(frame === 10){
-//     for(var i = 0; i < convertedScoresheet[frame].length; i++){
-//       totalScore += convertedScoresheet[frame][i];
-//     }
-//     frame ++;
-//   }
-//   return totalScore;
-// }
-

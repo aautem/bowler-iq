@@ -157,6 +157,9 @@ export default function reducer(state = initialState, action) {
   if (action.type === 'BOWL_SECOND_BALL') {
     return {...state, frames: action.payload}
   }
+  if (action.type === 'BOWL_TENTH_FRAME') {
+    return {...state, frames: action.payload}
+  }
   // if no match above
   return state;
 };

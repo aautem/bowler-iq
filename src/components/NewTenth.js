@@ -17,7 +17,9 @@ const NewTenth = (props) => {
         <div className="col-4">
           <select
             id={'one-' + props.frame.frame}
-            onChange={(e) => {console.log('Score:', e.target.value)}}
+            onChange={(e) => {
+              props.bowlTenthFrame(props.scorecard, 1, e.target.value);
+            }}
             disabled={props.frame.ball1.disabled}
           >
             <option value="0" defaultValue>-</option>
@@ -37,7 +39,9 @@ const NewTenth = (props) => {
         <div className="col-4">
           <select
             id={'two-' + props.frame.frame}
-            onChange={(e) => {console.log('Score:', e.target.value)}}
+            onChange={(e) => {
+              props.bowlTenthFrame(props.scorecard, 2, e.target.value);
+            }}
             disabled={props.frame.ball2.disabled}
           >
             <option value="0" defaultValue>-</option>
@@ -47,7 +51,9 @@ const NewTenth = (props) => {
         <div className="col-4">
           <select
             id={'three-' + props.frame.frame}
-            onChange={(e) => {console.log('Score:', e.target.value)}}
+            onChange={(e) => {
+              props.bowlTenthFrame(props.scorecard, 3, e.target.value);
+            }}
             disabled={props.frame.ball3.disabled}
           >
             <option value="0" defaultValue>-</option>

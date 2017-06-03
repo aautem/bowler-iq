@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {newGame} from './../actions/gameActions';
 import {bowlFirstBall} from './../actions/gameActions';
 import {bowlSecondBall} from './../actions/gameActions';
+import {bowlTenthFrame} from './../actions/gameActions';
 
 import NewFrame from './../components/NewFrame';
 import NewTenth from './../components/NewTenth';
@@ -65,7 +66,9 @@ class NewBoard extends Component {
             );
           })}
           <NewTenth
+            scorecard={this.props.game.frames}
             frame={this.props.game.frames[9]}
+            bowlTenthFrame={this.props.bowlTenthFrame}
           />
           <div className="col-1"></div>
         </div>
@@ -85,7 +88,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     newGame: newGame,
     bowlFirstBall: bowlFirstBall,
-    bowlSecondBall: bowlSecondBall
+    bowlSecondBall: bowlSecondBall,
+    bowlTenthFrame: bowlTenthFrame
   }, dispatch);
 };
 
