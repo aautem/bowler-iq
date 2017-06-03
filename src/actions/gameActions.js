@@ -252,16 +252,8 @@ export function bowlFirstBall(scorecard, frameNumber, score) {
   // handle everything else
   if (score < 10) {
     console.log('Good shot.');
-    let pinsLeft = 10 - score;
-    let ball2Select = document.getElementById('two-' + frameNumber);
+    appendOptions('two-' + frameNumber, 10 - score, '/');
 
-    for (let i = 1; i <= pinsLeft; i ++) {
-      if (i === pinsLeft) { // last pin
-        ball2Select.appendChild(createOption(i, '/'));
-      } else {
-        ball2Select.appendChild(createOption(i, i));
-      }
-    }
     // activate next ball in frame
     scorecard[frameNumber - 1].ball2.disabled = false;
   }
@@ -316,26 +308,11 @@ export function bowlTenthFrame(scorecard, ballNumber, score) {
     // add options to ball2 select
     // IF STRIKE, ADD ALL OPTIONS
     if (score === 10) {
-      let ball2Select = document.getElementById('two-10');
-      for (let i = 1; i <= 10; i ++) {
-        if (i === 10) {
-          ball2Select.appendChild(createOption(i, 'X'));
-        } else {
-          ball2Select.appendChild(createOption(i, i));
-        }
-      }
+      appendOptions('two-10', 10, 'X');
     }
     // IF NOT A STRIKE, ADD PINS LEFT
     if (score < 10) {
-      let ball2Select = document.getElementById('two-10');
-      let pinsLeft = 10 - score;
-      for (let i = 1; i <= pinsLeft; i ++) {
-        if (i === pinsLeft) {
-          ball2Select.appendChild(createOption(i, '/'));
-        } else {
-          ball2Select.appendChild(createOption(i, i));
-        }
-      }
+      appendOptions('two-10', 10 - score, '/');
     }
     // activate ball2 select
     scorecard[9].ball2.disabled = false;
@@ -352,27 +329,13 @@ export function bowlTenthFrame(scorecard, ballNumber, score) {
     // add options to ball3 select
     // IF BALL1 STRIKE
     if (scorecard[9].ball1.score === 10) {
-      let ball3Select = document.getElementById('three-10');
       // IF BALL 2 STRIKE
         // ADD ALL OPTIONS
       if (score === 10) {
-        for (let i = 1; i <= 10; i ++) {
-          if (i === 10) {
-            ball3Select.appendChild(createOption(i, 'X'));
-          } else {
-            ball3Select.appendChild(createOption(i, i));
-          }
-        }
+        appendOptions('three-10', 10, 'X');
       } else { // OTHERWISE
         // ADD PINSLEFT (10 - ball2.score)
-        let pinsLeft = 10 - score;
-        for (let i = 1; i <= pinsLeft; i ++) {
-          if (i === pinsLeft) {
-            ball3Select.appendChild(createOption(i, '/'));
-          } else {
-            ball3Select.appendChild(createOption(i, i));
-          }
-        }
+        appendOptions('three-10', 10 - score, '/');
       }
       scorecard[9].ball3.disabled = false;
     }
@@ -380,14 +343,7 @@ export function bowlTenthFrame(scorecard, ballNumber, score) {
     // IF BALL2 SPARE
       // ADD ALL OPTIONS
     if (scorecard[9].ball1.score + scorecard[9].ball2.score === 10) {
-      let ball3Select = document.getElementById('three-10');
-      for (let i = 1; i <= 10; i ++) {
-        if (i === 10) {
-          ball3Select.appendChild(createOption(i, 'X'));
-        } else {
-          ball3Select.appendChild(createOption(i, i));
-        }
-      }
+      appendOptions('three-10', 10, 'X');
       scorecard[9].ball3.disabled = false;
     }
   }
@@ -414,9 +370,9 @@ export function bowlTenthFrame(scorecard, ballNumber, score) {
 // MOVE TO HELPERS FILE
 // selectId = string (ex. 'two-2')
 // pinsLeft = number (10 for strike, other for spare)
-function appendOption(selectId, pinsLeft) {
+// lastOption = string ('X' OR '/')
+function appendOptions(selectId, pinsLeft, lastOption) {
   let selectElement = document.getElementById(selectId);
-  let lastOption = pinsLeft === 10 ? 'X' : '/';
   for (let i = 1; i <= pinsLeft; i ++) {
     if (i === pinsLeft) {
       selectElement.appendChild(createOption(i, lastOption));

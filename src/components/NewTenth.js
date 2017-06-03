@@ -22,7 +22,8 @@ const NewTenth = (props) => {
             }}
             disabled={props.frame.ball1.disabled}
           >
-            <option value="0" defaultValue>-</option>
+            <option value="" defaultValue></option>
+            <option value="0">-</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -44,7 +45,8 @@ const NewTenth = (props) => {
             }}
             disabled={props.frame.ball2.disabled}
           >
-            <option value="0" defaultValue>-</option>
+            <option value="" defaultValue></option>
+            <option value="0">-</option>
           </select>
         </div>
 
@@ -56,7 +58,8 @@ const NewTenth = (props) => {
             }}
             disabled={props.frame.ball3.disabled}
           >
-            <option value="0" defaultValue>-</option>
+            <option value="" defaultValue></option>
+            <option value="0">-</option>
           </select>
         </div>
       </div>
