@@ -8,6 +8,7 @@ import {bowlSecondBall} from './../actions/gameActions';
 import {bowlTenthFrame} from './../actions/gameActions';
 
 import NewBoard from './../components/NewBoard';
+import NewGameGraph from './../components/NewGameGraph';
 
 class BowlGame extends Component {
   componentWillMount() {
@@ -51,9 +52,7 @@ class BowlGame extends Component {
 
           <div className="col-1"></div>
 
-          <div className="col-6 graph">
-            GRAPH
-          </div>
+          <NewGameGraph scorecard={this.props.game.frames} />
 
           <div className="col-1"></div>
         </div>

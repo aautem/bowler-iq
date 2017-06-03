@@ -85,16 +85,17 @@ body {
   border: 1px solid black;
 }
 
-.graph {
-  text-align: center;
-  background-color: white;
-  border: 1px solid black;
-}
-
 .back-button {
   float: right;
 }
 
 .submit-button {
   float: left;
+}
+
+#graph {
+  text-align: center;
+  background-color: white;
+  border: 1px solid black;
+  height: 200px;
 }
