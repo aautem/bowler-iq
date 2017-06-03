@@ -1,7 +1,10 @@
 const initialState = {
   id: null,
   date: null,
-  score: null,
+  score: 0,
+  strikes: 0,
+  spares: 0,
+  splits: 0,
   frames: [
     {
       frame: 1,
@@ -151,14 +154,50 @@ export default function reducer(state = initialState, action) {
   }
   // action.payload = frames array (game.frames) aka scorecard
   if (action.type === 'BOWL_FIRST_BALL') {
-    return {...state, frames: action.payload}
+    let strikes = state.strikes;
+
+    if (action.payload.strike) {
+      strikes ++;
+    }
+
+    return {
+      ...state,
+      frames: action.payload.scorecard,
+      strikes: strikes
+    };
   }
   // action.payload = frames array (game.frames) aka scorecard
   if (action.type === 'BOWL_SECOND_BALL') {
-    return {...state, frames: action.payload}
+    let spares = state.spares;
+
+    if (action.payload.spare) {
+      spares ++;
+    }
+
+    return {
+      ...state,
+      frames: action.payload.scorecard,
+      spares: spares
+    };
   }
+  // action.payload = frames array (game.frames) aka scorecard
   if (action.type === 'BOWL_TENTH_FRAME') {
-    return {...state, frames: action.payload}
+    let strikes = state.strikes;
+    let spares = state.spares;
+
+    if (action.payload.strike) {
+      strikes ++;
+    }
+    if (action.payload.spare) {
+      spares ++;
+    }
+
+    return {
+      ...state,
+      frames: action.payload.scorecard,
+      strikes: strikes,
+      spares: spares
+    };
   }
   // if no match above
   return state;

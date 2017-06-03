@@ -79,10 +79,11 @@ body {
   padding: 10px;
 }
 
-.scoreboard {
+.stats {
   text-align: center;
   background-color: white;
   border: 1px solid black;
+  height: 200px;
 }
 
 .back-button {

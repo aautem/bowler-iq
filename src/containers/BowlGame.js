@@ -46,8 +46,12 @@ class BowlGame extends Component {
         <div className="row">
           <div className="col-1"></div>
 
-          <div className="col-3 scoreboard">
-            TOTAL <span>162</span>
+          <div className="col-3 stats">
+            <p>Score: {this.props.game.score}</p>
+            <p>Strikes: {this.props.game.strikes}</p>
+            <p>Spares: {this.props.game.spares}</p>
+            <p>Splits: {this.props.game.splits}</p>
+            <p>Points/Frame: 14</p>
           </div>
 
           <div className="col-1"></div>
