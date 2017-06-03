@@ -1,6 +1,7 @@
 import React from 'react';
 
-import NewBoard from './../containers/NewBoard';
+import BowlGame from './../containers/BowlGame';
+// import NewBoard from './../containers/NewBoard';
 // import OldBoard from './../containers/OldBoard';
 
 import './../styles/index.css';
@@ -10,7 +11,7 @@ const App = (props) => {
   return (
     <div>
       <div className="row">
-        <NewBoard />
+        <BowlGame />
       </div>
     </div>
   );

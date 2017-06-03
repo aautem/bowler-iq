@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: grey;
+  background-color: #64b5f6;
 }
 
 * {
@@ -17,10 +17,10 @@ body {
   padding: 10px;
 }
 
-/* .col-1 {
+.col-1 {
   min-height: 1px;
   padding: 0 10px;
-} */
+}
 
 /* For desktop: */
 @media only screen and (min-width: 768px) {
@@ -48,13 +48,15 @@ body {
 
 /* COMPONENT STYLES */
 .row {
-  border: 1px solid black;
+  margin-bottom: 5px;
 }
 
 .frame {
   background-color: white;
   text-align: center;
   min-height: 147px;
+  border: 1px solid black;
+  padding: 5px;
 }
 
 .frame h6 {
@@ -62,8 +64,37 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
 }
 
 .frame .score {
   font-size: 1.5em;
+  border: 1px solid black;
+}
+
+.nav {
+  text-align: center;
+  background-color: grey;
+  padding: 10px;
+}
+
+.scoreboard {
+  text-align: center;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.graph {
+  text-align: center;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.back-button {
+  float: right;
+}
+
+.submit-button {
+  float: left;
 }

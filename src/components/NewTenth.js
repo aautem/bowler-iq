@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './../styles/index.css';
-
 const NewTenth = (props) => {
   console.log('NewTenth Props:', props);
   return (
