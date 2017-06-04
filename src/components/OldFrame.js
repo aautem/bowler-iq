@@ -1,9 +1,17 @@
 import React from 'react';
 
-import './../styles/index.css';
-
 const OldFrame = (props) => {
-  console.log('OldFrame Props:', props);
+  let ball1 = props.frame.ball1.score;
+  let ball2 = props.frame.ball2.score;
+
+  // convert spares and strikes
+  if (ball1 === 10) {
+    ball1 = 'X';
+  }
+  if (ball1 !== 10 && ball1 + ball2 === 10) {
+    ball2 = '/';
+  }
+
   return (
     <div className="col-2 frame">
 
@@ -15,16 +23,17 @@ const OldFrame = (props) => {
 
       <div className="row">
         <div className="col-6">
-          {props.frame.ball1}
+          {ball1}
         </div>
+
         <div className="col-6">
-          {props.frame.ball2}
+          {ball2}
         </div>
       </div>
 
       <div className="row">
         <div className="col-12 score">
-          {props.frame.score}
+          <span id={'score-' + props.frame.frame}>{props.frame.totalScore}</span>
         </div>
       </div>
 

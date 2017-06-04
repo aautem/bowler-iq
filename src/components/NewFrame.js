@@ -1,7 +1,6 @@
 import React from 'react';
 
 const NewFrame = (props) => {
-  console.log('NewFrame Props:', props);
   return (
     <div className="col-2 frame">
 

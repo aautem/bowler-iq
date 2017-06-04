@@ -2,18 +2,14 @@ import React, { Component } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {newGame} from './../actions/gameActions';
-import {addDate} from './../actions/gameActions';
-import {bowlFirstBall} from './../actions/gameActions';
-import {bowlSecondBall} from './../actions/gameActions';
-import {bowlTenthFrame} from './../actions/gameActions';
+import {loadGame} from './../actions/gameActions';
 
-import NewBoard from './../components/NewBoard';
+import OldBoard from './../components/OldBoard';
 import NewGameGraph from './../components/NewGameGraph';
 
-class BowlGame extends Component {
+class OldGame extends Component {
   componentWillMount() {
-    this.props.newGame();
+    this.props.loadGame();
   }
 
   calculateAverageFrame() {
@@ -37,7 +33,7 @@ class BowlGame extends Component {
   }
 
   render() {
-    console.log('BowlGame Props:', this.props);
+    console.log('OldGame Props:', this.props);
     return (
       <div className="row">
 
@@ -57,21 +53,12 @@ class BowlGame extends Component {
 
         <div className="row">
           <div className="col-12 date">
-            <input
-              id="game-date"
-              type="date"
-              onChange={(e) => {this.props.addDate(e.target.value)}}>
-            </input>
+            {this.props.game.date}
           </div>
         </div>
 
         <div className="row">
-          <NewBoard
-            game={this.props.game}
-            bowlFirstBall={this.props.bowlFirstBall}
-            bowlSecondBall={this.props.bowlSecondBall}
-            bowlTenthFrame={this.props.bowlTenthFrame}
-          />
+          <OldBoard game={this.props.game} />
         </div>
 
         <div className="row">
@@ -91,21 +78,11 @@ class BowlGame extends Component {
         </div>
 
         <div className="row">
-          <div className="col-6">
+          <div className="col-12 buttons">
             <button
-              className="back-button"
               onClick={() => {console.log('Returning Home.')}}
             >
               Back to Home
-            </button>
-          </div>
-
-          <div className="col-6 submit-button">
-            <button
-              className="submit-button"
-              onClick={() => {console.log('Submitting Game.')}}
-            >
-              Submit Game
             </button>
           </div>
         </div>
@@ -123,12 +100,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    newGame: newGame,
-    addDate: addDate,
-    bowlFirstBall: bowlFirstBall,
-    bowlSecondBall: bowlSecondBall,
-    bowlTenthFrame: bowlTenthFrame
+    loadGame: loadGame
   }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BowlGame);
+export default connect(mapStateToProps, mapDispatchToProps)(OldGame);

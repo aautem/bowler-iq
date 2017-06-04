@@ -1,3 +1,5 @@
+import {getCurrentScore} from './../utilities/actionHelpers';
+
 const initialState = {
   id: null,
   date: null,
@@ -163,7 +165,8 @@ export default function reducer(state = initialState, action) {
     return {
       ...state,
       frames: action.payload.scorecard,
-      strikes: strikes
+      strikes: strikes,
+      score: getCurrentScore(action.payload.scorecard)
     };
   }
   // action.payload = frames array (game.frames) aka scorecard
@@ -177,7 +180,8 @@ export default function reducer(state = initialState, action) {
     return {
       ...state,
       frames: action.payload.scorecard,
-      spares: spares
+      spares: spares,
+      score: getCurrentScore(action.payload.scorecard)
     };
   }
   // action.payload = frames array (game.frames) aka scorecard
@@ -196,8 +200,13 @@ export default function reducer(state = initialState, action) {
       ...state,
       frames: action.payload.scorecard,
       strikes: strikes,
-      spares: spares
+      spares: spares,
+      score: getCurrentScore(action.payload.scorecard)
     };
+  }
+  // action.payload = date
+  if (action.type === 'ADD_DATE') {
+    return {...state, date: action.payload}
   }
   // if no match above
   return state;

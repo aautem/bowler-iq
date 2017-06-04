@@ -155,3 +155,19 @@ export function scoreGame(scorecard) {
   }
   return scorecard;
 };
+
+// helper function to get current total score
+export function getCurrentScore(scorecard) {
+  // iterate through frames to find each cumulative score
+  // when a frame has null, previous frame was current score
+  let score = 0;
+  scorecard.forEach((frame, index) => {
+    if (frame.totalScore) {
+      score = frame.totalScore;
+    } else {
+      return score;
+    }
+  });
+  // if all frames completed
+  return score;
+};

@@ -156,82 +156,157 @@ export function newGame() {
 export function loadGame(gameId) {
   // get game from db with id and send object as payload
   let game = {
-    id: 300,
-    date: 'Thu Jun 1, 2017',
-    score: 256,
-    frames: [ // array of frame objects (frame = index + 1)
+    id: 7, // id for current game in database
+    date: '2017-06-03', // date the game was played
+    score: 174, // final score for game
+    strikes: 4, // number of strikes in game
+    spares: 4, // number of spares in game
+    splits: 1, // number of splits in game
+    frames: [ // array of frame objects (frameNumber = index + 1)
       {
-        frame: 1,
-        ball1: 4,
-        ball2: 6,
+        frame: 1, // frameNumber
         spare: true,
-        score: 20
+        ball1: { // first ball of frame
+          disabled: true, // score selector disabled in DOM
+          score: 5 // pins knocked down by this ball
+        },
+        ball2: { // second ball of frame
+          disabled: true,
+          score: 5
+        },
+        frameScore: 19, // total score for frame (for graphing purposes)
+        totalScore: 19 // current total score in game (cumulative)
       },
       {
         frame: 2,
-        ball1: 10,
-        strike: true,
-        score: 39 // 19 + 20 from previous frame (running score)
+        spare: true,
+        ball1: {
+          disabled: true,
+          score: 9
+        },
+        ball2: {
+          disabled: true,
+          score: 1
+        },
+        frameScore: 20,
+        totalScore: 39
       },
       {
         frame: 3,
-        ball1: 7,
-        ball2: 2,
-        split: true,
-        score: 48
+        strike: true,
+        ball1: {
+          disabled: true,
+          score: 10
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: 27,
+        totalScore: 66
       },
       {
         frame: 4,
-        ball1: 4,
-        ball2: 6,
-        spare: true,
-        score: 62
+        strike: true,
+        ball1: {
+          disabled: true,
+          score: 10
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: 18,
+        totalScore: 84
       },
       {
         frame: 5,
-        ball1: 4,
-        ball2: 6,
-        spare: true,
-        score: 76
+        split: true,
+        ball1: {
+          disabled: true,
+          score: 7
+        },
+        ball2: {
+          disabled: true,
+          score: 1
+        },
+        frameScore: 8,
+        totalScore: 92
       },
       {
         frame: 6,
-        ball1: 4,
-        ball2: 6,
-        spare: true,
-        score: 90
+        ball1: {
+          disabled: true,
+          score: 4
+        },
+        ball2: {
+          disabled: true,
+          score: 5
+        },
+        frameScore: 9,
+        totalScore: 101
       },
       {
         frame: 7,
-        ball1: 4,
-        ball2: 6,
-        spare: true,
-        score: 104
+        strike: true,
+        ball1: {
+          disabled: true,
+          score: 10
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: 27,
+        totalScore: 128
       },
       {
         frame: 8,
-        ball1: 4,
-        ball2: 6,
-        spare: true,
-        score: 118
+        strike: true,
+        ball1: {
+          disabled: true,
+          score: 10
+        },
+        ball2: {
+          disabled: true,
+          score: null
+        },
+        frameScore: 20,
+        totalScore: 148
       },
       {
         frame: 9,
-        ball1: 4,
-        ball2: 6,
         spare: true,
-        score: 132
+        ball1: {
+          disabled: true,
+          score: 7
+        },
+        ball2: {
+          disabled: true,
+          score: 3
+        },
+        frameScore: 12,
+        totalScore: 160
       },
       {
         frame: 10,
-        ball1: 4,
-        ball2: 6,
-        spare: true,
-        ball3: 10,
-        score: 152
+        ball1: {
+          disabled: true,
+          score: 2
+        },
+        ball2: {
+          disabled: true,
+          score: 8
+        },
+        ball3: {
+          disabled: true,
+          score: 4
+        },
+        frameScore: 14,
+        totalScore: 174
       }
     ]
-  }
+  };
   return {
     type: 'LOAD_GAME',
     payload: game
@@ -391,5 +466,15 @@ export function bowlTenthFrame(scorecard, ballNumber, score) {
       strike: strike,
       spare: spare
     }
+  };
+};
+
+export function addDate(date) {
+  console.log('Date:', date, typeof date);
+  // disable date input
+  document.getElementById('game-date').disabled = true;
+  return {
+    type: 'ADD_DATE',
+    payload: date
   };
 };
