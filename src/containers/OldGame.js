@@ -9,8 +9,11 @@ import GameStats from './../components/GameStats';
 import NewGameGraph from './../components/NewGameGraph';
 
 class OldGame extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.loadGame();
+    // remove 'active' class from either option in navbar
+    document.getElementsByClassName('nav-item')[0].classList.remove('active');
+    document.getElementsByClassName('nav-item')[1].classList.remove('active');
   }
 
   calculateAverageFrame() {

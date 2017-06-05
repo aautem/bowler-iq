@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Nav from './Nav';
+import Overview from './../containers/Overview';
 import BowlGame from './../containers/BowlGame';
 import OldGame from './../containers/OldGame';
 import Footer from './Footer';
@@ -13,7 +14,7 @@ const App = (props) => {
 
       <Nav />
 
-      <BowlGame />
+      <Overview />
 
       <Footer />
 
@@ -23,4 +24,5 @@ const App = (props) => {
 
 export default App;
 
+// <BowlGame />
 // <OldGame />

@@ -19,6 +19,22 @@
 }
 
 
+/* STATISTICAL OVERVIEW */
+.stat-block {
+  min-height: 250px;
+}
+
+.stat-block h4 {
+  margin: 0;
+  color: white;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+
 /* GAME DATE */
 .date h5 {
   color: white;

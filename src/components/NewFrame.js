@@ -52,7 +52,7 @@ const NewFrame = (props) => {
 
       <div className="row">
         <div className="col s12 frame-score">
-          <span id={'score-' + props.frame.frame}>{props.frame.totalScore}</span>
+          <span id={'score-' + props.frame.frame}>{props.frame.totalScore || '-'}</span>
         </div>
       </div>
 

@@ -8,8 +8,8 @@ const Nav = (props) => {
 
         <ul className="right hide-on-med-and-down">
           <li><h2 id="bowler-name">Alex Autem</h2></li>
-          <li className="active"><a href="#">Statistics</a></li>
-          <li><a href="#">Bowl Now</a></li>
+          <li className="nav-item active"><a href="#">Statistics</a></li>
+          <li className="nav-item"><a href="#">Bowl Now</a></li>
           <li><a href="#">Log Out</a></li>
         </ul>
 
