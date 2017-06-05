@@ -1,33 +1,34 @@
 # BowlerIQ
 
-# Backlog
-https://waffle.io/aautem/alleylife
-
-# Idea
+## Idea
 Track your bowling scores over your entire career. Compare scores over time with visual data and earn badges for your accomplishments.
 
-# Tech Stack
-Front-End: React/Redux/React Router
+## Tech Stack
+Front-End: React/Redux
 Back-End: Node/Express
 Database/ORM: MongoDB/Mongoose
 User Signup: bcrypt OR Auth0 OR OAuth
-Testing: Mocha/Chai OR Jest
+Testing: Mocha/Chai OR Jest/Enzyme
 Build Tool: Webpack
 CSS Template: Materialize.css
-Data Visualization: D3.js OR Google Graphs
+Data Visualization: D3.js OR Google Charts
 
-# Mockups
+## Backlog
+https://waffle.io/aautem/alleylife
+
+## Mockups
 https://www.figma.com/file/KPaHnhkmJVQA1TAuMLxYwWKV/Alley-Life-Mockups
 
-# DB Schema
+## DB Schema
 Users & Games
 https://www.figma.com/file/0EldredE2QfEJcJGeKoNzXp8/Alley-Life-Architecture
 
-# API Endpoints
+## API Endpoints
 
-# Architecture
+## Architecture
 https://www.figma.com/file/0EldredE2QfEJcJGeKoNzXp8/Alley-Life-Architecture
 
+## Notes
 Use D3.js for data visualization of scores throughout the game (avg. per ball/frame, etc.) and scores over lifetime. Badges for different achievements? (Turkey, Gobble gobble (3 turkeys), bowl three games in one day, etc.)
 
 =================================================
