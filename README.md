@@ -33,6 +33,8 @@ Use D3.js for data visualization of scores throughout the game (avg. per ball/fr
 
 =================================================
 
+# Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
