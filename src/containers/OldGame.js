@@ -72,7 +72,9 @@ class OldGame extends Component {
             <p>Points/Frame: {this.calculateAverageFrame()}</p>
           </div>
 
-          <NewGameGraph scorecard={this.props.game.frames} />
+          <div className="col-6 game-graph">
+            <NewGameGraph scorecard={this.props.game.frames} />
+          </div>
 
           <div className="col-1"></div>
         </div>

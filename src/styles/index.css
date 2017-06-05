@@ -83,7 +83,14 @@ body {
   text-align: center;
   background-color: white;
   border: 1px solid black;
-  height: 200px;
+  height: 215px;
+}
+
+.game-graph {
+  text-align: center;
+  background-color: white;
+  border: 1px solid black;
+  height: 215px;
 }
 
 .back-button {
@@ -95,10 +102,7 @@ body {
 }
 
 #graph {
-  text-align: center;
-  background-color: white;
-  border: 1px solid black;
-  height: 200px;
+  width: 100%;
 }
 
 .date {

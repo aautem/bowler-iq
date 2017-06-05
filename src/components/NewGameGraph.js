@@ -45,8 +45,11 @@ const NewGameGraph = (props) => {
     chart.draw(data, options);
   }
 
+  // re-render graph anytime window is resized
+  window.addEventListener("resize", drawChart);
+
   return (
-    <div id="graph" className="col-6"></div>
+    <div id="graph"></div>
   );
 };
 
