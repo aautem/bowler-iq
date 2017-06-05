@@ -2,18 +2,19 @@ import React from 'react';
 
 const NewFrame = (props) => {
   return (
-    <div className="col-2 frame">
+    <div className="white z-depth-2 new-frame">
 
       <div className="row">
-        <div className="col-12">
+        <div className="col s12 blue darken-4">
           <h6>Frame {props.frame.frame}</h6>
         </div>
       </div>
 
-      <div className="row">
-        <div className="col-6">
+      <div className="row frame-balls">
+        <div className="col s6">
           <select
             id={'one-' + props.frame.frame}
+            className="browser-default"
             onChange={(e) => {
               props.bowlFirstBall(props.scorecard, props.frame.frame, e.target.value);
             }}
@@ -34,9 +35,10 @@ const NewFrame = (props) => {
           </select>
         </div>
 
-        <div className="col-6">
+        <div className="col s6">
           <select
             id={'two-' + props.frame.frame}
+            className="browser-default"
             onChange={(e) => {
               props.bowlSecondBall(props.scorecard, props.frame.frame, e.target.value);
             }}
@@ -49,8 +51,8 @@ const NewFrame = (props) => {
       </div>
 
       <div className="row">
-        <div className="col-12 score">
-          <span id={'score-' + props.frame.frame}>{props.frame.totalScore || '-'}</span>
+        <div className="col s12 frame-score">
+          <span id={'score-' + props.frame.frame}>{props.frame.totalScore}</span>
         </div>
       </div>
 

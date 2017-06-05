@@ -3,18 +3,19 @@ import React from 'react';
 const NewTenth = (props) => {
   console.log('NewTenth Props:', props);
   return (
-    <div className="col-2 frame">
+    <div className="white z-depth-2 new-frame">
 
       <div className="row">
-        <div className="col-12">
+        <div className="col s12 blue darken-4">
           <h6>Frame {props.frame.frame}</h6>
         </div>
       </div>
 
-      <div className="row">
-        <div className="col-4">
+      <div className="row frame-balls">
+        <div className="col s4">
           <select
             id={'one-' + props.frame.frame}
+            className="browser-default"
             onChange={(e) => {
               props.bowlTenthFrame(props.scorecard, 1, e.target.value);
             }}
@@ -35,9 +36,10 @@ const NewTenth = (props) => {
           </select>
         </div>
 
-        <div className="col-4">
+        <div className="col s4">
           <select
             id={'two-' + props.frame.frame}
+            className="browser-default"
             onChange={(e) => {
               props.bowlTenthFrame(props.scorecard, 2, e.target.value);
             }}
@@ -48,9 +50,10 @@ const NewTenth = (props) => {
           </select>
         </div>
 
-        <div className="col-4">
+        <div className="col s4">
           <select
             id={'three-' + props.frame.frame}
+            className="browser-default"
             onChange={(e) => {
               props.bowlTenthFrame(props.scorecard, 3, e.target.value);
             }}
@@ -63,8 +66,8 @@ const NewTenth = (props) => {
       </div>
 
       <div className="row">
-        <div className="col-12 score">
-          <span id={'score-' + props.frame.frame}>{props.frame.totalScore || '-'}</span>
+        <div className="col s12 frame-score">
+          <span id={'score-' + props.frame.frame}>{props.frame.totalScore}</span>
         </div>
       </div>
 

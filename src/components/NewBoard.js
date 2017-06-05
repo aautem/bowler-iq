@@ -3,47 +3,56 @@ import React from 'react';
 import NewFrame from './NewFrame';
 import NewTenth from './NewTenth';
 
-// RENDER INTO DIV ROW
 const NewBoard = (props) => {
   console.log('NewBoard Props:', props);
   return (
-    <div className="col-12 board">
+    <div className="row">
 
-      <div className="row">
-        <div className="col-1"></div>
+      <div className="row frame-row">
+        <div className="col s1"></div>
         {props.game.frames.slice(0, 5).map((frame) => {
           return (
-            <NewFrame
+            <div
+              className="col s12 m2"
               key={frame.frame}
-              scorecard={props.game.frames}
-              frame={frame}
-              bowlFirstBall={props.bowlFirstBall}
-              bowlSecondBall={props.bowlSecondBall}
-            />
+            >
+              <NewFrame
+                scorecard={props.game.frames}
+                frame={frame}
+                bowlFirstBall={props.bowlFirstBall}
+                bowlSecondBall={props.bowlSecondBall}
+              />
+            </div>
           );
         })}
-        <div className="col-1"></div>
+        <div className="col s1"></div>
       </div>
 
-      <div className="row">
-        <div className="col-1"></div>
+      <div className="row frame-row">
+        <div className="col s1"></div>
         {props.game.frames.slice(5, 9).map((frame) => {
           return (
-            <NewFrame
+            <div
+              className="col s12 m2"
               key={frame.frame}
-              scorecard={props.game.frames}
-              frame={frame}
-              bowlFirstBall={props.bowlFirstBall}
-              bowlSecondBall={props.bowlSecondBall}
-            />
+            >
+              <NewFrame
+                scorecard={props.game.frames}
+                frame={frame}
+                bowlFirstBall={props.bowlFirstBall}
+                bowlSecondBall={props.bowlSecondBall}
+              />
+            </div>
           );
         })}
-        <NewTenth
-          scorecard={props.game.frames}
-          frame={props.game.frames[9]}
-          bowlTenthFrame={props.bowlTenthFrame}
-        />
-        <div className="col-1"></div>
+        <div className="col s12 m2">
+          <NewTenth
+            scorecard={props.game.frames}
+            frame={props.game.frames[9]}
+            bowlTenthFrame={props.bowlTenthFrame}
+          />
+        </div>
+        <div className="col s1"></div>
       </div>
 
     </div>

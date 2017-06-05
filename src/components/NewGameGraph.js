@@ -25,17 +25,32 @@ const NewGameGraph = (props) => {
     var options = {
       curveType: 'none',
       chartArea: {
-        top: 10,
+        top: 20,
         height: 150
       },
+      backgroundColor: '#0d47a1',
       hAxis: {
         ticks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        baselineColor: 'grey',
+        gridlines: {
+          color: 'grey'
+        },
+        textStyle: {
+          color: 'white'
+        }
       },
       vAxis: {
-        ticks: [0, 50, 100, 150, 200, 250, 300]
+        ticks: [0, 50, 100, 150, 200, 250, 300],
+        baselineColor: 'grey',
+        gridlines: {
+          color: 'grey'
+        },
+        textStyle: {
+          color: 'white'
+        }
       },
       pointSize: 5,
-      colors: ['blue'],
+      colors: ['white'],
       legend: {
         position: 'none'
       }
@@ -49,7 +64,7 @@ const NewGameGraph = (props) => {
   window.addEventListener("resize", drawChart);
 
   return (
-    <div id="graph"></div>
+    <div id="graph" className="z-depth-5"></div>
   );
 };
 

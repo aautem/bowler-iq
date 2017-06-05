@@ -1,115 +1,105 @@
-/* GRID */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: #64b5f6;
-}
+/* CUSTOM STYLES */
 
-* {
-  box-sizing: border-box;
-}
 
-/* For mobile phones: */
-[class*="col-"] {
-  width: 100%;
-  float: left;
-  padding: 10px;
-}
-
-.col-1 {
-  min-height: 1px;
-  padding: 0 10px;
-}
-
-/* For desktop: */
-@media only screen and (min-width: 768px) {
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
-}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+/* NAVIGATION BAR */
+#logo-container span {
+  color: #9e9e9e;
+  font-weight: 600;
+  padding-left: 2px;
 }
 
 
-
-/* COMPONENT STYLES */
-.row {
-  margin-bottom: 5px;
+/* BOWLER NAME */
+#bowler-name {
+  font-size: 1.75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  padding-right: 20px;
 }
 
+
+/* GAME DATE */
+.date h5 {
+  color: white;
+  font-size: 1.5em;
+  letter-spacing: 5px;
+  font-weight: 600;
+}
+
+#game-date {
+  width: 165px;
+  display: inline-block;
+  color: white;
+  font-size: 1.25em;
+  margin: 3px 0 3px 50px;
+}
+
+
+/* ROW OF FRAMES */
+.frame-row {
+  margin-top: -20px;
+}
+
+
+/* INDIVIDUAL FRAME */
 .frame {
-  background-color: white;
-  text-align: center;
-  min-height: 147px;
-  border: 1px solid black;
-  padding: 5px;
+  margin: 0 -8px;
+}
+
+.new-frame {
+  margin: 0 -8px;
+  min-height: 140px;
 }
 
 .frame h6 {
-  font-size: 0.75em;
+  color: white;
+  text-align: center;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0;
-  border-bottom: 1px solid black;
-  padding-bottom: 10px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: .75em;
 }
 
-.frame .score {
-  font-size: 1.5em;
-  border: 1px solid black;
-}
-
-.nav {
+.frame-balls {
   text-align: center;
-  background-color: grey;
-  padding: 10px;
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: -15px;
+  border-bottom: 1px solid #757575;
 }
 
-.stats {
+.frame-score {
   text-align: center;
-  background-color: white;
-  border: 1px solid black;
-  height: 215px;
+  font-size: 2em;
+  font-weight: 600;
+  color: #0d47a1;
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 
-.game-graph {
-  text-align: center;
-  background-color: white;
-  border: 1px solid black;
-  height: 215px;
+
+/* STATISTICS BOX */
+.game-stats {
+  padding: 30px 65px;
+  min-height: 200px;
 }
 
-.back-button {
+.game-stats h6 {
+  color: #9e9e9e;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 600;
+}
+
+.game-stats span {
+  color: white;
   float: right;
+  font-weight: 600;
+  font-size: 1.15em;
+  padding-left: 10px;
 }
 
-.submit-button {
-  float: left;
-}
 
-#graph {
-  width: 100%;
-}
-
-.date {
-  text-align: center;
-  margin-bottom: -10px;
-}
-
-.buttons {
-  text-align: center;
-}
+/* GAME GRAPH */

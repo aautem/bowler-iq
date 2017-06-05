@@ -24,30 +24,30 @@ const OldTenth = (props) => {
   }
 
   return (
-    <div className="col-2 frame">
+    <div className="white z-depth-2 frame">
 
       <div className="row">
-        <div className="col-12">
+        <div className="col s12 blue darken-4">
           <h6>Frame {props.frame.frame}</h6>
         </div>
       </div>
 
-      <div className="row">
-        <div className="col-4">
+      <div className="row frame-balls">
+        <div className="col s4">
           {ball1}
         </div>
 
-        <div className="col-4">
+        <div className="col s4">
           {ball2}
         </div>
 
-        <div className="col-4">
+        <div className="col s4">
           {ball3}
         </div>
       </div>
 
       <div className="row">
-        <div className="col-12 score">
+        <div className="col s12 frame-score">
           <span id={'score-' + props.frame.frame}>{props.frame.totalScore}</span>
         </div>
       </div>
