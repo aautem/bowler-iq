@@ -32,7 +32,7 @@
 
 .recent-score:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 .recent-score h6 {
@@ -51,9 +51,18 @@
 }
 
 
+/* ACHIEVEMENTS */
+.achievement {
+  border: 1px solid white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: -10px;
+}
+
+
 /* STATISTICAL OVERVIEW */
 .stat-block {
-  min-height: 250px;
+  min-height: 100px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -70,7 +79,7 @@
 .stat-block a {
   display: inline-block;
   float: right;
-  margin: -15px 10px 5px 0;
+  margin: -15px 0 5px 0;
   color: white;
 }
 

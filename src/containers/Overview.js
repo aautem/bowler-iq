@@ -28,7 +28,7 @@ class Overview extends Component {
 
             <RecentGames games={this.props.user.games} loadGame={this.props.loadGame} />
 
-            <Achievements />
+            <Achievements badges={this.props.user.badges} />
 
           </div>
         </div>
