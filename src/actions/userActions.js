@@ -16,9 +16,9 @@ export function getUser() {
   };
 };
 
-export function newGame(gameId) {
+export function addGame(gameId) {
   return {
-    type: 'NEW_GAME',
+    type: 'ADD_GAME',
     payload: gameId
   };
 };

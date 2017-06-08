@@ -1,30 +1,64 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
-const Nav = (props) => {
-  return (
-    <nav className="blue darken-4">
-      <div className="nav-wrapper container">
-        <a id="logo-container" href="#" className="brand-logo">Bowler<span>IQ</span></a>
+import {changePage} from './../actions/pageActions';
 
-        <ul className="right hide-on-med-and-down">
-          <li><h2 id="bowler-name">Alex Autem</h2></li>
-          <li className="nav-item active"><a href="#">Statistics</a></li>
-          <li className="nav-item"><a href="#">Bowl Now</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
+class Nav extends Component {
+  componentDidMount() {
+    console.log('Nav Props:', this.props);
+  }
 
-        <ul id="nav-mobile" className="side-nav">
-          <li><a href="#">Career Stats</a></li>
-          <li><a href="#">Bowl Now</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
+  render() {
+    return (
+      <nav className="blue darken-4">
+        <div className="nav-wrapper container">
+          <a
+            id="logo-container"
+            className="brand-logo"
+            onClick={() => {this.props.changePage('home')}}
+          >
+            Bowler<span>IQ</span>
+          </a>
 
-        <a href="#" data-activates="nav-mobile" className="button-collapse">
-          <i className="material-icons">menu</i>
-        </a>
-      </div>
-    </nav>
-  );
+          <ul className="right hide-on-med-and-down">
+            <li><h2 id="bowler-name">{this.props.name}</h2></li>
+            <li className="nav-item active">
+              <a onClick={() => {this.props.changePage('home')}}>Statistics</a>
+            </li>
+            <li className="nav-item">
+              <a onClick={() => {this.props.changePage('bowl')}}>Bowl Now</a>
+            </li>
+            <li>
+              <a onClick={() => {console.log('Logging Out.')}}>Log Out</a>
+            </li>
+          </ul>
+
+          <ul id="nav-mobile" className="side-nav">
+            <li><a onClick={() => {this.props.changePage('home')}}>Statistics</a></li>
+            <li><a onClick={() => {this.props.changePage('bowl')}}>Bowl Now</a></li>
+            <li><a onClick={() => {console.log('Logging Out.')}}>Log Out</a></li>
+          </ul>
+
+          <a data-activates="nav-mobile" className="button-collapse">
+            <i className="material-icons">menu</i>
+          </a>
+        </div>
+      </nav>
+    );
+  }
 };
 
-export default Nav;
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
+};
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    changePage: changePage
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
