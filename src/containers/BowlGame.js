@@ -49,13 +49,22 @@ class BowlGame extends Component {
         <div className="container grey darken-1 z-depth-5">
           <div className="row">
 
-            <div className="col s12 date">
+            <div className="col s12 m6 date">
               <input
                 id="game-date"
                 type="date"
                 onChange={(e) => {this.props.addDate(e.target.value)}}
               >
               </input>
+            </div>
+
+            <div className="col s12 m6">
+              <a
+                className="waves-effect waves-light btn submit"
+                onClick={() => {console.log('Submit Game.')}}
+              >
+                Submit
+              </a>
             </div>
           </div>
 

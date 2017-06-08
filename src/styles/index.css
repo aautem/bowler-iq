@@ -39,6 +39,14 @@
 }
 
 
+/* INDIVIDUAL GAME */
+.submit {
+  float: right;
+  margin-right: 50px;
+  margin-top: 8px;
+}
+
+
 /* GAME DATE */
 .date h5 {
   color: white;
