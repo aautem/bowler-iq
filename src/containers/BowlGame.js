@@ -60,7 +60,7 @@ class BowlGame extends Component {
 
             <div className="col s12 m6">
               <a
-                className="waves-effect waves-light btn submit"
+                className="waves-effect waves-light btn blue darken-4 submit"
                 onClick={() => {console.log('Submit Game.')}}
               >
                 Submit

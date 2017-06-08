@@ -4,6 +4,11 @@ import {connect} from 'react-redux';
 
 import {loadGame} from './../actions/gameActions';
 
+import RecentGames from './../components/RecentGames';
+import Achievements from './../components/Achievements';
+import RecentTrends from './../components/RecentTrends';
+import Statistics from './../components/Statistics';
+
 class Overview extends Component {
   componentDidMount() {
     // remove 'active' class from bowl option in navbar
@@ -21,17 +26,9 @@ class Overview extends Component {
         <div className="container">
           <div className="row">
 
-            <div className="col s12 m6">
-              <div className="grey darken-1 z-depth-5 stat-block">
-                <h4>Recent Games</h4>
-              </div>
-            </div>
+            <RecentGames />
 
-            <div className="col s12 m6">
-              <div className="grey darken-1 z-depth-5 stat-block">
-                <h4>Achievements</h4>
-              </div>
-            </div>
+            <Achievements />
 
           </div>
         </div>
@@ -39,17 +36,9 @@ class Overview extends Component {
         <div className="container">
           <div className="row">
 
-            <div className="col s12 m7">
-              <div className="blue darken-4 z-depth-5 stat-block">
-                <h4>Recent Trends</h4>
-              </div>
-            </div>
+            <RecentTrends />
 
-            <div className="col s12 m5">
-              <div className="blue darken-4 z-depth-5 stat-block">
-                <h4>Statistics</h4>
-              </div>
-            </div>
+            <Statistics />
 
           </div>
         </div>
