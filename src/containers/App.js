@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import Nav from './../components/Nav';
+import Nav from './Nav';
 import Overview from './Overview';
 import BowlGame from './BowlGame';
 import OldGame from './OldGame';
