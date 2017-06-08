@@ -2,14 +2,39 @@ const initialState = {
   id: 4,
   name: 'Alex Autem',
   username: 'aautem',
-  games: [7],
+  games: [
+    {
+      date: '06/08/2017',
+      score: 267
+    },
+    {
+      date: '04/12/2017',
+      score: 134
+    },
+    {
+      date: '01/18/2017',
+      score: 267
+    },
+    {
+      date: '12/22/2016',
+      score: 267
+    },
+    {
+      date: '09/14/2016',
+      score: 267
+    },
+    {
+      date: '07/07/2016',
+      score: 267
+    }
+  ],
   stats: {
-    highScore: null,
-    average: null,
-    totalPins: null,
-    totalFrames: null
+    highScore: 206,
+    average: 129.3,
+    totalPins: 9687,
+    totalFrames: 192
   },
-  badges: ['thisIsSparta']
+  badges: ['thisIsSparta', 'gobbleGobble', 'oneHunna']
 };
 
 export default function reducer(state = initialState, action) {

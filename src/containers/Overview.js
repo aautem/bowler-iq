@@ -26,7 +26,7 @@ class Overview extends Component {
         <div className="container">
           <div className="row">
 
-            <RecentGames />
+            <RecentGames games={this.props.user.games} loadGame={this.props.loadGame} />
 
             <Achievements />
 
@@ -36,9 +36,9 @@ class Overview extends Component {
         <div className="container">
           <div className="row">
 
-            <RecentTrends />
-
             <Statistics />
+
+            <RecentTrends />
 
           </div>
         </div>

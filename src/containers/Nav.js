@@ -22,7 +22,7 @@ class Nav extends Component {
           </a>
 
           <ul className="right hide-on-med-and-down">
-            <li><h2 id="bowler-name">{this.props.name}</h2></li>
+            <li><h2 id="bowler-name">{this.props.user.name}</h2></li>
             <li className="nav-item active">
               <a onClick={() => {this.props.changePage('home')}}>Statistics</a>
             </li>

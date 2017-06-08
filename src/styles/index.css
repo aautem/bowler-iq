@@ -25,7 +25,7 @@
 
 /* OVERVIEW (HOME PAGE) */
 .recent-score {
-  margin: -20px 10px 0 10px;
+  margin-top: -20px;
   color: white;
   text-align: center;
 }
@@ -54,6 +54,8 @@
 /* STATISTICAL OVERVIEW */
 .stat-block {
   min-height: 250px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .stat-block h4 {
@@ -63,7 +65,6 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   padding-top: 10px;
-  padding-left: 15px;
 }
 
 .stat-block a {
