@@ -13,21 +13,53 @@ const RecentGames = (props) => {
 
         <div className="row">
           <div className="col s12 m4">
-            Game 1
+            <div className="blue darken-4 recent-score" onClick={() => {console.log('Loading')}}>
+              <div><h6>06/08/2017</h6></div>
+              <div><span>276</span></div>
+            </div>
           </div>
 
           <div className="col s12 m4">
-            Game 2
+            <div className="blue darken-4 recent-score" onClick={() => {console.log('Loading')}}>
+              <div><h6>06/08/2017</h6></div>
+              <div><span>276</span></div>
+            </div>
           </div>
 
           <div className="col s12 m4">
-            Game 3
+            <div className="blue darken-4 recent-score" onClick={() => {console.log('Loading')}}>
+              <div><h6>06/08/2017</h6></div>
+              <div><span>276</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col s12 m4">
+            <div className="blue darken-4 recent-score" onClick={() => {console.log('Loading')}}>
+              <div><h6>06/08/2017</h6></div>
+              <div><span>276</span></div>
+            </div>
+          </div>
+
+          <div className="col s12 m4">
+            <div className="blue darken-4 recent-score" onClick={() => {console.log('Loading')}}>
+              <div><h6>06/08/2017</h6></div>
+              <div><span>276</span></div>
+            </div>
+          </div>
+
+          <div className="col s12 m4">
+            <div className="blue darken-4 recent-score" onClick={() => {console.log('Loading')}}>
+              <div><h6>06/08/2017</h6></div>
+              <div><span>276</span></div>
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col s12">
-            <a>More Games</a>
+            <a onClick={() => {console.log('Loading')}}>More Games...</a>
           </div>
         </div>
       </div>
