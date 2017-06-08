@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import Nav from './Nav';
 import Overview from './../containers/Overview';
@@ -8,21 +9,32 @@ import Footer from './Footer';
 
 import './../styles/index.css';
 
-const App = (props) => {
-  return (
-    <div>
+class App extends Component {
+  componentDidMount() {
+    console.log('App Props:', this.props);
+  }
 
-      <Nav />
+  render() {
+    return (
+      <div>
 
-      <Overview />
+        <Nav />
 
-      <Footer />
+        {this.props.page.view === 'home' && <Overview />}
+        {this.props.page.view === 'bowl' && <BowlGame />}
+        {this.props.page.view === 'game' && <OldGame />}
 
-    </div>
-  );
+        <Footer />
+
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    page: state.page
+  };
 };
 
-export default App;
-
-// <BowlGame />
-// <OldGame />
+export default connect(mapStateToProps)(App);
