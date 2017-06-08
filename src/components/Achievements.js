@@ -12,153 +12,117 @@ const Achievements = (props) => {
         </div>
 
         <div className="row">
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
-              className="grey z-depth-2 achievement"
+              className="blue darken-4 z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
+              {props.badges[0]}
             </div>
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
-              className="grey z-depth-2 achievement"
+              className="blue darken-4 z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
+              {props.badges[1]}
             </div>
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
-              className="grey z-depth-2 achievement"
+              className="blue darken-4 z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
-            </div>
-          </div>
-
-          <div className="col s6 m3">
-            <div
-              className="grey z-depth-2 achievement"
-              onClick={() => {console.log('Loading')}}
-            >
-              TURKEY
+              {props.badges[2]}
             </div>
           </div>
         </div>
 
         <div className="row">
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
-              className="grey z-depth-2 achievement"
+              className="blue darken-4 z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
+              {props.badges[3]}
             </div>
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
               className="grey z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
+              ---
             </div>
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
               className="grey z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
-            </div>
-          </div>
-
-          <div className="col s6 m3">
-            <div
-              className="grey z-depth-2 achievement"
-              onClick={() => {console.log('Loading')}}
-            >
-              TURKEY
+              ---
             </div>
           </div>
         </div>
 
         <div className="row">
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
               className="grey z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
+              ---
             </div>
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
               className="grey z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
+              ---
             </div>
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
               className="grey z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
-            </div>
-          </div>
-
-          <div className="col s6 m3">
-            <div
-              className="grey z-depth-2 achievement"
-              onClick={() => {console.log('Loading')}}
-            >
-              TURKEY
+              ---
             </div>
           </div>
         </div>
 
         <div className="row">
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
               className="grey z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
+              ---
             </div>
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
               className="grey z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
+              ---
             </div>
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s12 m4">
             <div
               className="grey z-depth-2 achievement"
               onClick={() => {console.log('Loading')}}
             >
-              TURKEY
-            </div>
-          </div>
-
-          <div className="col s6 m3">
-            <div
-              className="grey z-depth-2 achievement"
-              onClick={() => {console.log('Loading')}}
-            >
-              TURKEY
+              ---
             </div>
           </div>
         </div>
