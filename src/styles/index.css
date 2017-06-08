@@ -60,6 +60,11 @@
   color: white;
 }
 
+.achievement:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
 
 /* STATISTICAL OVERVIEW */
 .stat-block {
@@ -132,6 +137,15 @@
 }
 
 .frame h6 {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: .75em;
+}
+
+.new-frame h6 {
   color: white;
   text-align: center;
   text-transform: uppercase;

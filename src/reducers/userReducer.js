@@ -13,26 +13,27 @@ const initialState = {
     },
     {
       date: '01/18/2017',
-      score: 267
+      score: 122
     },
     {
       date: '12/22/2016',
-      score: 267
+      score: 283
     },
     {
       date: '09/14/2016',
-      score: 267
+      score: 160
     },
     {
       date: '07/07/2016',
-      score: 267
+      score: 102
     }
   ],
   stats: {
     highScore: 206,
     average: 129.3,
-    totalPins: 9687,
-    totalFrames: 192
+    totalGames: 57,
+    totalFrames: 570,
+    totalPins: 4523
   },
   badges: ['thisIsSparta', 'gobbleGobble', 'oneHunna', 'steeeRike']
 };

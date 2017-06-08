@@ -20,6 +20,8 @@ const RecentGames = (props) => {
                 key={game.date}
                 date={game.date}
                 score={game.score}
+                loadGame={props.loadGame}
+                changePage={props.changePage}
               />
             );
           })}
@@ -32,6 +34,8 @@ const RecentGames = (props) => {
                 key={game.date}
                 date={game.date}
                 score={game.score}
+                loadGame={props.loadGame}
+                changePage={props.changePage}
               />
             );
           })}

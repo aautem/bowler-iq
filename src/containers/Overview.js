@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {loadGame} from './../actions/gameActions';
+import {changePage} from './../actions/pageActions';
 
 import RecentGames from './../components/RecentGames';
 import Achievements from './../components/Achievements';
@@ -26,7 +27,11 @@ class Overview extends Component {
         <div className="container">
           <div className="row">
 
-            <RecentGames games={this.props.user.games} loadGame={this.props.loadGame} />
+            <RecentGames
+              games={this.props.user.games}
+              loadGame={this.props.loadGame}
+              changePage={this.props.changePage}
+            />
 
             <Achievements badges={this.props.user.badges} />
 
@@ -36,9 +41,9 @@ class Overview extends Component {
         <div className="container">
           <div className="row">
 
-            <Statistics />
+            <Statistics stats={this.props.user.stats} />
 
-            <RecentTrends />
+            <RecentTrends games={this.props.user.games} />
 
           </div>
         </div>
@@ -51,13 +56,14 @@ class Overview extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    game: state.game
+    page: state.page
   };
 };
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    loadGame: loadGame
+    loadGame: loadGame,
+    changePage: changePage
   }, dispatch);
 };
 
