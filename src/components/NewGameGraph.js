@@ -9,17 +9,17 @@ const NewGameGraph = (props) => {
 
   function drawChart() {
     var data = window.google.visualization.arrayToDataTable([
-      ['Frame', 'Score'],
-      ['1', (props.scorecard[0].totalScore || 0)],
-      ['2', props.scorecard[1].totalScore],
-      ['3', props.scorecard[2].totalScore],
-      ['4', props.scorecard[3].totalScore],
-      ['5', props.scorecard[4].totalScore],
-      ['6', props.scorecard[5].totalScore],
-      ['7', props.scorecard[6].totalScore],
-      ['8', props.scorecard[7].totalScore],
-      ['9', props.scorecard[8].totalScore],
-      ['10', props.scorecard[9].totalScore]
+      ['Frame', 'Total Score', 'Max Score'],
+      ['1', (props.scorecard[0].totalScore || 0), 300],
+      ['2', props.scorecard[1].totalScore, (props.scorecard[0].totalScore + (30 * 9))],
+      ['3', props.scorecard[2].totalScore, (props.scorecard[1].totalScore + (30 * 8))],
+      ['4', props.scorecard[3].totalScore, (props.scorecard[2].totalScore + (30 * 7))],
+      ['5', props.scorecard[4].totalScore, (props.scorecard[3].totalScore + (30 * 6))],
+      ['6', props.scorecard[5].totalScore, (props.scorecard[4].totalScore + (30 * 5))],
+      ['7', props.scorecard[6].totalScore, (props.scorecard[5].totalScore + (30 * 4))],
+      ['8', props.scorecard[7].totalScore, (props.scorecard[6].totalScore + (30 * 3))],
+      ['9', props.scorecard[8].totalScore, (props.scorecard[7].totalScore + (30 * 2))],
+      ['10', props.scorecard[9].totalScore, (props.scorecard[8].totalScore + 30)]
     ]);
 
     var options = {
@@ -50,7 +50,7 @@ const NewGameGraph = (props) => {
         }
       },
       pointSize: 5,
-      colors: ['white'],
+      colors: ['white', 'grey'],
       legend: {
         position: 'none'
       }
