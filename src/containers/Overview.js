@@ -55,8 +55,7 @@ class Overview extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    page: state.page
+    user: state.user
   };
 };
 
