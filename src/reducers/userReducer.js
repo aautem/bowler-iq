@@ -35,7 +35,20 @@ const initialState = {
     totalFrames: 570,
     totalPins: 4523
   },
-  badges: ['thisIsSparta', 'gobbleGobble', 'oneHunna', 'steeeRike']
+  badges: {
+    f01: true,
+    f02: true,
+    f03: true,
+    f04: false,
+    f05: true,
+    f06: true,
+    f07: false,
+    f08: false,
+    f09: true,
+    f10: false,
+    f11: true,
+    f12: false
+  }
 };
 
 export default function reducer(state = initialState, action) {

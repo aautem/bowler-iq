@@ -53,13 +53,17 @@
 
 /* ACHIEVEMENTS */
 .achievement {
-  text-align: center;
   margin-top: -20px;
 }
 
 .achievement:hover {
   cursor: pointer;
   opacity: 0.75;
+}
+
+.achievement-placeholder {
+  margin-top: -20px;
+  opacity: 0.5;
 }
 
 

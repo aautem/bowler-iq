@@ -13,28 +13,20 @@ import icon09f from './../icons/09f.png';
 import icon10f from './../icons/10f.png';
 import icon11f from './../icons/11f.png';
 import icon12f from './../icons/12f.png';
-import icon13f from './../icons/13f.png';
-import icon14f from './../icons/14f.png';
-import icon15f from './../icons/15f.png';
-import icon16f from './../icons/16f.png';
 
 // white icons
-// import icon01w from './../icons/01w.png';
-// import icon02w from './../icons/02w.png';
-// import icon03w from './../icons/03w.png';
-// import icon04w from './../icons/04w.png';
-// import icon05w from './../icons/05w.png';
-// import icon06w from './../icons/06w.png';
-// import icon07w from './../icons/07w.png';
-// import icon08w from './../icons/08w.png';
-// import icon09w from './../icons/09w.png';
-// import icon10w from './../icons/10w.png';
-// import icon11w from './../icons/11w.png';
-// import icon12w from './../icons/12w.png';
-// import icon13w from './../icons/13w.png';
-// import icon14w from './../icons/14w.png';
-// import icon15w from './../icons/15w.png';
-// import icon16w from './../icons/16w.png';
+import icon01w from './../icons/01w.png';
+import icon02w from './../icons/02w.png';
+import icon03w from './../icons/03w.png';
+import icon04w from './../icons/04w.png';
+import icon05w from './../icons/05w.png';
+import icon06w from './../icons/06w.png';
+import icon07w from './../icons/07w.png';
+import icon08w from './../icons/08w.png';
+import icon09w from './../icons/09w.png';
+import icon10w from './../icons/10w.png';
+import icon11w from './../icons/11w.png';
+import icon12w from './../icons/12w.png';
 
 const Achievements = (props) => {
   console.log('Achievements Props:', props);
@@ -49,153 +41,115 @@ const Achievements = (props) => {
         </div>
 
         <div className="row">
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f01 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon01f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f01 ? icon01f : icon01w}
+              onClick={() => {if (props.badges.f01) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f02 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon02f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f02 ? icon02f : icon02w}
+              onClick={() => {if (props.badges.f02) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f03 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon03f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f03 ? icon03f : icon03w}
+              onClick={() => {if (props.badges.f03) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f04 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon04f}
-              onClick={() => {console.log('Loading')}}
-            />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col s6 m3">
-            <img
-              className="responsive-img achievement"
-              alt="bowl"
-              src={icon05f}
-              onClick={() => {console.log('Loading')}}
-            />
-          </div>
-
-          <div className="col s6 m3">
-            <img
-              className="responsive-img achievement"
-              alt="bowl"
-              src={icon06f}
-              onClick={() => {console.log('Loading')}}
-            />
-          </div>
-
-          <div className="col s6 m3">
-            <img
-              className="responsive-img achievement"
-              alt="bowl"
-              src={icon07f}
-              onClick={() => {console.log('Loading')}}
-            />
-          </div>
-
-          <div className="col s6 m3">
-            <img
-              className="responsive-img achievement"
-              alt="bowl"
-              src={icon08f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f04 ? icon04f : icon04w}
+              onClick={() => {if (props.badges.f04) {alert('Achievement Unlocked!')}}}
             />
           </div>
         </div>
 
         <div className="row">
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f05 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon09f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f05 ? icon05f : icon05w}
+              onClick={() => {if (props.badges.f05) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f06 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon10f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f06 ? icon06f : icon06w}
+              onClick={() => {if (props.badges.f06) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f07 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon11f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f07 ? icon07f : icon07w}
+              onClick={() => {if (props.badges.f07) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f08 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon12f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f08 ? icon08f : icon08w}
+              onClick={() => {if (props.badges.f08) {alert('Achievement Unlocked!')}}}
             />
           </div>
         </div>
 
         <div className="row">
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f09 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon13f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f09 ? icon09f : icon09w}
+              onClick={() => {if (props.badges.f09) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f10 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon14f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f10 ? icon10f : icon10w}
+              onClick={() => {if (props.badges.f10) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f11 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon15f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f11 ? icon11f : icon11w}
+              onClick={() => {if (props.badges.f11) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
-          <div className="col s6 m3">
+          <div className="col s6 m3 center-align">
             <img
-              className="responsive-img achievement"
+              className={'responsive-img ' + (props.badges.f12 ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={icon16f}
-              onClick={() => {console.log('Loading')}}
+              src={props.badges.f12 ? icon12f : icon12w}
+              onClick={() => {if (props.badges.f12) {alert('Achievement Unlocked!')}}}
             />
           </div>
         </div>
