@@ -22,7 +22,7 @@ const NewGameGraph = (props) => {
   function drawChart() {
     var data = window.google.visualization.arrayToDataTable([
       ['Frame', 'Total Score', 'Max Score'],
-      ['1', props.scorecard[0].totalScore, getMax(1)],
+      ['1', (props.scorecard[0].totalScore || 0), getMax(1)],
       ['2', props.scorecard[1].totalScore, getMax(2)],
       ['3', props.scorecard[2].totalScore, getMax(3)],
       ['4', props.scorecard[3].totalScore, getMax(4)],
