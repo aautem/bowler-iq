@@ -12,7 +12,7 @@ const Statistics = (props) => {
         <span>{props.stats.average}</span>
         <br/>
         <h6>Total Score</h6>
-        <span>100</span>
+        <span>{props.stats.totalScore}</span>
         <br/>
         <h6>Games Bowled</h6>
         <span>{props.stats.totalGames}</span>
@@ -21,31 +21,31 @@ const Statistics = (props) => {
         <span>{props.stats.totalFrames}</span>
         <br/>
         <h6>Average/Frame</h6>
-        <span>18.6</span>
+        <span>{props.stats.averageFrame}</span>
         <br/>
         <h6>Open Frames</h6>
-        <span>96</span>
+        <span>{props.stats.openFrames}</span>
         <br/>
         <h6>Closed Frames</h6>
-        <span>117</span>
+        <span>{props.stats.closedFrames}</span>
         <br/>
         <h6>Close %</h6>
-        <span>67%</span>
+        <span>{props.stats.closePercent}</span>
         <br/>
         <h6>Total Strikes</h6>
-        <span>133</span>
+        <span>{props.stats.totalStrikes}</span>
         <br/>
         <h6>Total Spares</h6>
-        <span>105</span>
+        <span>{props.stats.totalSpares}</span>
         <br/>
         <h6>Total Splits</h6>
-        <span>62</span>
+        <span>{props.stats.totalSplits}</span>
         <br/>
         <h6>Gutterballs</h6>
-        <span>14</span>
+        <span>{props.stats.gutterballs}</span>
         <br/>
         <h6>Total Pins</h6>
-        <span>1087</span>
+        <span>{props.stats.totalPins}</span>
       </div>
     </div>
   );

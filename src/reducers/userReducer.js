@@ -29,10 +29,19 @@ const initialState = {
     }
   ],
   stats: {
-    highScore: 206,
     average: 129.3,
+    highScore: 206,
+    totalScore: 7370,
     totalGames: 57,
     totalFrames: 570,
+    averageFrame: 12.9,
+    openFrames: 29,
+    closedFrames: 541,
+    closePercent: 0.949,
+    totalStrikes: 133,
+    totalSpares: 105,
+    totalSplits: 27,
+    gutterballs: 14,
     totalPins: 4523
   },
   badges: {
