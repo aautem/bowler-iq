@@ -29,7 +29,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    page: state.page
+    page: state.page,
+    user: state.user
   };
 };
 
