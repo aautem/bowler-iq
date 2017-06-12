@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
+import {getUser} from './../actions/userActions';
+
 import Nav from './Nav';
 import Overview from './Overview';
 import BowlGame from './BowlGame';
@@ -10,6 +12,10 @@ import Footer from './../components/Footer';
 import './../styles/index.css';
 
 class App extends Component {
+  componentWillMount() {
+    this.props.getUser();
+  }
+
   componentDidMount() {
     console.log('App Props:', this.props);
   }
@@ -34,4 +40,10 @@ function mapStateToProps(state) {
   };
 };
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    getUser: getUser
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
