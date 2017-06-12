@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div>
         <Nav
-          name={this.props.user.name}
+          user={this.props.user}
           changePage={this.props.changePage}
           newGame={this.props.newGame}
         />

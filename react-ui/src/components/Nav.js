@@ -14,13 +14,13 @@ const Nav = (props) => {
         </a>
 
         <ul className="right hide-on-med-and-down">
-          <li><h2 id="bowler-name">{props.name}</h2></li>
+          <li><h2 id="bowler-name">{props.user.name}</h2></li>
           <li className="nav-item active">
             <a onClick={() => {props.changePage('home')}}>Statistics</a>
           </li>
           <li className="nav-item">
             <a onClick={() => {
-              props.newGame();
+              props.newGame(props.user._id);
               props.changePage('bowl');
             }}>Bowl Now</a>
           </li>
@@ -31,7 +31,10 @@ const Nav = (props) => {
 
         <ul id="nav-mobile" className="side-nav">
           <li><a onClick={() => {props.changePage('home')}}>Statistics</a></li>
-          <li><a onClick={() => {props.changePage('bowl')}}>Bowl Now</a></li>
+          <li><a onClick={() => {
+            props.newGame(props.user._id);
+            props.changePage('bowl');
+          }}>Bowl Now</a></li>
           <li><a onClick={() => {alert('Logging out has been disabled in the demo app.')}}>Log Out</a></li>
         </ul>
 

@@ -1,8 +1,13 @@
+import axios from 'axios';
+
+import {changePage} from './pageActions';
+
 import {scoreGame} from './../utilities/actionHelpers';
 import {appendOptions} from './../utilities/actionHelpers';
 
-export function newGame() {
+export function newGame(userId) {
   let gameTemplate = {
+    _userId: userId,
     date: null, // date the game was played
     score: 0, // final score for game
     strikes: 0, // number of strikes in game
@@ -154,6 +159,23 @@ export function newGame() {
   return {
     type: 'NEW_GAME',
     payload: gameTemplate
+  }
+};
+
+export function saveGame(game) {
+  console.log('Saving Game.');
+  return function(dispatch) {
+    dispatch(changePage('loading'));
+    // axios.post('/user', {
+    //   firstName: 'Fred',
+    //   lastName: 'Flintstone'
+    // })
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
   }
 };
 

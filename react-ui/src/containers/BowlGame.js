@@ -71,8 +71,8 @@ class BowlGame extends Component {
     // to do
   }
 
-  saveGame() {
-    console.log('Saving game.');
+  submitGame() {
+    console.log('Game submitted.');
     var game = Object.assign({}, this.props.game);
     this.addAverageFrame(game);
     this.addOpenClosed(game);
@@ -122,7 +122,7 @@ class BowlGame extends Component {
                 className="waves-effect waves-light btn blue darken-4 submit"
                 onClick={() => {
                   if (this.validateSubmission()) {
-                    this.saveGame();
+                    this.submitGame();
                   } else {
                     alert('Please finish your game or select a date before saving.');
                   }
