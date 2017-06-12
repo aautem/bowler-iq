@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {newGame} from './../actions/gameActions';
 import {addDate} from './../actions/gameActions';
 import {bowlFirstBall} from './../actions/gameActions';
 import {bowlSecondBall} from './../actions/gameActions';
@@ -18,6 +17,67 @@ class BowlGame extends Component {
     document.getElementsByClassName('nav-item')[0].classList.remove('active');
     // add 'active' class to bowl option in navbar
     document.getElementsByClassName('nav-item')[1].classList.add('active');
+  }
+
+  validateSubmission() {
+    // check game object is complete
+    // has date, has 10th frame with at least 2 balls rolled
+    if (this.props.game.date !== null) {
+      if (this.props.game.frames[9].ball1.score !== null && this.props.game.frames[9].ball2.score !== null) {
+        if (this.props.game.frames[9].ball1.score + this.props.game.frames[9].ball2.score >= 10) {
+          if (this.props.game.frames[9].ball3.score !== null) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return true;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  addAverageFrame(game) {
+    console.log('Adding average frame.');
+    game.averageFrame = game.score / 10;
+  }
+
+  addOpenClosed(game) {
+    console.log('Adding open and closed frames.');
+    game.frames.forEach(function(frame) {
+      if (frame.ball1.score + frame.ball2.score >= 10) {
+        game.closedFrames ++;
+      } else {
+        game.openFrames ++;
+      }
+    });
+    game.closePercent = (game.closedFrames / 10).toFixed(3);
+  }
+
+  addTotalPins(game) {
+    console.log('Adding total pins.');
+    game.frames.forEach(function(frame) {
+      game.totalPins += (frame.ball1.score + frame.ball2.score);
+    });
+    game.totalPins += (game.frames[9].ball3.score || 0);
+  }
+
+  addGutterballs(game) {
+    console.log('Adding gutterballs.');
+    // to do
+  }
+
+  saveGame() {
+    console.log('Saving game.');
+    var game = Object.assign({}, this.props.game);
+    this.addAverageFrame(game);
+    this.addOpenClosed(game);
+    this.addTotalPins(game);
+    console.log('Game to Save:', game);
   }
 
   calculateAverageFrame() {
@@ -60,7 +120,13 @@ class BowlGame extends Component {
             <div className="col s12 m6">
               <a
                 className="waves-effect waves-light btn blue darken-4 submit"
-                onClick={() => {console.log('Submit Game.')}}
+                onClick={() => {
+                  if (this.validateSubmission()) {
+                    this.saveGame();
+                  } else {
+                    alert('Please finish your game or select a date before saving.');
+                  }
+                }}
               >
                 Submit
               </a>
@@ -107,7 +173,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    newGame: newGame,
     addDate: addDate,
     bowlFirstBall: bowlFirstBall,
     bowlSecondBall: bowlSecondBall,
