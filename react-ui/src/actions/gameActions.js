@@ -2,13 +2,18 @@ import {scoreGame} from './../utilities/actionHelpers';
 import {appendOptions} from './../utilities/actionHelpers';
 
 export function newGame() {
-  let newGameTemplate = {
-    id: null, // id for current game in database
+  let gameTemplate = {
     date: null, // date the game was played
     score: 0, // final score for game
     strikes: 0, // number of strikes in game
     spares: 0, // number of spares in game
     splits: 0, // number of splits in game
+    gutterballs: 0, // 0 pins on first frame (and second if gutter on first)
+    averageFrame: 0,
+    openFrames: 0,
+    closedFrames: 0,
+    closePercent: 0,
+    totalPins: 0,
     frames: [ // array of frame objects (frameNumber = index + 1)
       {
         frame: 1, // frameNumber
@@ -148,7 +153,7 @@ export function newGame() {
   };
   return {
     type: 'NEW_GAME',
-    payload: newGameTemplate
+    payload: gameTemplate
   }
 };
 

@@ -14,7 +14,6 @@ import NewGameGraph from './../components/NewGameGraph';
 
 class BowlGame extends Component {
   componentDidMount() {
-    this.props.newGame();
     // remove 'active' class from stats option in navbar
     document.getElementsByClassName('nav-item')[0].classList.remove('active');
     // add 'active' class to bowl option in navbar
