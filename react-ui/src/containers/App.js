@@ -3,8 +3,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {getUser} from './../actions/userActions';
+import {changePage} from './../actions/pageActions';
 
-import Nav from './Nav';
+import Nav from './../components/Nav';
 import Overview from './Overview';
 import BowlGame from './BowlGame';
 import OldGame from './OldGame';
@@ -25,7 +26,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        <Nav
+          name={this.props.user.name}
+          changePage={this.props.changePage}
+        />
         {this.props.page.view === 'home' && <Overview />}
         {this.props.page.view === 'bowl' && <BowlGame />}
         {this.props.page.view === 'game' && <OldGame />}
@@ -39,13 +43,15 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     page: state.page,
-    user: state.user
+    user: state.user,
+    gameHistory: state.gameHistory
   };
 };
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getUser: getUser
+    getUser: getUser,
+    changePage: changePage
   }, dispatch);
 };
 
