@@ -7,7 +7,7 @@ module.exports = {
         console.log(err);
       } else {
         console.log('Game Found.');
-        res.end(game);
+        res.end(JSON.stringify(game));
       }
     });
   },
@@ -31,7 +31,7 @@ module.exports = {
         console.log(err);
       } else {
         console.log('Game Created.');
-        res.end(newGame);
+        res.end(JSON.stringify(newGame));
       }
     });
   }

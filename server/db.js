@@ -1,3 +1,5 @@
+var mongoose = require('mongoose');
+
 var mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/bowleriq';
 
 mongoose.connect(mongodbUri);

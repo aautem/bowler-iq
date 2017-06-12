@@ -1,23 +1,13 @@
 const User = require('./userModel');
 
 module.exports = {
-  getUser: function(req, res) {
-    User.find({name: req.body.name}, function(err, user) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log('User Found.');
-        res.end(user);
-      }
-    });
-  },
   addUser: function(req, res) {
     // check if user already exists
     User.find({name: req.body.name}, function(err, user) {
       if (err) {
         console.log(err);
       } else {
-        if (!user) {
+        if (!user.length) {
           console.log('Creating New User.');
           var newUser = new User();
           newUser.name = req.body.name;
@@ -57,13 +47,36 @@ module.exports = {
               console.log(err);
             } else {
               console.log('User Created.');
-              res.end(newUser);
+              res.end(JSON.stringify(newUser));
             }
           });
         } else {
           console.log('User Already Exists.');
           res.end('User Already Exists.');
         }
+      }
+    });
+  },
+  getUser: function(req, res) {
+    User.find({_id: req.params.id}, function(err, user) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('User Found.');
+        res.end(JSON.stringify(user));
+      }
+    });
+  },
+  updateUser: function(req, res) {
+    User.findOneAndUpdate({_id: req.params.id}, req.body.user, function(err, user) {
+      if (err) {
+        console.log(err);
+      } else if (!user) {
+        console.log('User Does Not Exist.');
+        res.end('User Does Not Exist.');
+      } else {
+        console.log('User Updated.');
+        res.end(JSON.stringify(user));
       }
     });
   }
