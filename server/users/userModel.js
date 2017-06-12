@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var UserSchema = new mongoose.Schema({
   // _id: // AUTO-GENERATED
   name: String,
-  games: [{type: mongoose.Schema.Types.ObjectId, ref: 'Game'}],
   badges: {
     f01: Boolean,
     f02: Boolean,

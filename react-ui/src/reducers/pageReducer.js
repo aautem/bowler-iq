@@ -5,7 +5,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   // action.payload = page
   if (action.type === 'CHANGE_PAGE') {
-    return {...state, view: action.payload};
+    return {view: action.payload};
   }
   // if no match above
   return state;

@@ -8,6 +8,7 @@ import Nav from './Nav';
 import Overview from './Overview';
 import BowlGame from './BowlGame';
 import OldGame from './OldGame';
+import Loading from './../components/Loading';
 import Footer from './../components/Footer';
 
 import './../styles/index.css';
@@ -28,6 +29,7 @@ class App extends Component {
         {this.props.page.view === 'home' && <Overview />}
         {this.props.page.view === 'bowl' && <BowlGame />}
         {this.props.page.view === 'game' && <OldGame />}
+        {this.props.page.view === 'loading' && <Loading />}
         <Footer />
       </div>
     );

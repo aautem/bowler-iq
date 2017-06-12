@@ -30,14 +30,14 @@ class Nav extends Component {
               <a onClick={() => {this.props.changePage('bowl')}}>Bowl Now</a>
             </li>
             <li>
-              <a onClick={() => {console.log('Logging Out.')}}>Log Out</a>
+              <a onClick={() => {alert('Logging out has been disabled in the demo app.')}}>Log Out</a>
             </li>
           </ul>
 
           <ul id="nav-mobile" className="side-nav">
             <li><a onClick={() => {this.props.changePage('home')}}>Statistics</a></li>
             <li><a onClick={() => {this.props.changePage('bowl')}}>Bowl Now</a></li>
-            <li><a onClick={() => {console.log('Logging Out.')}}>Log Out</a></li>
+            <li><a onClick={() => {alert('Logging out has been disabled in the demo app.')}}>Log Out</a></li>
           </ul>
 
           <a data-activates="nav-mobile" className="button-collapse">

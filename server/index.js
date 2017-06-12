@@ -16,12 +16,6 @@ app.use(bodyParser.json());
 // priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
-// Answer API requests.
-// app.get('/api', function (req, res) {
-//   res.set('Content-Type', 'application/json');
-//   res.send('{"message":"Hello from the custom server!"}');
-// });
-
 // route handling
 require('./routes.js')(app, express);
 
