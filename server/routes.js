@@ -6,6 +6,8 @@ module.exports = function(app, express) {
   app.get('/api/users/:id', userController.getUser);
   app.put('/api/users/:id', userController.updateUser);
 
+  app.get('/api/users/:id/games', gameController.loadGames);
+
   app.get('/api/games/:id', gameController.getGame);
   app.post('/api/games', gameController.addGame);
 };

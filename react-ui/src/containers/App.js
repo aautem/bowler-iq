@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {getUser} from './../actions/userActions';
+import {loadGames} from './../actions/gameHistoryActions';
 import {changePage} from './../actions/pageActions';
 
 import Nav from './../components/Nav';
@@ -16,7 +17,8 @@ import './../styles/index.css';
 
 class App extends Component {
   componentWillMount() {
-    this.props.getUser();
+    this.props.getUser('593e1e934b733b02bbca3198');
+    this.props.loadGames('593e1e934b733b02bbca3198');
   }
 
   componentDidMount() {
@@ -51,6 +53,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     getUser: getUser,
+    loadGames: loadGames,
     changePage: changePage
   }, dispatch);
 };

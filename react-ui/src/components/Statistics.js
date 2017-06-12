@@ -4,6 +4,7 @@ const Statistics = (props) => {
   console.log('Statistics Props:', props);
   return (
     <div className="col s12 m5">
+      {props.stats &&
       <div className="blue darken-4 z-depth-5 game-stats">
         <h6>High Score</h6>
         <span>{props.stats.highScore}</span>
@@ -46,7 +47,7 @@ const Statistics = (props) => {
         <br/>
         <h6>Total Pins</h6>
         <span>{props.stats.totalPins}</span>
-      </div>
+      </div>}
     </div>
   );
 };

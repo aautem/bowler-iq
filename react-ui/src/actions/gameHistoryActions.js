@@ -1,12 +1,24 @@
-export function saveGame(gameSummary) {
-  let gameSummary = {
-    id: 20,
-    date: 'Thu Jun 1, 2017',
-    score: 156
-  };
+import axios from 'axios';
 
-  return {
-    type: 'SAVE_GAME',
-    payload: gameSummary
-  };
+import {changePage} from './pageActions';
+
+export function loadGames(userId) {
+  console.log('Loading Games.');
+  return function(dispatch) {
+    axios.get('/api/users/' + userId + '/games')
+      .then(function(response) {
+        console.log('Game History Response:', response.data);
+        dispatch({
+          type: 'LOAD_GAMES',
+          payload: response.data
+        });
+      })
+      .then(function() {
+        console.log('Next LoadGames Block.');
+        dispatch(changePage('home'));
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 };

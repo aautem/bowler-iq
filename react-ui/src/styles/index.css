@@ -24,6 +24,10 @@
 
 
 /* OVERVIEW (HOME PAGE) */
+.recent-games {
+  min-height: 255px;
+}
+
 .recent-score {
   margin-top: -20px;
   color: white;
@@ -69,7 +73,6 @@
 
 /* STATISTICAL OVERVIEW */
 .stat-block {
-  min-height: 100px;
   padding-left: 15px;
   padding-right: 15px;
 }

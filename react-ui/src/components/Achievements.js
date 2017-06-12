@@ -40,6 +40,7 @@ const Achievements = (props) => {
           </div>
         </div>
 
+        {props.badges &&
         <div className="row">
           <div className="col s6 m3 center-align">
             <img
@@ -76,8 +77,9 @@ const Achievements = (props) => {
               onClick={() => {if (props.badges.f04) {alert('Achievement Unlocked!')}}}
             />
           </div>
-        </div>
+        </div>}
 
+        {props.badges &&
         <div className="row">
           <div className="col s6 m3 center-align">
             <img
@@ -114,8 +116,9 @@ const Achievements = (props) => {
               onClick={() => {if (props.badges.f08) {alert('Achievement Unlocked!')}}}
             />
           </div>
-        </div>
+        </div>}
 
+        {props.badges &&
         <div className="row">
           <div className="col s6 m3 center-align">
             <img
@@ -152,7 +155,7 @@ const Achievements = (props) => {
               onClick={() => {if (props.badges.f12) {alert('Achievement Unlocked!')}}}
             />
           </div>
-        </div>
+        </div>}
 
       </div>
     </div>

@@ -1,6 +1,16 @@
 const Game = require('./gameModel');
 
 module.exports = {
+  loadGames: function(req, res) {
+    Game.find({_userId: req.params.id}, function(err, games) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Games Found.');
+        res.end(JSON.stringify(games));
+      }
+    });
+  },
   getGame: function(req, res) {
     Game.find({_id: req.body.id}, function(err, game) {
       if (err) {

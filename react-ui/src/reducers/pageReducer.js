@@ -1,5 +1,5 @@
 const initialState = {
-  view: 'home'
+  view: 'loading'
 };
 
 export default function reducer(state = initialState, action) {

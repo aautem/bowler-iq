@@ -28,7 +28,7 @@ class Overview extends Component {
           <div className="row">
 
             <RecentGames
-              games={this.props.user.games}
+              games={this.props.gameHistory}
               loadGame={this.props.loadGame}
               changePage={this.props.changePage}
             />
@@ -43,7 +43,7 @@ class Overview extends Component {
 
             <Statistics stats={this.props.user.stats} />
 
-            <RecentTrends games={this.props.user.games} />
+            <RecentTrends games={this.props.gameHistory} />
 
           </div>
         </div>
@@ -55,7 +55,8 @@ class Overview extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user,
+    gameHistory: state.gameHistory
   };
 };
 
