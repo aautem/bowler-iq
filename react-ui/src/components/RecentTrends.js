@@ -17,12 +17,20 @@ const RecentTrends = (props) => {
     window.google.charts.load('current', {'packages':['corechart']});
     window.google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-      var data = window.google.visualization.arrayToDataTable([
-        ['Date', 'Score'],
-        [props.games[0].date, props.games[0].score]
-      ]);
+    // takes in array of game objects and outputs dataArray to draw chart
+    function makeDataArray(games) {
+      var dataArray = [
+        ['Date', 'Score']
+      ];
+      games.forEach(function(game) {
+        var row = [game.date, game.score];
+        dataArray.push(row);
+      });
+      return dataArray;
+    }
 
+    function drawChart() {
+      var data = window.google.visualization.arrayToDataTable(makeDataArray(props.games.slice(0, 10)));
       var options = {
         curveType: 'none',
         chartArea: {

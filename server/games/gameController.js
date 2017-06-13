@@ -23,6 +23,8 @@ module.exports = {
   },
   addGame: function(req, res) {
     var newGame = new Game();
+
+    newGame.userId = req.body.userId;
     newGame.averageFrame = req.body.averageFrame;
     newGame.closePercent = req.body.closePercent;
     newGame.closedFrames = req.body.closedFrames;
@@ -35,7 +37,6 @@ module.exports = {
     newGame.splits = req.body.splits;
     newGame.strikes = req.body.strikes;
     newGame.totalPins = req.body.totalPins;
-    newGame.userId = req.body.userId;
 
     newGame.save(function(err) {
       if (err) {
