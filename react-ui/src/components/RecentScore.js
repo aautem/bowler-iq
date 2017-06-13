@@ -6,12 +6,11 @@ const RecentScore = (props) => {
       <div
         className="blue darken-4 z-depth-2 recent-score"
         onClick={() => {
-          props.loadGame();
-          props.changePage('game');
+          props.loadGame(props.game);
         }}
       >
-        <div><h6>{props.date}</h6></div>
-        <div><span>{props.score}</span></div>
+        <div><h6>{props.game.date}</h6></div>
+        <div><span>{props.game.score}</span></div>
       </div>
     </div>
   );

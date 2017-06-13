@@ -182,193 +182,26 @@ export function saveGame(game) {
       strikes: game.strikes,
       totalPins: game.totalPins
     })
-    .then(function (response) {
+    .then(function(response) {
       console.log('Game Saved:', response.data);
-      dispatch(loadSavedGame(response.data));
       dispatch(updateGameHistory(response.data));
-      return response.data;
+      dispatch(loadGame(response.data));
     })
-    .then(function(game) {
-      console.log('Updating Career Stats:', game);
-      // update career stats on user object
-    })
-    .then(function() {
-      console.log('ReRouting...');
-      // route to old game view
-      dispatch(changePage('game'));
-    })
-    .catch(function (error) {
+    .catch(function(error) {
       console.log(error);
     });
   }
 };
 
-// LOAD A GAME IMMEDIATELY AFTER SAVING (already have access to game object)
-export function loadSavedGame(game) {
-  return {
-    type: 'LOAD_GAME',
-    payload: game
-  };
-}
-
-// UPDATE WITH NEW GAME OBJECT FORMAT
-export function loadGame(gameId) {
-  // get game from db with id and send object as payload
-  let game = {
-    id: 7, // id for current game in database
-    date: '2017-06-03', // date the game was played
-    score: 174, // final score for game
-    strikes: 4, // number of strikes in game
-    spares: 4, // number of spares in game
-    splits: 1, // number of splits in game
-    frames: [ // array of frame objects (frameNumber = index + 1)
-      {
-        frame: 1, // frameNumber
-        spare: true,
-        ball1: { // first ball of frame
-          disabled: true, // score selector disabled in DOM
-          score: 5 // pins knocked down by this ball
-        },
-        ball2: { // second ball of frame
-          disabled: true,
-          score: 5
-        },
-        frameScore: 19, // total score for frame (for graphing purposes)
-        totalScore: 19 // current total score in game (cumulative)
-      },
-      {
-        frame: 2,
-        spare: true,
-        ball1: {
-          disabled: true,
-          score: 9
-        },
-        ball2: {
-          disabled: true,
-          score: 1
-        },
-        frameScore: 20,
-        totalScore: 39
-      },
-      {
-        frame: 3,
-        strike: true,
-        ball1: {
-          disabled: true,
-          score: 10
-        },
-        ball2: {
-          disabled: true,
-          score: null
-        },
-        frameScore: 27,
-        totalScore: 66
-      },
-      {
-        frame: 4,
-        strike: true,
-        ball1: {
-          disabled: true,
-          score: 10
-        },
-        ball2: {
-          disabled: true,
-          score: null
-        },
-        frameScore: 18,
-        totalScore: 84
-      },
-      {
-        frame: 5,
-        split: true,
-        ball1: {
-          disabled: true,
-          score: 7
-        },
-        ball2: {
-          disabled: true,
-          score: 1
-        },
-        frameScore: 8,
-        totalScore: 92
-      },
-      {
-        frame: 6,
-        ball1: {
-          disabled: true,
-          score: 4
-        },
-        ball2: {
-          disabled: true,
-          score: 5
-        },
-        frameScore: 9,
-        totalScore: 101
-      },
-      {
-        frame: 7,
-        strike: true,
-        ball1: {
-          disabled: true,
-          score: 10
-        },
-        ball2: {
-          disabled: true,
-          score: null
-        },
-        frameScore: 27,
-        totalScore: 128
-      },
-      {
-        frame: 8,
-        strike: true,
-        ball1: {
-          disabled: true,
-          score: 10
-        },
-        ball2: {
-          disabled: true,
-          score: null
-        },
-        frameScore: 20,
-        totalScore: 148
-      },
-      {
-        frame: 9,
-        spare: true,
-        ball1: {
-          disabled: true,
-          score: 7
-        },
-        ball2: {
-          disabled: true,
-          score: 3
-        },
-        frameScore: 12,
-        totalScore: 160
-      },
-      {
-        frame: 10,
-        ball1: {
-          disabled: true,
-          score: 2
-        },
-        ball2: {
-          disabled: true,
-          score: 8
-        },
-        ball3: {
-          disabled: true,
-          score: 4
-        },
-        frameScore: 14,
-        totalScore: 174
-      }
-    ]
-  };
-  return {
-    type: 'LOAD_GAME',
-    payload: game
+// LOAD GAME OBJECT FROM GAME HISTORY ARRAY
+export function loadGame(game) {
+  console.log('Loading Game:', game);
+  return function(dispatch) {
+    dispatch({
+      type: 'LOAD_GAME',
+      payload: game
+    });
+    dispatch(changePage('game'));
   };
 };
 

@@ -10,7 +10,6 @@ import NewGameGraph from './../components/NewGameGraph';
 
 class OldGame extends Component {
   componentDidMount() {
-    this.props.loadGame();
     // remove 'active' class from either option in navbar
     document.getElementsByClassName('nav-item')[0].classList.remove('active');
     document.getElementsByClassName('nav-item')[1].classList.remove('active');
@@ -61,8 +60,8 @@ class OldGame extends Component {
                 score={this.props.game.score}
                 strikes={this.props.game.strikes}
                 spares={this.props.game.spares}
-                splits={this.props.game.splits}
-                average={this.calculateAverageFrame()}
+                pins={this.props.game.totalPins}
+                average={this.props.game.averageFrame}
               />
             </div>
             <div className="col s12 m7">

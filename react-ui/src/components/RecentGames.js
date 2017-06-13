@@ -19,10 +19,8 @@ const RecentGames = (props) => {
             return (
               <RecentScore
                 key={game._id}
-                date={game.date}
-                score={game.score}
+                game={game}
                 loadGame={props.loadGame}
-                changePage={props.changePage}
               />
             );
           })}
@@ -33,10 +31,8 @@ const RecentGames = (props) => {
             return (
               <RecentScore
                 key={game._id}
-                date={game.date}
-                score={game.score}
+                game={game}
                 loadGame={props.loadGame}
-                changePage={props.changePage}
               />
             );
           })}
