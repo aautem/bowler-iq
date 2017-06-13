@@ -154,54 +154,28 @@ export default function reducer(state = initialState, action) {
   if (action.type === 'NEW_GAME') {
     return action.payload;
   }
-  // action.payload = frames array (game.frames) aka scorecard
+  // action.payload = complete game object
   if (action.type === 'BOWL_FIRST_BALL') {
-    let strikes = state.strikes;
-
-    if (action.payload.strike) {
-      strikes ++;
-    }
-
     return {
       ...state,
-      frames: action.payload.scorecard,
-      strikes: strikes,
-      score: getCurrentScore(action.payload.scorecard)
+      frames: action.payload.frames,
+      score: getCurrentScore(action.payload.frames)
     };
   }
-  // action.payload = frames array (game.frames) aka scorecard
+  // action.payload = complete game object
   if (action.type === 'BOWL_SECOND_BALL') {
-    let spares = state.spares;
-
-    if (action.payload.spare) {
-      spares ++;
-    }
-
     return {
       ...state,
-      frames: action.payload.scorecard,
-      spares: spares,
-      score: getCurrentScore(action.payload.scorecard)
+      frames: action.payload.frames,
+      score: getCurrentScore(action.payload.frames)
     };
   }
-  // action.payload = frames array (game.frames) aka scorecard
+  // action.payload = complete game object
   if (action.type === 'BOWL_TENTH_FRAME') {
-    let strikes = state.strikes;
-    let spares = state.spares;
-
-    if (action.payload.strike) {
-      strikes ++;
-    }
-    if (action.payload.spare) {
-      spares ++;
-    }
-
     return {
       ...state,
-      frames: action.payload.scorecard,
-      strikes: strikes,
-      spares: spares,
-      score: getCurrentScore(action.payload.scorecard)
+      frames: action.payload.frames,
+      score: getCurrentScore(action.payload.frames)
     };
   }
   // action.payload = date

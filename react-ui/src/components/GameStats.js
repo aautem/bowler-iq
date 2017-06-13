@@ -7,9 +7,6 @@ const GameStats = (props) => {
       <h6>Game Score</h6>
       <span>{props.score}</span>
       <br/>
-      <h6>Points/Frame</h6>
-      <span>{props.average}</span>
-      <br/>
       <h6>Total Strikes</h6>
       <span>{props.strikes}</span>
       <br/>
@@ -20,7 +17,10 @@ const GameStats = (props) => {
       <span>{props.closedFrames}</span>
       <br/>
       <h6>Total Pins</h6>
-      <span>{props.pins}</span>
+      <span>{props.totalPins}</span>
+      <br/>
+      <h6>Points/Frame</h6>
+      <span>{props.average}</span>
 
     </div>
   );

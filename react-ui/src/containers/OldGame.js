@@ -15,26 +15,6 @@ class OldGame extends Component {
     document.getElementsByClassName('nav-item')[1].classList.remove('active');
   }
 
-  calculateAverageFrame() {
-    // loop through frames adding up frame scores
-    // divide total score by number of frames calculated
-    let frames = 0;
-    let totalScore = 0;
-
-    this.props.game.frames.forEach((frame) => {
-      // if frame has frame score
-        // add frame
-        // add framescore to total
-      if (frame.frameScore) {
-        frames ++;
-        totalScore += frame.frameScore;
-        console.log('Frames:', frames, 'Score:', totalScore);
-      }
-    });
-
-    return frames === 0 ? 0 : ((totalScore / frames).toFixed(1));
-  }
-
   render() {
     console.log('OldGame Props:', this.props);
 
@@ -62,6 +42,7 @@ class OldGame extends Component {
                 spares={this.props.game.spares}
                 pins={this.props.game.totalPins}
                 average={this.props.game.averageFrame}
+                closedFrames={this.props.game.closedFrames}
               />
             </div>
             <div className="col s12 m7">

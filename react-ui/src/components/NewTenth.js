@@ -17,7 +17,7 @@ const NewTenth = (props) => {
             id={'one-' + props.frame.frame}
             className="browser-default"
             onChange={(e) => {
-              props.bowlTenthFrame(props.scorecard, 1, e.target.value);
+              props.bowlTenthFrame(props.game, 1, e.target.value);
             }}
             disabled={props.frame.ball1.disabled}
           >
@@ -41,7 +41,7 @@ const NewTenth = (props) => {
             id={'two-' + props.frame.frame}
             className="browser-default"
             onChange={(e) => {
-              props.bowlTenthFrame(props.scorecard, 2, e.target.value);
+              props.bowlTenthFrame(props.game, 2, e.target.value);
             }}
             disabled={props.frame.ball2.disabled}
           >
@@ -55,7 +55,7 @@ const NewTenth = (props) => {
             id={'three-' + props.frame.frame}
             className="browser-default"
             onChange={(e) => {
-              props.bowlTenthFrame(props.scorecard, 3, e.target.value);
+              props.bowlTenthFrame(props.game, 3, e.target.value);
             }}
             disabled={props.frame.ball3.disabled}
           >

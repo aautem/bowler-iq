@@ -153,7 +153,8 @@ class BowlGame extends Component {
                 score={this.props.game.score}
                 strikes={this.props.game.strikes}
                 spares={this.props.game.spares}
-                splits={this.props.game.splits}
+                closedFrames={this.props.game.closedFrames}
+                totalPins={this.props.game.totalPins}
                 average={this.calculateAverageFrame()}
               />
             </div>

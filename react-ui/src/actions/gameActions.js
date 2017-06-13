@@ -205,21 +205,31 @@ export function loadGame(game) {
   };
 };
 
-export function bowlFirstBall(scorecard, frameNumber, score) {
-  // scorecard = frames array from game object
+export function bowlFirstBall(game, frameNumber, score) {
+  // game = complete game object (game.frames to access scorecard)
   // frameNumber = number
   // score = string (convert to number below)
   score = parseInt(score, 10);
 
-  // update score on scorecard and disable first ball
-  scorecard[frameNumber - 1].ball1.score = score;
-  scorecard[frameNumber - 1].ball1.disabled = true;
+  // add pin count
+  game.totalPins += score;
+
+  // handle gutterball
+  if (score === 0) {
+    game.gutterballs ++;
+  }
+
+  // update score on frame and disable first ball
+  game.frames[frameNumber - 1].ball1.score = score;
+  game.frames[frameNumber - 1].ball1.disabled = true;
 
   // handle strike
   if (score === 10) {
     console.log('Strike!');
-    scorecard[frameNumber - 1].strike = true;
-    scorecard[frameNumber].ball1.disabled = false;
+    game.frames[frameNumber - 1].strike = true;
+    game.frames[frameNumber].ball1.disabled = false;
+    game.strikes ++;
+    game.closedFrames ++;
   }
 
   // handle everything else
@@ -228,68 +238,76 @@ export function bowlFirstBall(scorecard, frameNumber, score) {
     appendOptions('two-' + frameNumber, 10 - score, '/');
 
     // activate next ball in frame
-    scorecard[frameNumber - 1].ball2.disabled = false;
+    game.frames[frameNumber - 1].ball2.disabled = false;
   }
 
   // score game in case updates from spare or strike
-  scorecard = scoreGame(scorecard);
+  game.frames = scoreGame(game.frames);
 
   return {
     type: 'BOWL_FIRST_BALL',
-    payload: {
-      scorecard: scorecard,
-      strike: scorecard[frameNumber - 1].strike
-    }
+    payload: game
   };
 };
 
-export function bowlSecondBall(scorecard, frameNumber, score) {
-  // scorecard = frames array from game object
+export function bowlSecondBall(game, frameNumber, score) {
+  // game = complete game object (game.frames to access scorecard)
   // frameNumber = number
   // score = string (convert to number below)
   score = parseInt(score, 10);
 
-  // update score on scorecard and disable second ball
-  scorecard[frameNumber - 1].ball2.score = score;
-  scorecard[frameNumber - 1].ball2.disabled = true;
+  // add pin count
+  game.totalPins += score;
 
-  if (scorecard[frameNumber - 1].ball1.score + score === 10) {
-    scorecard[frameNumber - 1].spare = true;
+  // update score on frame and disable second ball
+  game.frames[frameNumber - 1].ball2.score = score;
+  game.frames[frameNumber - 1].ball2.disabled = true;
+
+  // handle spare
+  if (game.frames[frameNumber - 1].ball1.score + score === 10) {
+    game.frames[frameNumber - 1].spare = true;
+    game.spares ++;
+    game.closedFrames ++;
+  } else {
+    // open frame
+    game.openFrames ++;
   }
 
-  scorecard = scoreGame(scorecard);
+  game.frames = scoreGame(game.frames);
 
   // activate first ball, next frame
-  scorecard[frameNumber].ball1.disabled = false;
+  game.frames[frameNumber].ball1.disabled = false;
 
   return {
     type: 'BOWL_SECOND_BALL',
-    payload: {
-      scorecard: scorecard,
-      spare: scorecard[frameNumber - 1].spare
-    }
+    payload: game
   };
 };
 
-export function bowlTenthFrame(scorecard, ballNumber, score) {
-  // scorecard = frames array from game object
+export function bowlTenthFrame(game, ballNumber, score) {
+  // game = complete game object (game.frames to access scorecard)
   // ballNumber = number
   // score = string (convert to number below)
   score = parseInt(score, 10);
   let strike = false;
   let spare = false;
 
+  // add pin count
+  game.totalPins += score;
+
   if (ballNumber === 1) {
     console.log('Ball1.');
     // set ball1 score
-    scorecard[9].ball1.score = score;
+    game.frames[9].ball1.score = score;
     // disable ball1 select
-    scorecard[9].ball1.disabled = true;
+    game.frames[9].ball1.disabled = true;
 
     // add options to ball2 select
     // IF STRIKE, ADD ALL OPTIONS
     if (score === 10) {
       strike = true;
+      game.strikes ++;
+      game.closedFrames ++;
       appendOptions('two-10', 10, 'X');
     }
     // IF NOT A STRIKE, ADD PINS LEFT
@@ -297,67 +315,68 @@ export function bowlTenthFrame(scorecard, ballNumber, score) {
       appendOptions('two-10', 10 - score, '/');
     }
     // activate ball2 select
-    scorecard[9].ball2.disabled = false;
+    game.frames[9].ball2.disabled = false;
   }
 
   // APPEND OPTIONS TO BALL3 SELECT
   if (ballNumber === 2) {
     console.log('Ball2.');
     // set ball2 score
-    scorecard[9].ball2.score = score;
+    game.frames[9].ball2.score = score;
     // disable ball2 select
-    scorecard[9].ball2.disabled = true;
+    game.frames[9].ball2.disabled = true;
 
     // add options to ball3 select
     // IF BALL1 STRIKE
-    if (scorecard[9].ball1.score === 10) {
+    if (game.frames[9].ball1.score === 10) {
       // IF BALL 2 STRIKE
         // ADD ALL OPTIONS
       if (score === 10) {
         strike = true;
+        game.strikes ++;
         appendOptions('three-10', 10, 'X');
       } else { // OTHERWISE
         // ADD PINSLEFT (10 - ball2.score)
         appendOptions('three-10', 10 - score, '/');
       }
-      scorecard[9].ball3.disabled = false;
+      game.frames[9].ball3.disabled = false;
     }
 
     // IF BALL2 SPARE
       // ADD ALL OPTIONS
-    if (scorecard[9].ball1.score + scorecard[9].ball2.score === 10) {
+    if (game.frames[9].ball1.score + game.frames[9].ball2.score === 10) {
       spare = true;
+      game.spares ++;
+      game.closedFrames ++;
       appendOptions('three-10', 10, 'X');
-      scorecard[9].ball3.disabled = false;
+      game.frames[9].ball3.disabled = false;
+    } else {
+      game.openFrames ++;
     }
   }
 
   if (ballNumber === 3) {
     console.log('Ball3.');
     // set ball3 score
-    scorecard[9].ball3.score = score;
+    game.frames[9].ball3.score = score;
     // disable ball3 select
-    scorecard[9].ball3.disabled = true;
+    game.frames[9].ball3.disabled = true;
     // if STRIKE, add STRIKE flag
     if (score === 10) {
       strike = true;
     }
     // if SPARE, add SPARE flag
-    if (score + scorecard[9].ball2.score === 10) {
+    if (score + game.frames[9].ball2.score === 10) {
       spare = true;
     }
   }
 
   // score game
-  scorecard = scoreGame(scorecard);
+  game.frames = scoreGame(game.frames);
 
   return {
     type: 'BOWL_TENTH_FRAME',
-    payload: {
-      scorecard: scorecard,
-      strike: strike,
-      spare: spare
-    }
+    payload: game
   };
 };
 

@@ -16,7 +16,7 @@ const NewFrame = (props) => {
             id={'one-' + props.frame.frame}
             className="browser-default"
             onChange={(e) => {
-              props.bowlFirstBall(props.scorecard, props.frame.frame, e.target.value);
+              props.bowlFirstBall(props.game, props.frame.frame, e.target.value);
             }}
             disabled={props.frame.ball1.disabled}
           >
@@ -40,7 +40,7 @@ const NewFrame = (props) => {
             id={'two-' + props.frame.frame}
             className="browser-default"
             onChange={(e) => {
-              props.bowlSecondBall(props.scorecard, props.frame.frame, e.target.value);
+              props.bowlSecondBall(props.game, props.frame.frame, e.target.value);
             }}
             disabled={props.frame.ball2.disabled}
           >

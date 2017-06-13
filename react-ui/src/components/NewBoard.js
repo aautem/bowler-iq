@@ -17,7 +17,7 @@ const NewBoard = (props) => {
               key={frame.frame}
             >
               <NewFrame
-                scorecard={props.game.frames}
+                game={props.game}
                 frame={frame}
                 bowlFirstBall={props.bowlFirstBall}
                 bowlSecondBall={props.bowlSecondBall}
@@ -37,7 +37,7 @@ const NewBoard = (props) => {
               key={frame.frame}
             >
               <NewFrame
-                scorecard={props.game.frames}
+                game={props.game}
                 frame={frame}
                 bowlFirstBall={props.bowlFirstBall}
                 bowlSecondBall={props.bowlSecondBall}
@@ -47,7 +47,7 @@ const NewBoard = (props) => {
         })}
         <div className="col s12 m2">
           <NewTenth
-            scorecard={props.game.frames}
+            game={props.game}
             frame={props.game.frames[9]}
             bowlTenthFrame={props.bowlTenthFrame}
           />
