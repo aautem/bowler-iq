@@ -29,7 +29,6 @@ import icon11w from './../icons/11w.png';
 import icon12w from './../icons/12w.png';
 
 const Achievements = (props) => {
-  console.log('Achievements Props:', props);
   return (
     <div className="col s12 m6">
       <div className="grey darken-1 z-depth-5 stat-block">

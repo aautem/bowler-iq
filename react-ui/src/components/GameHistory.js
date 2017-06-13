@@ -1,7 +1,6 @@
 import React from 'react';
 
 const GameHistory = (props) => {
-  console.log('GameHistory Props:', props);
   return (
     <div className="section grey lighten-2">
       <div className="container center-align">

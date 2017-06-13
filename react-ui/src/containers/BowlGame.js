@@ -44,21 +44,17 @@ class BowlGame extends Component {
   }
 
   addAverageFrame(game) {
-    console.log('Adding average frame.');
     game.averageFrame = game.score / 10;
   }
 
   addClosePercent(game) {
-    console.log('Adding open and closed frames.');
     game.closePercent = (game.closedFrames / 10).toFixed(3);
   }
 
   submitGame() {
-    console.log('Game submitted.');
     var game = Object.assign({}, this.props.game);
     this.addAverageFrame(game);
     this.addClosePercent(game);
-    console.log('Game to Save:', game);
     this.props.saveGame(game);
     this.props.updateUserStats(this.props.user, game);
   }
@@ -76,7 +72,6 @@ class BowlGame extends Component {
       if (frame.frameScore) {
         frames ++;
         totalScore += frame.frameScore;
-        console.log('Frames:', frames, 'Score:', totalScore);
       }
     });
 
@@ -84,7 +79,6 @@ class BowlGame extends Component {
   }
 
   render() {
-    console.log('BowlGame Props:', this.props);
     return (
       <div className="section grey lighten-2">
 

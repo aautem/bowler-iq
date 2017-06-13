@@ -11,14 +11,14 @@ export default function reducer(state = [], action) {
 
     // return b.date - a.date
     gameHistory.sort(function(a, b) {
-      var aYear = parseInt(a.date.slice(0, 4));
-      var bYear = parseInt(b.date.slice(0, 4));
+      var aYear = parseInt(a.date.slice(0, 4), 10);
+      var bYear = parseInt(b.date.slice(0, 4), 10);
 
-      var aMonth = parseInt(a.date.slice(5, 7));
-      var bMonth = parseInt(b.date.slice(5, 7));
+      var aMonth = parseInt(a.date.slice(5, 7), 10);
+      var bMonth = parseInt(b.date.slice(5, 7), 10);
 
-      var aDay = parseInt(a.date.slice(8));
-      var bDay = parseInt(b.date.slice(8));
+      var aDay = parseInt(a.date.slice(8), 10);
+      var bDay = parseInt(b.date.slice(8), 10);
 
       if (aYear !== bYear) {
         return bYear - aYear;

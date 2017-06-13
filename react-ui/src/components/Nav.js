@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Nav = (props) => {
-  console.log('Nav Props:', props);
   return (
     <nav className="blue darken-4">
       <div className="nav-wrapper container">

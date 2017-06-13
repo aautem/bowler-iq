@@ -1,8 +1,6 @@
 import React from 'react';
 
 const NewGameGraph = (props) => {
-  console.log('NewGameGraph Props:', props);
-
   var getMax = function(frame) {
     if (frame === 1) {
       return 300;

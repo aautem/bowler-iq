@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Loading = (props) => {
-  console.log('Loading Props:', props);
   return (
     <div className="section grey lighten-2">
 

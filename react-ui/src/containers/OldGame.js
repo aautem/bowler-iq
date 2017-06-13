@@ -16,8 +16,6 @@ class OldGame extends Component {
   }
 
   render() {
-    console.log('OldGame Props:', this.props);
-
     return (
       <div className="section grey lighten-2">
 

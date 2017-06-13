@@ -164,7 +164,6 @@ export function newGame(userId) {
 };
 
 export function saveGame(game) {
-  console.log('Saving Game.', game);
   return function(dispatch) {
     dispatch(changePage('loading'));
     axios.post('/api/games', {
@@ -195,7 +194,6 @@ export function saveGame(game) {
 
 // LOAD GAME OBJECT FROM GAME HISTORY ARRAY
 export function loadGame(game) {
-  console.log('Loading Game:', game);
   return function(dispatch) {
     dispatch({
       type: 'LOAD_GAME',
@@ -225,7 +223,6 @@ export function bowlFirstBall(game, frameNumber, score) {
 
   // handle strike
   if (score === 10) {
-    console.log('Strike!');
     game.frames[frameNumber - 1].strike = true;
     game.frames[frameNumber].ball1.disabled = false;
     game.strikes ++;
@@ -234,7 +231,6 @@ export function bowlFirstBall(game, frameNumber, score) {
 
   // handle everything else
   if (score < 10) {
-    console.log('Good shot.');
     appendOptions('two-' + frameNumber, 10 - score, '/');
 
     // activate next ball in frame
@@ -294,7 +290,6 @@ export function bowlTenthFrame(game, ballNumber, score) {
   game.totalPins += score;
 
   if (ballNumber === 1) {
-    console.log('Ball1.');
     // set ball1 score
     game.frames[9].ball1.score = score;
     // disable ball1 select
@@ -317,7 +312,6 @@ export function bowlTenthFrame(game, ballNumber, score) {
 
   // APPEND OPTIONS TO BALL3 SELECT
   if (ballNumber === 2) {
-    console.log('Ball2.');
     // set ball2 score
     game.frames[9].ball2.score = score;
     // disable ball2 select
@@ -351,7 +345,6 @@ export function bowlTenthFrame(game, ballNumber, score) {
   }
 
   if (ballNumber === 3) {
-    console.log('Ball3.');
     // set ball3 score
     game.frames[9].ball3.score = score;
     // disable ball3 select
@@ -376,7 +369,6 @@ export function bowlTenthFrame(game, ballNumber, score) {
 };
 
 export function addDate(date) {
-  console.log('Date:', date, typeof date);
   // disable date input
   document.getElementById('game-date').disabled = true;
   return {

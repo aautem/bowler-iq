@@ -19,8 +19,6 @@ class Overview extends Component {
   }
 
   render() {
-    console.log('Overview Props:', this.props);
-
     return (
       <div className="section grey lighten-2">
 

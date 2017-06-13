@@ -4,7 +4,6 @@ import OldFrame from './OldFrame';
 import OldTenth from './OldTenth';
 
 const OldBoard = (props) => {
-  console.log('OldBoard Props:', props);
   return (
     <div className="row">
 

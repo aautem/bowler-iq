@@ -1,8 +1,6 @@
 import React from 'react';
 
 const RecentTrends = (props) => {
-  console.log('RecentTrends Props:', props);
-
   if (props.games.length === 0) {
     // no game data available
     return (

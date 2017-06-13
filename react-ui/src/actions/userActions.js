@@ -1,11 +1,9 @@
 import axios from 'axios';
 
 export function getUser(userId) {
-  console.log('Logging In.');
   return function(dispatch) {
     axios.get('/api/users/' + userId)
       .then(function(response) {
-        console.log('User Response:', response.data);
         if (!response.data) {
           console.log('User Does Not Exist.');
         } else {
@@ -22,9 +20,6 @@ export function getUser(userId) {
 }
 
 export function updateUserStats(user, newGame) {
-  console.log('Updating User Stats:', user);
-  console.log('With New Game:', newGame);
-
   var stats = Object.assign({}, user.stats);
 
   // go through each stat and update
@@ -38,7 +33,7 @@ export function updateUserStats(user, newGame) {
   stats.gutterballs += newGame.gutterballs;
   stats.openFrames += newGame.openFrames;
   stats.closedFrames += newGame.closedFrames;
-  stats.average = stats.totalScore / stats.totalGames;
+  stats.average = (stats.totalScore / stats.totalGames).toFixed(1);
   stats.averageFrame = stats.totalScore / stats.totalFrames;
   stats.closePercent = stats.closedFrames / stats.totalFrames;
 
@@ -52,9 +47,6 @@ export function updateUserStats(user, newGame) {
       stats: stats
     }
   })
-    .then(function(response) {
-      console.log('User Stats Updated:', response.data);
-    })
     .catch(function(error) {
       console.log(error);
     });

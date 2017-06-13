@@ -1,7 +1,6 @@
 import React from 'react';
 
 const NewTenth = (props) => {
-  console.log('NewTenth Props:', props);
   return (
     <div className="white z-depth-2 new-frame">
 

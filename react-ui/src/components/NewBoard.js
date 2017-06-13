@@ -4,7 +4,6 @@ import NewFrame from './NewFrame';
 import NewTenth from './NewTenth';
 
 const NewBoard = (props) => {
-  console.log('NewBoard Props:', props);
   return (
     <div className="row">
 
