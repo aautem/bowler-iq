@@ -21,11 +21,11 @@ export function getUser(userId) {
   }
 }
 
-export function updateUserStats(userStats, newGame) {
-  console.log('Updating User Stats:', userStats);
+export function updateUserStats(user, newGame) {
+  console.log('Updating User Stats:', user);
   console.log('With New Game:', newGame);
 
-  var stats = Object.assign({}, userStats);
+  var stats = Object.assign({}, user.stats);
 
   // go through each stat and update
   stats.totalGames ++;
@@ -46,7 +46,18 @@ export function updateUserStats(userStats, newGame) {
     stats.highScore = newGame.score;
   }
 
-  // save updated user to database
+  // save updated user stats to database
+  axios.put('/api/users/' + user._id, {
+    user: {
+      stats: stats
+    }
+  })
+    .then(function(response) {
+      console.log('User Stats Updated:', response.data);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
 
   // send to reducer
   return {

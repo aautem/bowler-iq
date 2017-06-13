@@ -81,7 +81,7 @@ class BowlGame extends Component {
     this.addTotalPins(game);
     console.log('Game to Save:', game);
     this.props.saveGame(game);
-    this.props.updateUserStats(this.props.user.stats, game);
+    this.props.updateUserStats(this.props.user, game);
   }
 
   calculateAverageFrame() {
