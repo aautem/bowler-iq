@@ -48,37 +48,16 @@ class BowlGame extends Component {
     game.averageFrame = game.score / 10;
   }
 
-  addOpenClosed(game) {
+  addClosePercent(game) {
     console.log('Adding open and closed frames.');
-    game.frames.forEach(function(frame) {
-      if (frame.ball1.score + frame.ball2.score >= 10) {
-        game.closedFrames ++;
-      } else {
-        game.openFrames ++;
-      }
-    });
     game.closePercent = (game.closedFrames / 10).toFixed(3);
-  }
-
-  addTotalPins(game) {
-    console.log('Adding total pins.');
-    game.frames.forEach(function(frame) {
-      game.totalPins += (frame.ball1.score + frame.ball2.score);
-    });
-    game.totalPins += (game.frames[9].ball3.score || 0);
-  }
-
-  addGutterballs(game) {
-    console.log('Adding gutterballs.');
-    // to do
   }
 
   submitGame() {
     console.log('Game submitted.');
     var game = Object.assign({}, this.props.game);
     this.addAverageFrame(game);
-    this.addOpenClosed(game);
-    this.addTotalPins(game);
+    this.addClosePercent(game);
     console.log('Game to Save:', game);
     this.props.saveGame(game);
     this.props.updateUserStats(this.props.user, game);

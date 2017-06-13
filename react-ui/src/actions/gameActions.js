@@ -8,7 +8,7 @@ import {appendOptions} from './../utilities/actionHelpers';
 
 export function newGame(userId) {
   let gameTemplate = {
-    _userId: userId,
+    userId: userId,
     date: null, // date the game was played
     score: 0, // final score for game
     strikes: 0, // number of strikes in game
@@ -168,7 +168,7 @@ export function saveGame(game) {
   return function(dispatch) {
     dispatch(changePage('loading'));
     axios.post('/api/games', {
-      userId: game._userId,
+      userId: game.userId,
       averageFrame: game.averageFrame,
       closePercent: game.closePercent,
       closedFrames: game.closedFrames,
@@ -289,8 +289,6 @@ export function bowlTenthFrame(game, ballNumber, score) {
   // ballNumber = number
   // score = string (convert to number below)
   score = parseInt(score, 10);
-  let strike = false;
-  let spare = false;
 
   // add pin count
   game.totalPins += score;
@@ -305,7 +303,6 @@ export function bowlTenthFrame(game, ballNumber, score) {
     // add options to ball2 select
     // IF STRIKE, ADD ALL OPTIONS
     if (score === 10) {
-      strike = true;
       game.strikes ++;
       game.closedFrames ++;
       appendOptions('two-10', 10, 'X');
@@ -332,7 +329,6 @@ export function bowlTenthFrame(game, ballNumber, score) {
       // IF BALL 2 STRIKE
         // ADD ALL OPTIONS
       if (score === 10) {
-        strike = true;
         game.strikes ++;
         appendOptions('three-10', 10, 'X');
       } else { // OTHERWISE
@@ -345,7 +341,6 @@ export function bowlTenthFrame(game, ballNumber, score) {
     // IF BALL2 SPARE
       // ADD ALL OPTIONS
     if (game.frames[9].ball1.score + game.frames[9].ball2.score === 10) {
-      spare = true;
       game.spares ++;
       game.closedFrames ++;
       appendOptions('three-10', 10, 'X');
@@ -363,11 +358,11 @@ export function bowlTenthFrame(game, ballNumber, score) {
     game.frames[9].ball3.disabled = true;
     // if STRIKE, add STRIKE flag
     if (score === 10) {
-      strike = true;
+      game.strikes ++;
     }
     // if SPARE, add SPARE flag
     if (score + game.frames[9].ball2.score === 10) {
-      spare = true;
+      game.spares ++;
     }
   }
 

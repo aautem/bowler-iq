@@ -40,9 +40,9 @@ class OldGame extends Component {
                 score={this.props.game.score}
                 strikes={this.props.game.strikes}
                 spares={this.props.game.spares}
-                pins={this.props.game.totalPins}
-                average={this.props.game.averageFrame}
                 closedFrames={this.props.game.closedFrames}
+                totalPins={this.props.game.totalPins}
+                average={this.props.game.averageFrame}
               />
             </div>
             <div className="col s12 m7">
