@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import {changePage} from './pageActions';
+import {updateGameHistory} from './gameHistoryActions';
 
 import {scoreGame} from './../utilities/actionHelpers';
 import {appendOptions} from './../utilities/actionHelpers';
@@ -163,21 +164,52 @@ export function newGame(userId) {
 };
 
 export function saveGame(game) {
-  console.log('Saving Game.');
+  console.log('Saving Game.', game);
   return function(dispatch) {
     dispatch(changePage('loading'));
-    // axios.post('/user', {
-    //   firstName: 'Fred',
-    //   lastName: 'Flintstone'
-    // })
-    // .then(function (response) {
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    axios.post('/api/games', {
+      userId: game._userId,
+      averageFrame: game.averageFrame,
+      closePercent: game.closePercent,
+      closedFrames: game.closedFrames,
+      date: game.date,
+      frames: game.frames,
+      gutterballs: game.gutterballs,
+      openFrames: game.openFrames,
+      score: game.score,
+      spares: game.spares,
+      splits: game.splits,
+      strikes: game.strikes,
+      totalPins: game.totalPins
+    })
+    .then(function (response) {
+      console.log('Game Saved:', response.data);
+      dispatch(loadSavedGame(response.data));
+      dispatch(updateGameHistory(response.data));
+      return response.data;
+    })
+    .then(function(game) {
+      console.log('Updating Career Stats:', game);
+      // update career stats on user object
+    })
+    .then(function() {
+      console.log('ReRouting...');
+      // route to old game view
+      dispatch(changePage('game'));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 };
+
+// LOAD A GAME IMMEDIATELY AFTER SAVING (already have access to game object)
+export function loadSavedGame(game) {
+  return {
+    type: 'LOAD_GAME',
+    payload: game
+  };
+}
 
 // UPDATE WITH NEW GAME OBJECT FORMAT
 export function loadGame(gameId) {

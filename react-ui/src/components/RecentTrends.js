@@ -20,12 +20,7 @@ const RecentTrends = (props) => {
     function drawChart() {
       var data = window.google.visualization.arrayToDataTable([
         ['Date', 'Score'],
-        [props.games[0].date, props.games[0].score],
-        [props.games[1].date, props.games[1].score],
-        [props.games[2].date, props.games[2].score],
-        [props.games[3].date, props.games[3].score],
-        [props.games[4].date, props.games[4].score],
-        [props.games[5].date, props.games[5].score]
+        [props.games[0].date, props.games[0].score]
       ]);
 
       var options = {

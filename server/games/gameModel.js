@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var GameSchema = new mongoose.Schema({
   // _id: // AUTO-GENERATED
-  _userId: {type: mongoose.Schema.ObjectId, ref: 'User'},
+  userId: {type: mongoose.Schema.ObjectId, ref: 'User'},
   date: String,
   frames: Array,
   score: Number,
@@ -13,6 +13,7 @@ var GameSchema = new mongoose.Schema({
   averageFrame: Number,
   openFrames: Number,
   closedFrames: Number,
+  closePercent: Number,
   totalPins: Number
 });
 

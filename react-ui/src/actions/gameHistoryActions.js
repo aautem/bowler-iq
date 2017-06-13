@@ -20,5 +20,12 @@ export function loadGames(userId) {
       .catch(function(error) {
         console.log(error);
       });
-  }
+  };
+};
+
+export function updateGameHistory(game) {
+  return {
+    type: 'UPDATE_GAME_HISTORY',
+    payload: game
+  };
 };

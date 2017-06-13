@@ -6,6 +6,7 @@ import {addDate} from './../actions/gameActions';
 import {bowlFirstBall} from './../actions/gameActions';
 import {bowlSecondBall} from './../actions/gameActions';
 import {bowlTenthFrame} from './../actions/gameActions';
+import {saveGame} from './../actions/gameActions';
 
 import NewBoard from './../components/NewBoard';
 import GameStats from './../components/GameStats';
@@ -78,6 +79,7 @@ class BowlGame extends Component {
     this.addOpenClosed(game);
     this.addTotalPins(game);
     console.log('Game to Save:', game);
+    this.props.saveGame(game);
   }
 
   calculateAverageFrame() {
@@ -176,7 +178,8 @@ function mapDispatchToProps(dispatch) {
     addDate: addDate,
     bowlFirstBall: bowlFirstBall,
     bowlSecondBall: bowlSecondBall,
-    bowlTenthFrame: bowlTenthFrame
+    bowlTenthFrame: bowlTenthFrame,
+    saveGame: saveGame
   }, dispatch);
 };
 

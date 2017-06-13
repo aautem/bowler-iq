@@ -2,7 +2,7 @@ const Game = require('./gameModel');
 
 module.exports = {
   loadGames: function(req, res) {
-    Game.find({_userId: req.params.id}, function(err, games) {
+    Game.find({userId: req.params.id}, function(err, games) {
       if (err) {
         console.log(err);
       } else {
@@ -23,18 +23,19 @@ module.exports = {
   },
   addGame: function(req, res) {
     var newGame = new Game();
-    newGame._userId = req.body.userId;
+    newGame.averageFrame = req.body.averageFrame;
+    newGame.closePercent = req.body.closePercent;
+    newGame.closedFrames = req.body.closedFrames;
     newGame.date = req.body.date;
     newGame.frames = req.body.frames;
+    newGame.gutterballs = req.body.gutterballs;
+    newGame.openFrames = req.body.openFrames;
     newGame.score = req.body.score;
     newGame.spares = req.body.spares;
     newGame.splits = req.body.splits;
     newGame.strikes = req.body.strikes;
-    newGame.gutterballs = req.body.gutterballs;
-    newGame.averageFrame = req.body.averageFrame;
-    newGame.openFrames = req.body.openFrames;
-    newGame.closedFrames = req.body.closedFrames;
     newGame.totalPins = req.body.totalPins;
+    newGame.userId = req.body.userId;
 
     newGame.save(function(err) {
       if (err) {
