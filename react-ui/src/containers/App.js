@@ -18,8 +18,13 @@ import './../styles/index.css';
 
 class App extends Component {
   componentWillMount() {
-    this.props.getUser('593e1e934b733b02bbca3198');
-    this.props.loadGames('593e1e934b733b02bbca3198');
+    // Heroku deployment
+    this.props.getUser('593e053407767c001168ca55');
+    this.props.loadGames('593e053407767c001168ca55');
+
+    // Local development
+    // this.props.getUser('593e1e934b733b02bbca3198');
+    // this.props.loadGames('593e1e934b733b02bbca3198');
   }
 
   componentDidMount() {
