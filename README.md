@@ -44,6 +44,10 @@ https://www.figma.com/file/0EldredE2QfEJcJGeKoNzXp8/Alley-Life-Architecture
 ### page - Currently rendered page of app
 #### properties: view (string === 'home', 'bowl', 'game' or 'loading')
 
+## Graphs coming soon
+Strikes & Spares per game
+Open/Closed Frame percentages (pie chart)
+
 =================================================
 
 # Create React App
