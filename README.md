@@ -28,8 +28,21 @@ https://www.figma.com/file/0EldredE2QfEJcJGeKoNzXp8/Alley-Life-Architecture
 ## Architecture
 https://www.figma.com/file/0EldredE2QfEJcJGeKoNzXp8/Alley-Life-Architecture
 
-## Notes
-Use D3.js for data visualization of scores throughout the game (avg. per ball/frame, etc.) and scores over lifetime. Badges for different achievements? (Turkey, Gobble gobble (3 turkeys), bowl three games in one day, etc.)
+## App Props
+### user (object) - Currently logged in user
+#### properties: name (string), _id (string), badges (object), stats (object)
+### user.stats (object)
+#### properties: average, averageFrame, closePercent, closedFrames, gutterballs, highScore, openFrames, totalFrames, totalGames, totalPins, totalScore, totalSpares, totalSplits, totalStrikes
+
+### game - Currently loaded game
+#### properties: averageFrame, closePercent, closedFrames, date (string), frames (array of frame objects), gutterballs, openFrames, score, spares, splits, strikes, totalPins, userId (string pointing to user), _id (string)
+### game.frames[{frame# - 1}] (object)
+#### properties: ball1 (object - disabled (boolean controlling ball input), score), ball2 (object - disabled (boolean), score), frame, frameScore (score for current frame), totalScore (cumulative score through this frame)
+
+### gameHistory - Array of game objects associated with current user (see game above)
+
+### page - Currently rendered page of app
+#### properties: view (string === 'home', 'bowl', 'game' or 'loading')
 
 =================================================
 
