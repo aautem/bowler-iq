@@ -30,6 +30,7 @@ class Overview extends Component {
             <RecentGames
               games={this.props.gameHistory}
               loadGame={this.props.loadGame}
+              changePage={this.props.changePage}
             />
 
             <Achievements badges={this.props.user.badges} />

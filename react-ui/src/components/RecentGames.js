@@ -41,7 +41,7 @@ const RecentGames = (props) => {
         {props.games.length > 6 &&
         <div className="row">
           <div className="col s12">
-            <a onClick={() => {console.log('Loading')}}>More Games...</a>
+            <a onClick={() => {props.changePage('history')}}>More Games...</a>
           </div>
         </div>}
 

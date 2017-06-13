@@ -6,11 +6,13 @@ import {getUser} from './../actions/userActions';
 import {loadGames} from './../actions/gameHistoryActions';
 import {changePage} from './../actions/pageActions';
 import {newGame} from './../actions/gameActions';
+import {loadGame} from './../actions/gameActions';
 
 import Nav from './../components/Nav';
 import Overview from './Overview';
 import BowlGame from './BowlGame';
 import OldGame from './OldGame';
+import GameHistory from './../components/GameHistory';
 import Loading from './../components/Loading';
 import Footer from './../components/Footer';
 
@@ -49,6 +51,12 @@ class App extends Component {
         {this.props.page.view === 'game' &&
         <OldGame />}
 
+        {this.props.page.view === 'history' &&
+        <GameHistory
+          gameHistory={this.props.gameHistory}
+          loadGame={this.props.loadGame}
+        />}
+
         {this.props.page.view === 'loading' &&
         <Loading />}
 
@@ -71,7 +79,8 @@ function mapDispatchToProps(dispatch) {
     getUser: getUser,
     loadGames: loadGames,
     changePage: changePage,
-    newGame: newGame
+    newGame: newGame,
+    loadGame: loadGame
   }, dispatch);
 };
 
