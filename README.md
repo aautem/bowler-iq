@@ -4,14 +4,22 @@
 Track your bowling scores over your entire career. Compare scores over time with visual data and earn badges for your accomplishments.
 
 ## Tech Stack
-Front-End: React/Redux
-Back-End: Node/Express
-Database/ORM: MongoDB/Mongoose
-User Signup: bcrypt OR Auth0 OR OAuth
-Testing: Mocha/Chai OR Jest/Enzyme
-Build Tool: Webpack
-CSS Template: Materialize.css
-Data Visualization: D3.js OR Google Charts
+### Front-End
+React/Redux
+### Back-End
+Node/Express
+### Database/ORM
+MongoDB/Mongoose
+### CSS Template
+Materialize.css
+### Data Visualization
+Google Charts (update to D3.js)
+### User Signup
+bcrypt OR Auth0 OR OAuth
+### Testing
+Mocha/Chai OR Jest/Enzyme
+### Build Tool
+Webpack
 
 ## Backlog
 https://waffle.io/aautem/alleylife
@@ -30,21 +38,21 @@ https://www.figma.com/file/0EldredE2QfEJcJGeKoNzXp8/Alley-Life-Architecture
 
 ## App Props
 ### user (object) - Currently logged in user
-#### properties: name (string), _id (string), badges (object), stats (object)
-### user.stats (object)
-#### properties: average, averageFrame, closePercent, closedFrames, gutterballs, highScore, openFrames, totalFrames, totalGames, totalPins, totalScore, totalSpares, totalSplits, totalStrikes
+properties: name (string), _id (string), badges (object), stats (object)
+#### user.stats (object)
+properties: average, averageFrame, closePercent, closedFrames, gutterballs, highScore, openFrames, totalFrames, totalGames, totalPins, totalScore, totalSpares, totalSplits, totalStrikes
 
 ### game - Currently loaded game
-#### properties: averageFrame, closePercent, closedFrames, date (string), frames (array of frame objects), gutterballs, openFrames, score, spares, splits, strikes, totalPins, userId (string pointing to user), _id (string)
-### game.frames[{frame# - 1}] (object)
-#### properties: ball1 (object - disabled (boolean controlling ball input), score), ball2 (object - disabled (boolean), score), frame, frameScore (score for current frame), totalScore (cumulative score through this frame)
+properties: averageFrame, closePercent, closedFrames, date (string), frames (array of frame objects), gutterballs, openFrames, score, spares, splits, strikes, totalPins, userId (string pointing to user), _id (string)
+#### game.frames[{frame# - 1}] (object)
+properties: ball1 (object - disabled (boolean controlling ball input), score), ball2 (object - disabled (boolean), score), frame, frameScore (score for current frame), totalScore (cumulative score through this frame)
 
 ### gameHistory - Array of game objects associated with current user (see game above)
 
 ### page - Currently rendered page of app
-#### properties: view (string === 'home', 'bowl', 'game' or 'loading')
+properties: view (string === 'home', 'bowl', 'game', 'history' or 'loading')
 
-## Graphs coming soon
+## New Graphs
 Strikes & Spares per game
 Open/Closed Frame percentages (pie chart)
 
