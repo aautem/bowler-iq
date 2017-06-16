@@ -16,21 +16,21 @@ npm start
 ```
 
 ## Tech Stack
-### Front-End
+#### Front-End
 React/Redux
-### Back-End
+#### Back-End
 Node/Express
-### Database/ORM
+#### Database/ORM
 MongoDB/Mongoose
-### CSS Template
+#### CSS Template
 Materialize.css
-### Data Visualization
+#### Data Visualization
 Google Charts (update to D3.js)
-### User Signup
+#### User Signup
 bcrypt OR Auth0 OR OAuth
-### Testing
+#### Testing
 Mocha/Chai OR Jest/Enzyme
-### Build Tool
+#### Build Tool
 Webpack
 
 ## Backlog
