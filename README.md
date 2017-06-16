@@ -3,6 +3,18 @@
 ## Idea
 Track your bowling scores over your entire career. Compare scores over time with visual data and earn badges for your accomplishments.
 
+## Local Development
+From the root directory:
+
+```
+npm install
+mongod
+npm start
+cd react-ui
+npm install
+npm start
+```
+
 ## Tech Stack
 ### Front-End
 React/Redux
