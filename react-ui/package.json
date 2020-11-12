@@ -1,7 +1,11 @@
 {
   "name": "bowler-iq-client",
   "version": "1.0.0",
+  "description": "BolwerIQ client",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "axios": "^0.18.1",
     "react": "^17.0.1",

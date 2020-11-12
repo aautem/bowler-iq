@@ -1,9 +1,10 @@
 {
   "name": "bowler-iq-server",
   "version": "1.0.0",
-  "description": "BolwerIQ backend API",
+  "description": "BolwerIQ server",
+  "private": true,
   "engines": {
-    "node": "6.9.x"
+    "node": "12.x"
   },
   "scripts": {
     "start": "node server",
