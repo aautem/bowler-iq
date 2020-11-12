@@ -31,7 +31,7 @@ import icon12w from './../icons/12w.png';
 const Achievements = (props) => {
   return (
     <div className="col s12 m6">
-      <div className="grey darken-1 z-depth-5 stat-block">
+      <div className="grey darken-1 z-depth-5 stat-block" style={{ minHeight: 42 }}>
 
         <div className="row">
           <div className="col s12">

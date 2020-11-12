@@ -31,7 +31,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div
+        className="grey lighten-2"
+        style={{
+          alignItems: 'stretch',
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100vh',
+          justifyContent: 'space-between',
+        }}
+      >
         <Nav
           user={this.props.user}
           changePage={this.props.changePage}

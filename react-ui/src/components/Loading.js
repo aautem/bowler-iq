@@ -3,7 +3,6 @@ import React from 'react';
 const Loading = (props) => {
   return (
     <div className="section grey lighten-2">
-
       <div className="container">
         <div className="row center-align loading">
           <h4>Loading</h4>
@@ -18,10 +17,8 @@ const Loading = (props) => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
   );
 };

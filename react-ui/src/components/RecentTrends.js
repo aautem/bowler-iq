@@ -2,11 +2,10 @@ import React from 'react';
 
 const RecentTrends = (props) => {
   if (props.games.length === 0) {
-    // no game data available
     return (
       <div className="col s12 m7">
         <div className="center-align">
-          <h5>No Game Data Available</h5>
+          <h5>No game data available</h5>
         </div>
       </div>
     );
