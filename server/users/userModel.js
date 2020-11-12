@@ -1,38 +1,119 @@
-var mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
 
-var UserSchema = new mongoose.Schema({
-  // _id: // AUTO-GENERATED
-  name: String,
-  badges: {
-    f01: Boolean,
-    f02: Boolean,
-    f03: Boolean,
-    f04: Boolean,
-    f05: Boolean,
-    f06: Boolean,
-    f07: Boolean,
-    f08: Boolean,
-    f09: Boolean,
-    f10: Boolean,
-    f11: Boolean,
-    f12: Boolean
+const sequelize = require('../db');
+
+const User = sequelize.define('User', {
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
   },
-  stats: {
-    average: Number,
-    averageFrame: Number,
-    closePercent: Number,
-    closedFrames: Number,
-    gutterballs: Number,
-    highScore: Number,
-    openFrames: Number,
-    totalFrames: Number,
-    totalGames: Number,
-    totalPins: Number,
-    totalScore: Number,
-    totalSpares: Number,
-    totalSplits: Number,
-    totalStrikes: Number
-  }
+
+  // Badges
+  f01Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f02Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f03Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f04Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f05Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f06Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f07Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f08Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f09Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f10Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f11Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  f12Badge: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+
+  // Stats
+  average: {
+    type: DataTypes.FLOAT,
+  },
+  averageFrame: {
+    type: DataTypes.FLOAT,
+  },
+  closePercent: {
+    type: DataTypes.FLOAT,
+  },
+  closedFrames: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  gutterballs: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  highScore: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  openFrames: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  totalFrames: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  totalGames: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  totalPins: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  totalScore: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  totalSpares: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  totalSplits: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  totalStrikes: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
 });
 
-module.exports = mongoose.model('User', UserSchema);
+User.sync({ alter: true });
+
+module.exports = User;

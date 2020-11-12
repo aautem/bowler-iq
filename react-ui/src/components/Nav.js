@@ -19,7 +19,7 @@ const Nav = (props) => {
           </li>
           <li className="nav-item">
             <a onClick={() => {
-              props.newGame(props.user._id);
+              props.newGame(props.user.id);
               props.changePage('bowl');
             }}>Bowl Now</a>
           </li>
@@ -31,7 +31,7 @@ const Nav = (props) => {
         <ul id="nav-mobile" className="side-nav">
           <li><a onClick={() => {props.changePage('home')}}>Statistics</a></li>
           <li><a onClick={() => {
-            props.newGame(props.user._id);
+            props.newGame(props.user.id);
             props.changePage('bowl');
           }}>Bowl Now</a></li>
           <li><a onClick={() => {alert('Logging out has been disabled in the demo app.')}}>Log Out</a></li>

@@ -1,85 +1,58 @@
 const User = require('./userModel');
 
 module.exports = {
-  addUser: function(req, res) {
-    // check if user already exists
-    User.findOne({name: req.body.name}, function(err, user) {
-      if (err) {
-        console.log(err);
-      } else {
-        if (!user) {
-          console.log('Creating New User.');
-          var newUser = new User();
-          newUser.name = req.body.name;
-          newUser.badges = {
-            f01: false,
-            f02: false,
-            f03: false,
-            f04: false,
-            f05: false,
-            f06: false,
-            f07: false,
-            f08: false,
-            f09: false,
-            f10: false,
-            f11: false,
-            f12: false
-          };
-          newUser.stats = {
-            average: 0,
-            averageFrame: 0,
-            closePercent: 0,
-            closedFrames: 0,
-            gutterballs: 0,
-            highScore: 0,
-            openFrames: 0,
-            totalFrames: 0,
-            totalGames: 0,
-            totalPins: 0,
-            totalScore: 0,
-            totalSpares: 0,
-            totalSplits: 0,
-            totalStrikes: 0
-          };
-          newUser.save(function(err) {
-            if (err) {
-              console.log(err);
-            } else {
-              console.log('User Created.');
-              res.end(JSON.stringify(newUser));
-            }
-          });
-        } else {
-          console.log('User Already Exists.');
-          res.end('User Already Exists.');
-        }
-      }
+  addUser: async (req, res) => {
+    const [user, created] = await User.findOrCreate({
+      where: { name: req.body.name },
+      defaults: { name: req.body.name },
     });
+
+    if (created) {
+      console.log('User created.');
+      res.end(JSON.stringify(user));
+    } else {
+      const error = 'User already exists.';
+      console.error(error);
+      res.end(error);
+    }
   },
-  getUser: function(req, res) {
-    User.findOne({_id: req.params.id}, function(err, user) {
-      if (err) {
-        console.log(err);
-      } else if (!user) {
-        console.log('User Does Not Exist.');
-        res.end('User Does Not Exist.');
-      } else {
-        console.log('User Found.');
-        res.end(JSON.stringify(user));
-      }
-    });
+  getUser: async (req, res) => {
+    const user = await User.findOne({ where: { id: req.params.id }});
+
+    if (user) {
+      console.log('User found.');
+      res.end(JSON.stringify(user));
+    } else {
+      const error = 'User does not exist.';
+      console.error(error);
+      res.end(error);
+    }
   },
-  updateUser: function(req, res) {
-    User.findOneAndUpdate({_id: req.params.id}, req.body.user, function(err, user) {
-      if (err) {
-        console.log(err);
-      } else if (!user) {
-        console.log('User Does Not Exist.');
-        res.end('User Does Not Exist.');
+  updateUser: async (req, res) => {
+    const user = await User.findOne({ where: { id: req.params.id }});
+    console.log({ user });
+
+    if (!user) {
+      const error = 'User does not exist.';
+      console.error(error);
+      res.end(error);
+    } else {
+      const updatedUser = await User.update(req.body.user, {
+        where: {
+          id: user.id,
+        },
+      });
+
+      console.log({ updatedUser });
+
+      if (updatedUser) {
+        console.log('User updated.');
+        res.end(JSON.stringify(updatedUser));
       } else {
-        console.log('User Updated.');
-        res.end(JSON.stringify(user));
+        const error = 'Something went wrong.';
+        console.error(error);
+        res.end(error);
       }
-    });
+    }
   }
 };

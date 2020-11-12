@@ -1,25 +1,24 @@
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
+require('dotenv').config();
 
-// start mongo database
-require('./db.js');
+const bodyParser = require('body-parser');
+const express = require('express');
+const morgan = require('morgan');
+const path = require('path');
 
 const app = express();
 app.set('port', (process.env.PORT || 5000));
 
-// middleware
+// Middleware
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-// priority serve any static files.
+// Priority serve static files
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
-// route handling
+// Route handling for database
 require('./routes.js')(app, express);
 
-// All remaining requests return the React app, so it can handle routing.
+// All remaining requests return the React app
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
 });

@@ -31,7 +31,7 @@ class Overview extends Component {
               changePage={this.props.changePage}
             />
 
-            <Achievements badges={this.props.user.badges} />
+            <Achievements badges={this.props.user} />
 
           </div>
         </div>
@@ -39,7 +39,7 @@ class Overview extends Component {
         <div className="container">
           <div className="row">
 
-            <Statistics stats={this.props.user.stats} />
+            <Statistics stats={this.props.user} />
 
             <RecentTrends games={this.props.gameHistory} />
 

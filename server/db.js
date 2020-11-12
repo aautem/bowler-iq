@@ -1,13 +1,25 @@
-var mongoose = require('mongoose');
+const { Sequelize } = require('sequelize');
 
-var mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/bowleriq';
+const connectionUri = process.env.DATABASE_URL;
 
-mongoose.connect(mongodbUri);
-
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'Connection Error:'));
-
-db.once('open', function() {
-  console.log('BowlerIQ Database Connected.');
+const sequelize = new Sequelize(connectionUri, {
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
 });
+
+const connectToDb = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('BowlerIQ database connected.')
+  } catch (error) {
+    console.error('Unable to connect to database:', error);
+  }
+}
+
+connectToDb();
+
+module.exports = sequelize;

@@ -28,134 +28,144 @@ import icon10w from './../icons/10w.png';
 import icon11w from './../icons/11w.png';
 import icon12w from './../icons/12w.png';
 
-const Achievements = (props) => {
+const Achievements = ({ badges }) => {
+  const {
+    f01Badge,
+    f02Badge,
+    f03Badge,
+    f04Badge,
+    f05Badge,
+    f06Badge,
+    f07Badge,
+    f08Badge,
+    f09Badge,
+    f10Badge,
+    f11Badge,
+    f12Badge,
+  } = badges || {};
+
   return (
     <div className="col s12 m6">
       <div className="grey darken-1 z-depth-5 stat-block" style={{ minHeight: 42 }}>
-
         <div className="row">
           <div className="col s12">
             <h4>Achievements</h4>
           </div>
         </div>
 
-        {props.badges &&
         <div className="row">
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f01 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f01Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f01 ? icon01f : icon01w}
-              onClick={() => {if (props.badges.f01) {alert('Achievement Unlocked!')}}}
+              src={f01Badge ? icon01f : icon01w}
+              onClick={() => {if (f01Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f02 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f02Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f02 ? icon02f : icon02w}
-              onClick={() => {if (props.badges.f02) {alert('Achievement Unlocked!')}}}
+              src={f02Badge ? icon02f : icon02w}
+              onClick={() => {if (f02Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f03 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f03Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f03 ? icon03f : icon03w}
-              onClick={() => {if (props.badges.f03) {alert('Achievement Unlocked!')}}}
+              src={f03Badge ? icon03f : icon03w}
+              onClick={() => {if (f03Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f04 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f04Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f04 ? icon04f : icon04w}
-              onClick={() => {if (props.badges.f04) {alert('Achievement Unlocked!')}}}
+              src={f04Badge ? icon04f : icon04w}
+              onClick={() => {if (f04Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
-        </div>}
+        </div>
 
-        {props.badges &&
         <div className="row">
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f05 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f05Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f05 ? icon05f : icon05w}
-              onClick={() => {if (props.badges.f05) {alert('Achievement Unlocked!')}}}
+              src={f05Badge ? icon05f : icon05w}
+              onClick={() => {if (f05Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f06 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f06Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f06 ? icon06f : icon06w}
-              onClick={() => {if (props.badges.f06) {alert('Achievement Unlocked!')}}}
+              src={f06Badge ? icon06f : icon06w}
+              onClick={() => {if (f06Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f07 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f07Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f07 ? icon07f : icon07w}
-              onClick={() => {if (props.badges.f07) {alert('Achievement Unlocked!')}}}
+              src={f07Badge ? icon07f : icon07w}
+              onClick={() => {if (f07Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f08 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f08Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f08 ? icon08f : icon08w}
-              onClick={() => {if (props.badges.f08) {alert('Achievement Unlocked!')}}}
+              src={f08Badge ? icon08f : icon08w}
+              onClick={() => {if (f08Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
-        </div>}
+        </div>
 
-        {props.badges &&
         <div className="row">
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f09 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f09Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f09 ? icon09f : icon09w}
-              onClick={() => {if (props.badges.f09) {alert('Achievement Unlocked!')}}}
+              src={f09Badge ? icon09f : icon09w}
+              onClick={() => {if (f09Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f10 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f10Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f10 ? icon10f : icon10w}
-              onClick={() => {if (props.badges.f10) {alert('Achievement Unlocked!')}}}
+              src={f10Badge ? icon10f : icon10w}
+              onClick={() => {if (f10Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f11 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f11Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f11 ? icon11f : icon11w}
-              onClick={() => {if (props.badges.f11) {alert('Achievement Unlocked!')}}}
+              src={f11Badge ? icon11f : icon11w}
+              onClick={() => {if (f11Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
 
           <div className="col s6 m3 center-align">
             <img
-              className={'responsive-img ' + (props.badges.f12 ? 'achievement' : 'achievement-placeholder')}
+              className={'responsive-img ' + (f12Badge ? 'achievement' : 'achievement-placeholder')}
               alt="bowl"
-              src={props.badges.f12 ? icon12f : icon12w}
-              onClick={() => {if (props.badges.f12) {alert('Achievement Unlocked!')}}}
+              src={f12Badge ? icon12f : icon12w}
+              onClick={() => {if (f12Badge) {alert('Achievement Unlocked!')}}}
             />
           </div>
-        </div>}
-
+        </div>
       </div>
     </div>
   );

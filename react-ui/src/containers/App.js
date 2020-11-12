@@ -20,16 +20,13 @@ import './../styles/index.css';
 
 class App extends Component {
   componentWillMount() {
-    // Heroku deployment
-    this.props.getUser('593e053407767c001168ca55');
-    this.props.loadGames('593e053407767c001168ca55');
-
-    // Local development
-    // this.props.getUser('593e1e934b733b02bbca3198');
-    // this.props.loadGames('593e1e934b733b02bbca3198');
+    this.props.getUser(1);
+    // this.props.loadGames('593e053407767c001168ca55');
   }
 
   render() {
+    console.log({ AppProps: this.props });
+
     return (
       <div
         className="grey lighten-2"

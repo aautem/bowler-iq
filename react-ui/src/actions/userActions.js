@@ -5,7 +5,7 @@ export function getUser(userId) {
     axios.get('/api/users/' + userId)
       .then(function(response) {
         if (!response.data) {
-          console.log('User Does Not Exist.');
+          console.error('User does not exist.');
         } else {
           dispatch({
             type: 'GET_USER',
@@ -13,9 +13,7 @@ export function getUser(userId) {
           });
         }
       })
-      .catch(function(error) {
-        console.log(error);
-      });
+      .catch(console.error);
   }
 }
 
