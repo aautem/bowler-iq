@@ -25,8 +25,6 @@ class App extends Component {
   }
 
   render() {
-    console.log({ AppProps: this.props });
-
     return (
       <div
         className="grey lighten-2"

@@ -30,7 +30,6 @@ module.exports = {
   },
   updateUser: async (req, res) => {
     const user = await User.findOne({ where: { id: req.params.id }});
-    console.log({ user });
 
     if (!user) {
       const error = 'User does not exist.';
@@ -42,8 +41,6 @@ module.exports = {
           id: user.id,
         },
       });
-
-      console.log({ updatedUser });
 
       if (updatedUser) {
         console.log('User updated.');

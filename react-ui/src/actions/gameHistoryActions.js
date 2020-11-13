@@ -8,8 +8,6 @@ export function loadGames(userId) {
       .then(function(response) {
         const gameHistory = response.data;
 
-        console.log({ gameHistory });
-
         // Sort by date
         gameHistory.sort(function(a, b) {
           var aYear = parseInt(a.date.slice(0, 4), 10);
