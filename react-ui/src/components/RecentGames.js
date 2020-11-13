@@ -2,11 +2,10 @@ import React from 'react';
 
 import RecentScore from './RecentScore';
 
-const RecentGames = (props) => {
+const RecentGames = ({ games, loadGame, changePage }) => {
   return (
     <div className="col s12 m6">
       <div className="grey darken-1 z-depth-5 stat-block recent-games">
-
         <div className="row">
           <div className="col s12">
             <h4>Recent Games</h4>
@@ -14,36 +13,36 @@ const RecentGames = (props) => {
         </div>
 
         <div className="row">
-          {props.games.slice(0, 3).map((game) => {
+          {games.slice(0, 3).map((game) => {
             return (
               <RecentScore
-                key={game._id}
+                key={game.id}
                 game={game}
-                loadGame={props.loadGame}
+                loadGame={loadGame}
               />
             );
           })}
         </div>
 
         <div className="row">
-          {props.games.slice(3, 6).map((game) => {
+          {games.slice(3, 6).map((game) => {
             return (
               <RecentScore
-                key={game._id}
+                key={game.id}
                 game={game}
-                loadGame={props.loadGame}
+                loadGame={loadGame}
               />
             );
           })}
         </div>
 
-        {props.games.length > 6 &&
-        <div className="row">
-          <div className="col s12">
-            <a onClick={() => {props.changePage('history')}}>More Games...</a>
+        {games.length > 6 && (
+          <div className="row">
+            <div className="col s12">
+              <a onClick={() => {changePage('history')}}>More Games...</a>
+            </div>
           </div>
-        </div>}
-
+        )}
       </div>
     </div>
   );

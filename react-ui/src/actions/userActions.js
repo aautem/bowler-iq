@@ -18,40 +18,32 @@ export function getUser(userId) {
 }
 
 export function updateUserStats(user, newGame) {
-  var stats = Object.assign({}, user.stats);
+  const updatedUser = Object.assign({}, user);
 
-  // go through each stat and update
-  stats.totalGames ++;
-  stats.totalFrames += 10;
-  stats.totalScore += newGame.score;
-  stats.totalPins += newGame.totalPins;
-  stats.totalStrikes += newGame.strikes;
-  stats.totalSpares += newGame.spares;
-  stats.totalSplits += newGame.splits;
-  stats.gutterballs += newGame.gutterballs;
-  stats.openFrames += newGame.openFrames;
-  stats.closedFrames += newGame.closedFrames;
-  stats.average = (stats.totalScore / stats.totalGames).toFixed(1);
-  stats.averageFrame = stats.totalScore / stats.totalFrames;
-  stats.closePercent = stats.closedFrames / stats.totalFrames;
+  updatedUser.totalGames ++;
+  updatedUser.totalFrames += 10;
+  updatedUser.totalScore += newGame.score;
+  updatedUser.totalPins += newGame.totalPins;
+  updatedUser.totalStrikes += newGame.strikes;
+  updatedUser.totalSpares += newGame.spares;
+  updatedUser.totalSplits += newGame.splits;
+  updatedUser.gutterballs += newGame.gutterballs;
+  updatedUser.openFrames += newGame.openFrames;
+  updatedUser.closedFrames += newGame.closedFrames;
+  updatedUser.average = (updatedUser.totalScore / updatedUser.totalGames).toFixed(1);
+  updatedUser.averageFrame = updatedUser.totalScore / updatedUser.totalFrames;
+  updatedUser.closePercent = updatedUser.closedFrames / updatedUser.totalFrames;
 
-  if (newGame.score > stats.highScore) {
-    stats.highScore = newGame.score;
+  if (newGame.score > updatedUser.highScore) {
+    updatedUser.highScore = newGame.score;
   }
 
-  // save updated user stats to database
-  axios.put('/api/users/' + user._id, {
-    user: {
-      stats: stats
-    }
-  })
-    .catch(function(error) {
-      console.log(error);
-    });
+  axios
+    .put('/api/users/' + user.id, { user: updatedUser })
+    .catch(console.error);
 
-  // send to reducer
   return {
-    type: 'UPDATE_USER_STATS',
-    payload: stats
+    type: 'GET_USER',
+    payload: updatedUser,
   };
 };

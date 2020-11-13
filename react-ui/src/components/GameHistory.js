@@ -1,15 +1,15 @@
 import React from 'react';
 
-const GameHistory = (props) => {
+const GameHistory = ({ gameHistory, loadGame }) => {
   return (
     <div className="section grey lighten-2">
       <div className="container center-align">
-        {props.gameHistory.map((game) => {
+        {gameHistory.map((game) => {
           return (
-            <div className="row" key={game._id}>
+            <div className="row" key={game.id}>
               <a
                 className="waves-effect waves-light btn blue darken-4"
-                onClick={() => {props.loadGame(game)}}
+                onClick={() => {loadGame(game)}}
               >
                 {game.date + '  //  ' + game.score}
               </a>

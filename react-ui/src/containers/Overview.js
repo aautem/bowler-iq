@@ -21,10 +21,8 @@ class Overview extends Component {
   render() {
     return (
       <div className="section grey lighten-2">
-
         <div className="container">
           <div className="row">
-
             <RecentGames
               games={this.props.gameHistory}
               loadGame={this.props.loadGame}
@@ -32,20 +30,15 @@ class Overview extends Component {
             />
 
             <Achievements badges={this.props.user} />
-
           </div>
         </div>
 
         <div className="container">
           <div className="row">
-
             <Statistics stats={this.props.user} />
-
             <RecentTrends games={this.props.gameHistory} />
-
           </div>
         </div>
-
       </div>
     );
   }

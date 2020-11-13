@@ -43,32 +43,21 @@ class BowlGame extends Component {
     }
   }
 
-  addAverageFrame(game) {
-    game.averageFrame = game.score / 10;
-  }
-
-  addClosePercent(game) {
-    game.closePercent = (game.closedFrames / 10).toFixed(3);
-  }
-
   submitGame() {
-    var game = Object.assign({}, this.props.game);
-    this.addAverageFrame(game);
-    this.addClosePercent(game);
+    const game = Object.assign({}, this.props.game);
+
+    game.averageFrame = game.score / 10;
+    game.closePercent = (game.closedFrames / 10).toFixed(3);
+
     this.props.saveGame(game);
     this.props.updateUserStats(this.props.user, game);
   }
 
   calculateAverageFrame() {
-    // loop through frames adding up frame scores
-    // divide total score by number of frames calculated
     let frames = 0;
     let totalScore = 0;
 
     this.props.game.frames.forEach((frame) => {
-      // if frame has frame score
-        // add frame
-        // add framescore to total
       if (frame.frameScore) {
         frames ++;
         totalScore += frame.frameScore;
@@ -81,10 +70,8 @@ class BowlGame extends Component {
   render() {
     return (
       <div className="section grey lighten-2">
-
         <div className="container grey darken-1 z-depth-5">
           <div className="row">
-
             <div className="col s12 m6 date">
               <input
                 id="game-date"
@@ -93,7 +80,6 @@ class BowlGame extends Component {
               >
               </input>
             </div>
-
             <div className="col s12 m6">
               <a
                 className="waves-effect waves-light btn blue darken-4 submit"
@@ -120,7 +106,6 @@ class BowlGame extends Component {
 
         <div className="container">
           <div className="row">
-
             <div className="col s12 m5">
               <GameStats
                 score={this.props.game.score}
@@ -134,10 +119,8 @@ class BowlGame extends Component {
             <div className="col s12 m7">
               <NewGameGraph scorecard={this.props.game.frames} />
             </div>
-
           </div>
         </div>
-
       </div>
     );
   }

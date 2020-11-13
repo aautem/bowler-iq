@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
 
   const user = {
-    _id: '12345',
+    id: '12345',
     name: 'Alex Autem'
   };
 

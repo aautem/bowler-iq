@@ -33,10 +33,10 @@ export default function reducer(state = {}, action) {
       score: getCurrentScore(action.payload.frames)
     };
   }
-  // action.payload = date
+
   if (action.type === 'ADD_DATE') {
     return {...state, date: action.payload}
   }
-  // if no match above
+
   return state;
 };

@@ -50,12 +50,12 @@ https://www.figma.com/file/0EldredE2QfEJcJGeKoNzXp8/Alley-Life-Architecture
 
 ## App Props
 ### user (object) - Currently logged in user
-properties: name (string), _id (string), badges (object), stats (object)
+properties: name (string), id (string), badges (object), stats (object)
 #### user.stats (object)
 properties: average, averageFrame, closePercent, closedFrames, gutterballs, highScore, openFrames, totalFrames, totalGames, totalPins, totalScore, totalSpares, totalSplits, totalStrikes
 
 ### game - Currently loaded game
-properties: averageFrame, closePercent, closedFrames, date (string), frames (array of frame objects), gutterballs, openFrames, score, spares, splits, strikes, totalPins, userId (string pointing to user), _id (string)
+properties: averageFrame, closePercent, closedFrames, date (string), frames (array of frame objects), gutterballs, openFrames, score, spares, splits, strikes, totalPins, userId (string pointing to user), id (string)
 #### game.frames[{frame# - 1}] (object)
 properties: ball1 (object - disabled (boolean controlling ball input), score), ball2 (object - disabled (boolean), score), frame, frameScore (score for current frame), totalScore (cumulative score through this frame)
 

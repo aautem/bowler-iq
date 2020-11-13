@@ -1,16 +1,16 @@
 import React from 'react';
 
-const RecentScore = (props) => {
+const RecentScore = ({ game, loadGame }) => {
   return (
     <div className="col s12 m4">
       <div
         className="blue darken-4 z-depth-2 recent-score"
         onClick={() => {
-          props.loadGame(props.game);
+          loadGame(game);
         }}
       >
-        <div><h6>{props.game.date}</h6></div>
-        <div><span>{props.game.score}</span></div>
+        <div><h6>{game.date}</h6></div>
+        <div><span>{game.score}</span></div>
       </div>
     </div>
   );

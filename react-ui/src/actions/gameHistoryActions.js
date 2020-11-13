@@ -6,10 +6,11 @@ export function loadGames(userId) {
   return function(dispatch) {
     axios.get('/api/users/' + userId + '/games')
       .then(function(response) {
-        // sort game history by date
-        var gameHistory = response.data;
+        const gameHistory = response.data;
 
-        // return b.date - a.date
+        console.log({ gameHistory });
+
+        // Sort by date
         gameHistory.sort(function(a, b) {
           var aYear = parseInt(a.date.slice(0, 4), 10);
           var bYear = parseInt(b.date.slice(0, 4), 10);
@@ -34,11 +35,9 @@ export function loadGames(userId) {
           payload: gameHistory
         });
       })
-      .then(function() {
+      .catch(console.error)
+      .finally(() => {
         dispatch(changePage('home'));
-      })
-      .catch(function(error) {
-        console.log(error);
       });
   };
 };

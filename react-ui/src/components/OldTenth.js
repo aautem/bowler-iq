@@ -3,7 +3,7 @@ import React from 'react';
 const OldTenth = (props) => {
   let ball1 = props.frame.ball1.score;
   let ball2 = props.frame.ball2.score;
-  let ball3 = props.frame.ball3.score;
+  let ball3 = props.frame.frameScore - ball2 - ball1;
 
   // convert spares and strikes
   // STRIKES

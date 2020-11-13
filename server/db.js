@@ -1,7 +1,6 @@
 const { Sequelize } = require('sequelize');
 
 const connectionUri = process.env.DATABASE_URL;
-
 const sequelize = new Sequelize(connectionUri, {
   dialect: 'postgres',
   dialectOptions: {
@@ -11,15 +10,15 @@ const sequelize = new Sequelize(connectionUri, {
   },
 });
 
-const connectToDb = async () => {
+const initializeDb = async () => {
   try {
     await sequelize.authenticate();
-    console.log('BowlerIQ database connected.')
+    console.log('BowlerIQ database connected.');
   } catch (error) {
     console.error('Unable to connect to database:', error);
   }
-}
+};
 
-connectToDb();
+initializeDb();
 
 module.exports = sequelize;

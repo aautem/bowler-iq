@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 // Priority serve static files
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
-// Route handling for database
+// Add database routes
 require('./routes.js')(app, express);
 
 // All remaining requests return the React app

@@ -1,25 +1,25 @@
 import axios from 'axios';
 
-import {changePage} from './pageActions';
-import {updateGameHistory} from './gameHistoryActions';
-
-import {scoreGame} from './../utilities/actionHelpers';
 import {appendOptions} from './../utilities/actionHelpers';
+import {changePage} from './pageActions';
+import {scoreGame} from './../utilities/actionHelpers';
+import {updateGameHistory} from './gameHistoryActions';
 
 export function newGame(userId) {
   let gameTemplate = {
     userId: userId,
     date: null, // date the game was played
     score: 0, // final score for game
-    strikes: 0, // number of strikes in game
     spares: 0, // number of spares in game
     splits: 0, // number of splits in game
+    strikes: 0, // number of strikes in game
     gutterballs: 0, // 0 pins on first frame (and second if gutter on first)
     averageFrame: 0,
     openFrames: 0,
     closedFrames: 0,
     closePercent: 0,
     totalPins: 0,
+
     frames: [ // array of frame objects (frameNumber = index + 1)
       {
         frame: 1, // frameNumber
@@ -166,6 +166,7 @@ export function newGame(userId) {
 export function saveGame(game) {
   return function(dispatch) {
     dispatch(changePage('loading'));
+
     axios.post('/api/games', {
       userId: game.userId,
       averageFrame: game.averageFrame,
@@ -182,24 +183,26 @@ export function saveGame(game) {
       totalPins: game.totalPins
     })
     .then(function(response) {
-      console.log('Game Saved:', response.data);
       dispatch(updateGameHistory(response.data));
       dispatch(loadGame(response.data));
     })
-    .catch(function(error) {
-      console.log(error);
-    });
+    .catch(console.error);
   }
 };
 
-// LOAD GAME OBJECT FROM GAME HISTORY ARRAY
 export function loadGame(game) {
   return function(dispatch) {
-    dispatch({
-      type: 'LOAD_GAME',
-      payload: game
-    });
-    dispatch(changePage('game'));
+    axios
+      .get('/api/games/' + game.id)
+      .then(response => {
+        dispatch({
+          type: 'LOAD_GAME',
+          payload: response.data,
+        });
+
+        dispatch(changePage('game'));
+      })
+      .catch(console.error);
   };
 };
 
@@ -369,8 +372,8 @@ export function bowlTenthFrame(game, ballNumber, score) {
 };
 
 export function addDate(date) {
-  // disable date input
   document.getElementById('game-date').disabled = true;
+
   return {
     type: 'ADD_DATE',
     payload: date

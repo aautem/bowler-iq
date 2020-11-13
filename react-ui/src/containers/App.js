@@ -21,7 +21,7 @@ import './../styles/index.css';
 class App extends Component {
   componentWillMount() {
     this.props.getUser(1);
-    // this.props.loadGames('593e053407767c001168ca55');
+    this.props.loadGames(1);
   }
 
   render() {

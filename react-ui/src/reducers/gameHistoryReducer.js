@@ -1,15 +1,12 @@
 export default function reducer(state = [], action) {
-  // action.payload = array of game objects
   if (action.type === 'LOAD_GAMES') {
     return action.payload;
   }
-  // action.payload = new game object to add to array
+
   if (action.type === 'UPDATE_GAME_HISTORY') {
-    // ADD NEW GAME TO ARRAY AND SORT BY DATE
     var gameHistory = state.slice();
     gameHistory.push(action.payload);
 
-    // return b.date - a.date
     gameHistory.sort(function(a, b) {
       var aYear = parseInt(a.date.slice(0, 4), 10);
       var bYear = parseInt(b.date.slice(0, 4), 10);
@@ -31,6 +28,6 @@ export default function reducer(state = [], action) {
 
     return gameHistory;
   }
-  // if no match above
+
   return state;
 };

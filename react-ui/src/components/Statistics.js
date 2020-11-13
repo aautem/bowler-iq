@@ -17,7 +17,7 @@ const Statistics = ({ stats }) => {
         <span>{totalGames}</span>
         <br/>
         <h6>Average Score</h6>
-        <span>{average || 'N/A'}</span>
+        <span>{average || 0}</span>
         <br/>
         <h6>High Score</h6>
         <span>{highScore}</span>
