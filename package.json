@@ -8,25 +8,24 @@
   },
   "scripts": {
     "start": "node server",
-    "heroku-postbuild": "cd react-ui/ && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm run build"
   },
   "cacheDirectories": [
     "node_modules",
-    "react-ui/node_modules"
+    "client/node_modules"
   ],
   "dependencies": {
-    "body-parser": "^1.4.3",
-    "dotenv": "^8.2.0",
-    "express": "^4.14.1",
-    "morgan": "^1.1.1",
-    "pg": "^8.5.0",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.5"
+    "body-parser": "1.4.3",
+    "dotenv": "8.2.0",
+    "express": "4.14.1",
+    "morgan": "1.1.1",
+    "pg": "8.5.0",
+    "pg-hstore": "2.3.3",
+    "sequelize": "6.3.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aautem/bowler-iq.git"
   },
-  "license": "MIT",
-  "devDependencies": {}
+  "license": "MIT"
 }
