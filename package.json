@@ -27,5 +27,8 @@
     "type": "git",
     "url": "git+https://github.com/aautem/bowler-iq.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.11"
+  }
 }
