@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Nav = (props) => {
   return (
@@ -7,34 +7,76 @@ const Nav = (props) => {
         <a
           id="logo-container"
           className="brand-logo"
-          onClick={() => {props.changePage('home')}}
+          onClick={() => {
+            props.changePage("home");
+          }}
         >
-          Bowler<span>IQ</span>
+          Bowler <span>IQ</span>
         </a>
 
         <ul className="right hide-on-med-and-down">
-          <li><h2 id="bowler-name">{props.user.name}</h2></li>
+          <li>
+            <h2 id="bowler-name">{props.user.name}</h2>
+          </li>
           <li className="nav-item active">
-            <a onClick={() => {props.changePage('home')}}>Statistics</a>
+            <a
+              onClick={() => {
+                props.changePage("home");
+              }}
+            >
+              Statistics
+            </a>
           </li>
           <li className="nav-item">
-            <a onClick={() => {
-              props.newGame(props.user.id);
-              props.changePage('bowl');
-            }}>Bowl Now</a>
+            <a
+              onClick={() => {
+                props.newGame(props.user.id);
+                props.changePage("bowl");
+              }}
+            >
+              Bowl Now
+            </a>
           </li>
           <li>
-            <a onClick={() => {alert('Logging out has been disabled in the demo app.')}}>Log Out</a>
+            <a
+              onClick={() => {
+                alert("Logging out has been disabled in the demo app.");
+              }}
+            >
+              Log Out
+            </a>
           </li>
         </ul>
 
         <ul id="nav-mobile" className="side-nav">
-          <li><a onClick={() => {props.changePage('home')}}>Statistics</a></li>
-          <li><a onClick={() => {
-            props.newGame(props.user.id);
-            props.changePage('bowl');
-          }}>Bowl Now</a></li>
-          <li><a onClick={() => {alert('Logging out has been disabled in the demo app.')}}>Log Out</a></li>
+          <li>
+            <a
+              onClick={() => {
+                props.changePage("home");
+              }}
+            >
+              Statistics
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => {
+                props.newGame(props.user.id);
+                props.changePage("bowl");
+              }}
+            >
+              Bowl Now
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => {
+                alert("Logging out has been disabled in the demo app.");
+              }}
+            >
+              Log Out
+            </a>
+          </li>
         </ul>
 
         <a data-activates="nav-mobile" className="button-collapse">

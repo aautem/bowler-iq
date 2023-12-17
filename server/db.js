@@ -13,7 +13,7 @@ const sequelize = new Sequelize(connectionUri, {
 const initializeDb = async () => {
   try {
     await sequelize.authenticate();
-    console.log("BowlerIQ database connected.");
+    console.log("Bowler IQ database connected.");
   } catch (error) {
     console.error("Unable to connect to database:", error);
   }
